@@ -1,3 +1,13 @@
+/*  main.cpp
+ 
+    *** IMPORTANT ***   This code was imported from a Mac environment, and most likely will not compile correctly on
+    Windows due to differences in the headers and directory paths. The file will be updated to work with Netbeans once
+    we get Netbeans to play nice with SDL.
+ 
+    main.cpp serves as the entry point for the application. Currently, the main function initializes the necessary SDL
+    subsystems, sets up a screen surface, and creates a LevelGrid object, which is then told to draw itself on screen.
+ */
+
 #include <iostream>
 #include <string>
 #include "SDL/SDL.h"
