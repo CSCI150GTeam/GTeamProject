@@ -1,53 +1,86 @@
 /*  main.cpp
  
-    *** IMPORTANT ***   This code was imported from a Mac environment, and most likely will not compile correctly on
-    Windows due to differences in the headers and directory paths. The file will be updated to work with Netbeans once
-    we get Netbeans to play nice with SDL.
+    *** IMPORTANT ***   This code was imported from a Mac environment, and most likely will not compile correctly on Windows due to differences in the headers and directory paths. The file will be updated to work with Netbeans once we get Netbeans to play nice with SDL.
  
-    main.cpp serves as the entry point for the application. Currently, the main function initializes the necessary SDL
-    subsystems, sets up a screen surface, and creates a LevelGrid object, which is then told to draw itself on screen.
+    main.cpp serves as the entry point for the application. Currently, the main function initializes the necessary SDL subsystems, sets up a screen surface, and creates a LevelGrid object, which is then told to draw itself on screen.
+ 
  */
-
+#include <cstdlib>
 #include <iostream>
 #include <string>
-#include "SDL/SDL.h"
+#include <SDL/SDL.h>
 #include "LevelGrid.h"
+#include "GameManager.h"
 
 using namespace std;
 
-const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGHT = 480;
+const int SCREEN_WIDTH = 320; //1280;
+const int SCREEN_HEIGHT = 320; //640;
 const int SCREEN_BPP = 32;
 
+SDL_Surface* screen;
 
-SDL_Surface* loadImage(string);
-void applySurface(int,int,SDL_Surface*,SDL_Surface*);
-
+bool initializeApp();
+bool cleanUp();
 
 int main(int argc, char * args[])
 {
-    //Initialize SDL
-    if( SDL_Init(SDL_INIT_EVERYTHING) == -1)
+    //Initialize app
+    if( initializeApp() == false )
         return 1;
-    //Set up the screen
-    SDL_Surface* screen = NULL;
-    screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_BPP, SDL_SWSURFACE);
-    if( screen == NULL )
-        return 1;
-    //Add a caption for the window
-    SDL_WM_SetCaption("Hello world", NULL);
     
+    //Create GameManager object that will handle which state the game is in (menu, in-game, editor)
+    GameManager* gm = new GameManager();
+    
+//----- Test code ----- //
+    
+    //In the future the LevelGrid objects will be created when the game loop is initialized, as well as the other related function calls
     LevelGrid* lg = new LevelGrid(SCREEN_WIDTH/32,SCREEN_HEIGHT/32);
-    lg->printGrid();
+    lg->loadGrid();
+    //lg->printGrid();
     lg->drawGrid(screen);
     
     if( SDL_Flip(screen) == -1)
         return 1;
     SDL_Delay(20000);
     
+//----- End test code ----- //
+    
+    if( cleanUp() == true )
+        return 0;
+    else
+        return 1;
+}
+
+bool initializeApp()
+{
+    //Initialize SDL Subsystems
+    cout<<"Initializing SDL subsystems..."<<endl;
+    if( SDL_Init(SDL_INIT_EVERYTHING) )
+        return false;
+    cout<<"SDL subsystems initialized OK"<<endl;
+    
+    //Set up screen surface
+    cout<<"Setting up screen..."<<endl;
+    screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_BPP, SDL_SWSURFACE);
+    if( screen == NULL )
+        return false;
+    cout<<"Screen setup complete"<<endl;
+    cout<<"Screen width = "<<SCREEN_WIDTH<<endl;
+    cout<<"Screen height = "<<SCREEN_HEIGHT<<endl;
+
+    //Set window caption - this function isn't working right now for some reason
+    SDL_WM_SetCaption("Hello World", NULL);
+    
+    cout<<"Initialization complete, entering menu system..."<<endl;
+
+    
+    return true;
+}
+
+bool cleanUp()
+{
     SDL_FreeSurface(screen);
-    
     SDL_Quit();
-    
-    return 0;
+    return true;
 }

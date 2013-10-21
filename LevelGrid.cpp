@@ -7,22 +7,14 @@ LevelGrid::LevelGrid(int width, int length)
     this->width = width;
     this->height = length;
     this->grid = new int*[this->width];
-    cout<<"Width = "<<this->width<<endl;
-    cout<<"Length = "<<this->height<<endl;
     
     //fill grid with int arrays
     for(int i = 0; i < this->width; i++)
+    {
         grid[i] = new int[this->height];
-    
-    //assign 0s to all slots in the grid
-    for(int i = 0; i < this->width; i++)
         for(int j = 0; j < this->height; j++)
-        {
-            if(i%2 == 0)
-                grid[i][j] = 2;
-            else
-                grid[i][j] = 1;
-        }
+            grid[i][j] = 0;
+    }
 }
 
 LevelGrid::~LevelGrid()
@@ -30,34 +22,91 @@ LevelGrid::~LevelGrid()
     
 }
 
+void LevelGrid::loadGrid()
+{
+    ifstream infile;
+    infile.open("level.txt");
+    if( infile.fail() )
+        cout<<"File read failed";
+    else
+        for( int j = 0; j < width; j++)
+        {
+            for( int i = 0; i < height; i++ )
+            {
+                if( !(infile >> grid[i][j]) )
+                    break;
+            }
+            if( !infile )
+                break;
+        }
+    infile >> this->height;
+    infile >> this->width;
+    cout<<this->height<<"\t"<<this->width;
+    infile.close();
+}
+
 void LevelGrid::printGrid()
 {
-    for( int i = 0; i < this->width; i++)
+    for( int y = 0; y < height; y++)
     {
-        for( int j = 0; j < this->height; j++)
-            cout<<this->grid[i][j]<<"\t";
+        for( int x = 0; x < width; x++ )
+        {
+            cout<<grid[x][y]<<"\t";
+        }
         cout<<endl;
     }
+}
+
+void LevelGrid::saveGrid()
+{
+    
 }
 
 void LevelGrid::drawGrid(SDL_Surface* screen)
 {
     //Load images
-    SDL_Surface* grass = loadImage(GRASS_IMG);
-    SDL_Surface* stone = loadImage(STONE_IMG);
+    SDL_Surface* grass = loadImage("grass.bmp");          //1
+    SDL_Surface* ice = loadImage("ice.bmp");              //2
+    SDL_Surface* lava = loadImage("lava.bmp");            //3
+    SDL_Surface* stone = loadImage("stone.bmp");          //4
+    SDL_Surface* water = loadImage("water.bmp");          //5
+    SDL_Surface* waterDrops = loadImage("waterDrops.bmp");       //6
+    
+    if(grass == NULL || stone == NULL)
+        cout<<"Error: Tile images didn't load"<<endl;
     
     for(int i = 0; i < this->width; i++)
         for(int j = 0; j < this->height; j++)
         {
-            if( grid[i][j] == 1 )
-                applySurface( (i*32), (j*32), grass, screen);
-            else if( grid[i][j] == 2 )
-                applySurface( (i*32), (j*32), stone, screen);
+            switch( grid[i][j] )
+            {
+                case 1:
+                    applySurface(i*32, j*32, grass, screen);
+                    break;
+                case 2:
+                    applySurface(i*32, j*32, ice, screen);
+                    break;
+                case 3:
+                    applySurface(i*32, j*32, lava, screen);
+                    break;
+                case 4:
+                    applySurface(i*32, j*32, stone, screen);
+                    break;
+                case 5:
+                    applySurface(i*32, j*32, water, screen);
+                    break;
+                case 6:
+                    applySurface(i*32, j*32, waterDrops, screen);
+                    break;
+            }
         }
-    
+    //Clean up memory
     SDL_FreeSurface(grass);
+    SDL_FreeSurface(ice);
+    SDL_FreeSurface(lava);
     SDL_FreeSurface(stone);
-    //Loop through the grid and display the textures
+    SDL_FreeSurface(water);
+    SDL_FreeSurface(waterDrops);
 }
 
 SDL_Surface* LevelGrid::loadImage(string filename)
