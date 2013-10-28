@@ -5,16 +5,13 @@
                    displayName="Header Files"
                    projectFiles="true">
     </logicalFolder>
-    <logicalFolder name="ResourceFiles"
-                   displayName="Resource Files"
-                   projectFiles="true">
-      <itemPath>../../Transfer Folder/GTeamProject_Transfer/Resources/grass.bmp</itemPath>
-      <itemPath>../../Transfer Folder/GTeamProject_Transfer/Resources/ice.bmp</itemPath>
-      <itemPath>../../Transfer Folder/GTeamProject_Transfer/Resources/lava.bmp</itemPath>
-      <itemPath>../../Transfer Folder/GTeamProject_Transfer/Resources/Levels/Chapter 0/level.txt</itemPath>
-      <itemPath>../../Transfer Folder/GTeamProject_Transfer/Resources/stone.bmp</itemPath>
-      <itemPath>../../Transfer Folder/GTeamProject_Transfer/Resources/water.bmp</itemPath>
-      <itemPath>../../Transfer Folder/GTeamProject_Transfer/Resources/waterDrops.bmp</itemPath>
+    <logicalFolder name="Resources" displayName="Resources" projectFiles="true">
+      <itemPath>Resources/grass.bmp</itemPath>
+      <itemPath>Resources/ice.bmp</itemPath>
+      <itemPath>Resources/lava.bmp</itemPath>
+      <itemPath>Resources/stone.bmp</itemPath>
+      <itemPath>Resources/water.bmp</itemPath>
+      <itemPath>Resources/waterDrops.bmp</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
@@ -37,6 +34,9 @@
       <itemPath>Makefile</itemPath>
     </logicalFolder>
   </logicalFolder>
+  <sourceRootList>
+    <Elem>Resources</Elem>
+  </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="Debug" type="1">
@@ -54,41 +54,6 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
-      <item path="../../Transfer Folder/GTeamProject_Transfer/Resources/Levels/Chapter 0/level.txt"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="../../Transfer Folder/GTeamProject_Transfer/Resources/grass.bmp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="../../Transfer Folder/GTeamProject_Transfer/Resources/ice.bmp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="../../Transfer Folder/GTeamProject_Transfer/Resources/lava.bmp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="../../Transfer Folder/GTeamProject_Transfer/Resources/stone.bmp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="../../Transfer Folder/GTeamProject_Transfer/Resources/water.bmp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="../../Transfer Folder/GTeamProject_Transfer/Resources/waterDrops.bmp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
       <item path="GameManager.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="GameManager.h" ex="false" tool="3" flavor2="0">
@@ -96,6 +61,18 @@
       <item path="LevelGrid.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="LevelGrid.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Resources/grass.bmp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Resources/ice.bmp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Resources/lava.bmp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Resources/stone.bmp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Resources/water.bmp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Resources/waterDrops.bmp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -120,41 +97,6 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="../../Transfer Folder/GTeamProject_Transfer/Resources/Levels/Chapter 0/level.txt"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="../../Transfer Folder/GTeamProject_Transfer/Resources/grass.bmp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="../../Transfer Folder/GTeamProject_Transfer/Resources/ice.bmp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="../../Transfer Folder/GTeamProject_Transfer/Resources/lava.bmp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="../../Transfer Folder/GTeamProject_Transfer/Resources/stone.bmp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="../../Transfer Folder/GTeamProject_Transfer/Resources/water.bmp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="../../Transfer Folder/GTeamProject_Transfer/Resources/waterDrops.bmp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
       <item path="GameManager.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="GameManager.h" ex="false" tool="3" flavor2="0">
@@ -162,6 +104,18 @@
       <item path="LevelGrid.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="LevelGrid.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Resources/grass.bmp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Resources/ice.bmp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Resources/lava.bmp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Resources/stone.bmp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Resources/water.bmp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Resources/waterDrops.bmp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
