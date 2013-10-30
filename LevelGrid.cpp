@@ -25,7 +25,7 @@ LevelGrid::~LevelGrid()
 void LevelGrid::loadGrid()
 {
     ifstream infile;
-    infile.open("level.txt");
+    infile.open("Resources\level.txt");
     if( infile.fail() )
         cout<<"File read failed";
     else
@@ -65,12 +65,12 @@ void LevelGrid::saveGrid()
 void LevelGrid::drawGrid(SDL_Surface* screen)
 {
     //Load images
-    SDL_Surface* grass = loadImage("grass.bmp");          //1
-    SDL_Surface* ice = loadImage("ice.bmp");              //2
-    SDL_Surface* lava = loadImage("lava.bmp");            //3
-    SDL_Surface* stone = loadImage("stone.bmp");          //4
-    SDL_Surface* water = loadImage("water.bmp");          //5
-    SDL_Surface* waterDrops = loadImage("waterDrops.bmp");       //6
+    SDL_Surface* grass = loadImage("Resources\grass.bmp");          //1
+    SDL_Surface* ice = loadImage("Resources\ice.bmp");              //2
+    SDL_Surface* lava = loadImage("Resources\lava.bmp");            //3
+    SDL_Surface* stone = loadImage("Resources\stone.bmp");          //4
+    SDL_Surface* water = loadImage("Resources\water.bmp");          //5
+    SDL_Surface* waterDrops = loadImage("Resources\waterDrops.bmp");       //6
     
     if(grass == NULL || stone == NULL)
         cout<<"Error: Tile images didn't load"<<endl;
