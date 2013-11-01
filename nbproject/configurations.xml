@@ -1,26 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configurationDescriptor version="90">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
-    <logicalFolder name="HeaderFiles"
-                   displayName="Header Files"
-                   projectFiles="true">
-    </logicalFolder>
     <logicalFolder name="Resources" displayName="Resources" projectFiles="true">
       <itemPath>Resources/grass.bmp</itemPath>
       <itemPath>Resources/ice.bmp</itemPath>
       <itemPath>Resources/lava.bmp</itemPath>
+      <itemPath>Resources/level.txt</itemPath>
       <itemPath>Resources/stone.bmp</itemPath>
       <itemPath>Resources/water.bmp</itemPath>
       <itemPath>Resources/waterDrops.bmp</itemPath>
-    </logicalFolder>
-    <logicalFolder name="SourceFiles"
-                   displayName="Source Files"
-                   projectFiles="true">
-      <itemPath>GameManager.cpp</itemPath>
-      <itemPath>GameManager.h</itemPath>
-      <itemPath>LevelGrid.cpp</itemPath>
-      <itemPath>LevelGrid.h</itemPath>
-      <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -31,8 +19,14 @@
                    displayName="Important Files"
                    projectFiles="false"
                    kind="IMPORTANT_FILES_FOLDER">
-      <itemPath>Makefile</itemPath>
     </logicalFolder>
+    <itemPath>GameManager.cpp</itemPath>
+    <itemPath>GameManager.h</itemPath>
+    <itemPath>LevelGrid.cpp</itemPath>
+    <itemPath>LevelGrid.h</itemPath>
+    <itemPath>Makefile</itemPath>
+    <itemPath>dist/Debug/MinGW-Windows/SDL.dll</itemPath>
+    <itemPath>main.cpp</itemPath>
   </logicalFolder>
   <sourceRootList>
     <Elem>Resources</Elem>
@@ -46,6 +40,11 @@
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <compileType>
+        <ccTool>
+          <incDir>
+            <pElem>C:\MinGW\include</pElem>
+          </incDir>
+        </ccTool>
         <linkerTool>
           <linkerLibItems>
             <linkerLibLibItem>mingw32</linkerLibLibItem>
@@ -55,12 +54,24 @@
         </linkerTool>
       </compileType>
       <item path="GameManager.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool>
+          <incDir>
+            <pElem>C:\MinGW\include</pElem>
+          </incDir>
+        </ccTool>
       </item>
       <item path="GameManager.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="LevelGrid.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool>
+          <incDir>
+            <pElem>C:\MinGW\include</pElem>
+          </incDir>
+        </ccTool>
       </item>
       <item path="LevelGrid.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Makefile" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Resources/grass.bmp" ex="false" tool="3" flavor2="0">
       </item>
@@ -68,13 +79,22 @@
       </item>
       <item path="Resources/lava.bmp" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Resources/level.txt" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Resources/stone.bmp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Resources/water.bmp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Resources/waterDrops.bmp" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="dist/Debug/MinGW-Windows/SDL.dll" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool>
+          <incDir>
+            <pElem>C:\MinGW\include</pElem>
+          </incDir>
+        </ccTool>
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -105,17 +125,23 @@
       </item>
       <item path="LevelGrid.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Makefile" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Resources/grass.bmp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Resources/ice.bmp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Resources/lava.bmp" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Resources/level.txt" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Resources/stone.bmp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Resources/water.bmp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Resources/waterDrops.bmp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="dist/Debug/MinGW-Windows/SDL.dll" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>

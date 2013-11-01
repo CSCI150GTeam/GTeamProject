@@ -5,4 +5,13 @@ Screen setup complete
 Screen width = 320
 Screen height = 320
 Initialization complete, entering menu system...
-File read failed10	10Error: Tile images didn't load
+10	105	5	5	5	5	5	5	5	5	5	
+4	4	1	1	1	1	1	1	1	5	
+5	4	1	1	1	1	1	1	1	5	
+5	4	1	1	1	1	1	1	1	5	
+5	4	1	1	1	1	1	1	1	5	
+5	4	1	1	1	1	1	1	1	5	
+5	4	4	3	3	4	4	4	1	5	
+5	1	1	3	3	1	1	4	1	5	
+5	1	1	1	1	1	1	4	4	4	
+5	5	5	5	5	5	5	5	5	5	

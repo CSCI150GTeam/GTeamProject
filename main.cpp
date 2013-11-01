@@ -1,14 +1,10 @@
 /*  main.cpp
- 
-    *** IMPORTANT ***   This code was imported from a Mac environment, and most likely will not compile correctly on Windows due to differences in the headers and directory paths. The file will be updated to work with Netbeans once we get Netbeans to play nice with SDL.
- 
-    main.cpp serves as the entry point for the application. Currently, the main function initializes the necessary SDL subsystems, sets up a screen surface, and creates a LevelGrid object, which is then told to draw itself on screen.
- 
+ * main.cpp serves as the entry point for the application.
  */
+
 #include <cstdlib>
 #include <iostream>
 #include <string>
-#include <SDL/SDL.h>
 #include "LevelGrid.h"
 #include "GameManager.h"
 
@@ -19,12 +15,13 @@ const int SCREEN_HEIGHT = 320; //640;
 const int SCREEN_BPP = 32;
 
 SDL_Surface* screen;
-
 bool initializeApp();
 bool cleanUp();
 
 int main(int argc, char * args[])
 {
+    
+    
     //Initialize app
     if( initializeApp() == false )
         return 1;
@@ -37,7 +34,7 @@ int main(int argc, char * args[])
     //In the future the LevelGrid objects will be created when the game loop is initialized, as well as the other related function calls
     LevelGrid* lg = new LevelGrid(SCREEN_WIDTH/32,SCREEN_HEIGHT/32);
     lg->loadGrid();
-    //lg->printGrid();
+    lg->printGrid();
     lg->drawGrid(screen);
     
     if( SDL_Flip(screen) == -1)
@@ -50,6 +47,7 @@ int main(int argc, char * args[])
         return 0;
     else
         return 1;
+    
 }
 
 bool initializeApp()

@@ -67,17 +67,17 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gteamproject.exe: ${OBJECTFILES}
 ${OBJECTDIR}/GameManager.o: GameManager.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/GameManager.o GameManager.cpp
+	$(COMPILE.cc) -g -I/C\MinGW\include -I/C\MinGW\include -MMD -MP -MF $@.d -o ${OBJECTDIR}/GameManager.o GameManager.cpp
 
 ${OBJECTDIR}/LevelGrid.o: LevelGrid.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/LevelGrid.o LevelGrid.cpp
+	$(COMPILE.cc) -g -I/C\MinGW\include -I/C\MinGW\include -MMD -MP -MF $@.d -o ${OBJECTDIR}/LevelGrid.o LevelGrid.cpp
 
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/main.o main.cpp
+	$(COMPILE.cc) -g -I/C\MinGW\include -I/C\MinGW\include -MMD -MP -MF $@.d -o ${OBJECTDIR}/main.o main.cpp
 
 # Subprojects
 .build-subprojects:
