@@ -10,3 +10,13 @@ Audio::~Audio()
 {
     
 }
+
+void Audio::loadMusic()
+{
+
+}
+
+void Audio::loadSoundEffects()
+{
+
+}

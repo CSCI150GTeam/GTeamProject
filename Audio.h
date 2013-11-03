@@ -3,8 +3,6 @@
 
 #include <iostream>
 #include "SDL/SDL.h"
-#include "SDL/SDL_image.h"
-#include "SDL/SDL_ttf.h"
 #include "SDL/SDL_mixer.h"
 #include <string>
 using namespace std;
@@ -14,6 +12,8 @@ class Audio
 public:
     Audio();
     ~Audio();
+    void loadMusic();
+    void loadSoundEffects();
     
 private:
 
