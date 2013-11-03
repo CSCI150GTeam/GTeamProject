@@ -55,7 +55,7 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=-lmingw32 -lSDLmain -lSDL.dll
+LDLIBSOPTIONS=-lmingw32 -lSDLmain -lSDL.dll -lSDL_image -lSDL_image -lSDL_mixer -lSDL_mixer -lSDL_ttf -lSDL_ttf
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
@@ -63,7 +63,7 @@ LDLIBSOPTIONS=-lmingw32 -lSDLmain -lSDL.dll
 
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gteamproject.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gteamproject ${OBJECTFILES} ${LDLIBSOPTIONS}
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gteamproject ${OBJECTFILES} ${LDLIBSOPTIONS} -lSDL_image -lSDL_mixer
 
 ${OBJECTDIR}/Audio.o: Audio.cpp 
 	${MKDIR} -p ${OBJECTDIR}

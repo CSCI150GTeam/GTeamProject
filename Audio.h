@@ -14,7 +14,8 @@ public:
     ~Audio();
     void loadMusic();
     void loadSoundEffects();
-    
+    void clean_up();
+
 private:
 
 };

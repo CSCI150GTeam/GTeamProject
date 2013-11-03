@@ -52,7 +52,14 @@
             <linkerLibLibItem>mingw32</linkerLibLibItem>
             <linkerLibLibItem>SDLmain</linkerLibLibItem>
             <linkerLibLibItem>SDL.dll</linkerLibLibItem>
+            <linkerLibLibItem>SDL_image</linkerLibLibItem>
+            <linkerLibLibItem>SDL_image</linkerLibLibItem>
+            <linkerLibLibItem>SDL_mixer</linkerLibLibItem>
+            <linkerLibLibItem>SDL_mixer</linkerLibLibItem>
+            <linkerLibLibItem>SDL_ttf</linkerLibLibItem>
+            <linkerLibLibItem>SDL_ttf</linkerLibLibItem>
           </linkerLibItems>
+          <commandLine>-lSDL_image -lSDL_mixer</commandLine>
         </linkerTool>
       </compileType>
       <item path="Audio.cpp" ex="false" tool="1" flavor2="0">
