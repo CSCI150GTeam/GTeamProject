@@ -35,10 +35,10 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/Audio.o \
-	${OBJECTDIR}/GameManager.o \
-	${OBJECTDIR}/LevelGrid.o \
-	${OBJECTDIR}/main.o
+	${OBJECTDIR}/src/audio/Audio.o \
+	${OBJECTDIR}/src/core/GameManager.o \
+	${OBJECTDIR}/src/core/LevelGrid.o \
+	${OBJECTDIR}/src/core/main.o
 
 
 # C Compiler Flags
@@ -55,7 +55,7 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=-lmingw32 -lSDLmain -lSDL.dll -lSDL_image -lSDL_image -lSDL_mixer -lSDL_mixer -lSDL_ttf -lSDL_ttf
+LDLIBSOPTIONS=-Llib/x86 -Llib -lmingw32 -lSDLmain -lSDL.dll -lSDL_image -lSDL_mixer
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
@@ -63,27 +63,27 @@ LDLIBSOPTIONS=-lmingw32 -lSDLmain -lSDL.dll -lSDL_image -lSDL_image -lSDL_mixer 
 
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gteamproject.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gteamproject ${OBJECTFILES} ${LDLIBSOPTIONS} -lSDL_image -lSDL_mixer
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gteamproject ${OBJECTFILES} ${LDLIBSOPTIONS}
 
-${OBJECTDIR}/Audio.o: Audio.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/src/audio/Audio.o: src/audio/Audio.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/audio
 	${RM} $@.d
-	$(COMPILE.cc) -g -I/C\MinGW\include -MMD -MP -MF $@.d -o ${OBJECTDIR}/Audio.o Audio.cpp
+	$(COMPILE.cc) -g -Iinclude -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/audio/Audio.o src/audio/Audio.cpp
 
-${OBJECTDIR}/GameManager.o: GameManager.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/src/core/GameManager.o: src/core/GameManager.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/core
 	${RM} $@.d
-	$(COMPILE.cc) -g -I/C\MinGW\include -I/C\MinGW\include -MMD -MP -MF $@.d -o ${OBJECTDIR}/GameManager.o GameManager.cpp
+	$(COMPILE.cc) -g -Iinclude -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/core/GameManager.o src/core/GameManager.cpp
 
-${OBJECTDIR}/LevelGrid.o: LevelGrid.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/src/core/LevelGrid.o: src/core/LevelGrid.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/core
 	${RM} $@.d
-	$(COMPILE.cc) -g -I/C\MinGW\include -I/C\MinGW\include -MMD -MP -MF $@.d -o ${OBJECTDIR}/LevelGrid.o LevelGrid.cpp
+	$(COMPILE.cc) -g -Iinclude -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/core/LevelGrid.o src/core/LevelGrid.cpp
 
-${OBJECTDIR}/main.o: main.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/src/core/main.o: src/core/main.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/core
 	${RM} $@.d
-	$(COMPILE.cc) -g -I/C\MinGW\include -I/C\MinGW\include -MMD -MP -MF $@.d -o ${OBJECTDIR}/main.o main.cpp
+	$(COMPILE.cc) -g -Iinclude -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/core/main.o src/core/main.cpp
 
 # Subprojects
 .build-subprojects:
