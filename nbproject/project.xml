@@ -11,6 +11,7 @@
             <make-dep-projects/>
             <sourceRootList>
                 <sourceRootElem>Resources</sourceRootElem>
+                <sourceRootElem>Sounds</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>
