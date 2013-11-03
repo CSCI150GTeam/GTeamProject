@@ -11,6 +11,10 @@
       <itemPath>Resources/waterDrops.bmp</itemPath>
     </logicalFolder>
     <logicalFolder name="Sounds" displayName="Sounds" projectFiles="true">
+      <itemPath>Sounds/beat.wav</itemPath>
+      <itemPath>Sounds/high.wav</itemPath>
+      <itemPath>Sounds/low.wav</itemPath>
+      <itemPath>Sounds/medium.wav</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -103,6 +107,14 @@
       </item>
       <item path="Resources/waterDrops.bmp" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Sounds/beat.wav" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Sounds/high.wav" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Sounds/low.wav" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Sounds/medium.wav" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="dist/Debug/MinGW-Windows/SDL.dll" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
@@ -160,6 +172,14 @@
       <item path="Resources/water.bmp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Resources/waterDrops.bmp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Sounds/beat.wav" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Sounds/high.wav" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Sounds/low.wav" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Sounds/medium.wav" ex="false" tool="3" flavor2="0">
       </item>
       <item path="dist/Debug/MinGW-Windows/SDL.dll" ex="false" tool="3" flavor2="0">
       </item>
