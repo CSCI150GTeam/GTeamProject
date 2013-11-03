@@ -20,6 +20,8 @@
                    projectFiles="false"
                    kind="IMPORTANT_FILES_FOLDER">
     </logicalFolder>
+    <itemPath>Audio.cpp</itemPath>
+    <itemPath>Audio.h</itemPath>
     <itemPath>GameManager.cpp</itemPath>
     <itemPath>GameManager.h</itemPath>
     <itemPath>LevelGrid.cpp</itemPath>
@@ -53,6 +55,10 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
+      <item path="Audio.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Audio.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="GameManager.cpp" ex="false" tool="1" flavor2="0">
         <ccTool>
           <incDir>
@@ -117,6 +123,10 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="Audio.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Audio.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="GameManager.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="GameManager.h" ex="false" tool="3" flavor2="0">

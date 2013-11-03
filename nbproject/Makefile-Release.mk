@@ -35,6 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/Audio.o \
 	${OBJECTDIR}/GameManager.o \
 	${OBJECTDIR}/LevelGrid.o \
 	${OBJECTDIR}/main.o
@@ -63,6 +64,11 @@ LDLIBSOPTIONS=
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gteamproject.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gteamproject ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+${OBJECTDIR}/Audio.o: Audio.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/Audio.o Audio.cpp
 
 ${OBJECTDIR}/GameManager.o: GameManager.cpp 
 	${MKDIR} -p ${OBJECTDIR}
