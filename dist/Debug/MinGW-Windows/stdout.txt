@@ -5,6 +5,6 @@ Loaded 6 tile images
 Animation_Test object created
 1
 Starting MenuLoop...
-Loop ran 6477346 times
+Loop ran 1836160 times
 gameState change: -1
 Clean up complete

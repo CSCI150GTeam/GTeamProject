@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configurationDescriptor version="90">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
-    <logicalFolder name="lib" displayName="lib" projectFiles="true">
-      <itemPath>lib/SDL_image.lib</itemPath>
-      <itemPath>lib/SDL_mixer.lib</itemPath>
-      <itemPath>lib/SDL_ttf.lib</itemPath>
-      <itemPath>lib/libSDL.dll.a</itemPath>
-      <itemPath>lib/libSDL.la</itemPath>
-      <itemPath>lib/libSDLmain.a</itemPath>
-      <itemPath>lib/libmingw32.a</itemPath>
-    </logicalFolder>
     <logicalFolder name="Resources" displayName="Resources" projectFiles="true">
       <logicalFolder name="f1" displayName="audio" projectFiles="true">
         <itemPath>resources/audio/beat.wav</itemPath>
@@ -76,7 +67,6 @@
     <Elem>src/misc</Elem>
     <Elem>src/gameplay</Elem>
     <Elem>tests</Elem>
-    <Elem>lib</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -96,6 +86,7 @@
         <linkerTool>
           <linkerAddLib>
             <pElem>lib</pElem>
+            <pElem>../../../../../MinGW/lib</pElem>
           </linkerAddLib>
           <linkerLibItems>
             <linkerLibLibItem>mingw32</linkerLibLibItem>
@@ -107,20 +98,6 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
-      <item path="lib/SDL_image.lib" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="lib/SDL_mixer.lib" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="lib/SDL_ttf.lib" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="lib/libSDL.dll.a" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="lib/libSDL.la" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="lib/libSDLmain.a" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="lib/libmingw32.a" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="resources/audio/beat.wav" ex="false" tool="3" flavor2="0">
       </item>
       <item path="resources/audio/high.wav" ex="false" tool="3" flavor2="0">
@@ -199,20 +176,6 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="lib/SDL_image.lib" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="lib/SDL_mixer.lib" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="lib/SDL_ttf.lib" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="lib/libSDL.dll.a" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="lib/libSDL.la" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="lib/libSDLmain.a" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="lib/libmingw32.a" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="resources/audio/beat.wav" ex="false" tool="3" flavor2="0">
       </item>
       <item path="resources/audio/high.wav" ex="false" tool="3" flavor2="0">
