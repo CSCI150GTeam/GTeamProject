@@ -35,10 +35,13 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/src/animation/Animation_Test.o \
 	${OBJECTDIR}/src/audio/Audio.o \
 	${OBJECTDIR}/src/core/GameManager.o \
 	${OBJECTDIR}/src/core/LevelGrid.o \
-	${OBJECTDIR}/src/core/main.o
+	${OBJECTDIR}/src/core/main.o \
+	${OBJECTDIR}/src/gameplay/Level.o \
+	${OBJECTDIR}/src/misc/DS_Grid.o
 
 
 # C Compiler Flags
@@ -65,6 +68,11 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gteamproject.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gteamproject ${OBJECTFILES} ${LDLIBSOPTIONS}
 
+${OBJECTDIR}/src/animation/Animation_Test.o: src/animation/Animation_Test.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/animation
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/animation/Animation_Test.o src/animation/Animation_Test.cpp
+
 ${OBJECTDIR}/src/audio/Audio.o: src/audio/Audio.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/audio
 	${RM} $@.d
@@ -84,6 +92,16 @@ ${OBJECTDIR}/src/core/main.o: src/core/main.cpp
 	${MKDIR} -p ${OBJECTDIR}/src/core
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/core/main.o src/core/main.cpp
+
+${OBJECTDIR}/src/gameplay/Level.o: src/gameplay/Level.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/gameplay
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/gameplay/Level.o src/gameplay/Level.cpp
+
+${OBJECTDIR}/src/misc/DS_Grid.o: src/misc/DS_Grid.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/misc
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/misc/DS_Grid.o src/misc/DS_Grid.cpp
 
 # Subprojects
 .build-subprojects:

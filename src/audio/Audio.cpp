@@ -49,7 +49,7 @@ void Audio::loadSoundEffects()
     }
        
 }
-
+/*
 void clean_up()
 {
     //Free the music
@@ -63,3 +63,4 @@ void clean_up()
     //Quit SDL_mixer
     Mix_CloseAudio();
 }
+ * */

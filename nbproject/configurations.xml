@@ -1,44 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configurationDescriptor version="90">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="lib" displayName="lib" projectFiles="true">
+      <itemPath>lib/SDL_image.lib</itemPath>
+      <itemPath>lib/SDL_mixer.lib</itemPath>
+      <itemPath>lib/SDL_ttf.lib</itemPath>
+      <itemPath>lib/libSDL.dll.a</itemPath>
+      <itemPath>lib/libSDL.la</itemPath>
+      <itemPath>lib/libSDLmain.a</itemPath>
+      <itemPath>lib/libmingw32.a</itemPath>
+    </logicalFolder>
     <logicalFolder name="Resources" displayName="Resources" projectFiles="true">
       <logicalFolder name="f1" displayName="audio" projectFiles="true">
+        <itemPath>resources/audio/beat.wav</itemPath>
+        <itemPath>resources/audio/high.wav</itemPath>
+        <itemPath>resources/audio/low.wav</itemPath>
+        <itemPath>resources/audio/medium.wav</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="images" projectFiles="true">
+        <itemPath>resources/images/grass.bmp</itemPath>
+        <itemPath>resources/images/ice.bmp</itemPath>
+        <itemPath>resources/images/lava.bmp</itemPath>
+        <itemPath>resources/images/mainMenuScreen.jpg</itemPath>
+        <itemPath>resources/images/stone.bmp</itemPath>
+        <itemPath>resources/images/water.bmp</itemPath>
+        <itemPath>resources/images/waterDrops.bmp</itemPath>
       </logicalFolder>
       <logicalFolder name="f3" displayName="levels" projectFiles="true">
+        <itemPath>resources/levels/level.txt</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f4" displayName="test" projectFiles="true">
+        <itemPath>resources/test/background.png</itemPath>
+        <itemPath>resources/test/lazy.ttf</itemPath>
       </logicalFolder>
     </logicalFolder>
-    <logicalFolder name="f1" displayName="src" projectFiles="true" kind="ROOT">
-      <logicalFolder name="f1"
-                     displayName="animation"
-                     projectFiles="true"
-                     kind="ROOT">
+    <logicalFolder name="f1" displayName="src" projectFiles="true">
+      <logicalFolder name="f1" displayName="animation" projectFiles="true">
+        <itemPath>src/animation/Animation_Test.cpp</itemPath>
+        <itemPath>src/animation/Animation_Test.h</itemPath>
       </logicalFolder>
-      <logicalFolder name="f2" displayName="audio" projectFiles="true" kind="ROOT">
+      <logicalFolder name="f2" displayName="audio" projectFiles="true">
         <itemPath>src/audio/Audio.cpp</itemPath>
         <itemPath>src/audio/Audio.h</itemPath>
       </logicalFolder>
-      <logicalFolder name="f3" displayName="core" projectFiles="true" kind="ROOT">
+      <logicalFolder name="f3" displayName="core" projectFiles="true">
         <itemPath>src/core/GameManager.cpp</itemPath>
         <itemPath>src/core/GameManager.h</itemPath>
         <itemPath>src/core/LevelGrid.cpp</itemPath>
         <itemPath>src/core/LevelGrid.h</itemPath>
         <itemPath>src/core/main.cpp</itemPath>
       </logicalFolder>
-      <logicalFolder name="f4" displayName="editor" projectFiles="true" kind="ROOT">
+      <logicalFolder name="f4" displayName="editor" projectFiles="true">
       </logicalFolder>
-      <logicalFolder name="f5"
-                     displayName="networking"
-                     projectFiles="true"
-                     kind="ROOT">
+      <logicalFolder name="f8" displayName="gameplay" projectFiles="true">
+        <itemPath>src/gameplay/Level.cpp</itemPath>
+        <itemPath>src/gameplay/Level.h</itemPath>
       </logicalFolder>
-      <logicalFolder name="f6" displayName="ui" projectFiles="true" kind="ROOT">
+      <logicalFolder name="f7" displayName="misc" projectFiles="true">
+        <itemPath>src/misc/DS_Grid.cpp</itemPath>
+        <itemPath>src/misc/DS_Grid.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f5" displayName="networking" projectFiles="true">
+      </logicalFolder>
+      <logicalFolder name="f6" displayName="ui" projectFiles="true">
       </logicalFolder>
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>
-    <Elem>Resources</Elem>
+    <Elem>src/core</Elem>
+    <Elem>src/animation</Elem>
+    <Elem>src/audio</Elem>
+    <Elem>src/editor</Elem>
+    <Elem>src/networking</Elem>
+    <Elem>src/ui</Elem>
+    <Elem>src/misc</Elem>
+    <Elem>src/gameplay</Elem>
+    <Elem>tests</Elem>
+    <Elem>lib</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -52,22 +90,72 @@
         <ccTool>
           <incDir>
             <pElem>include</pElem>
+            <pElem>src</pElem>
           </incDir>
         </ccTool>
         <linkerTool>
           <linkerAddLib>
-            <pElem>lib/x86</pElem>
             <pElem>lib</pElem>
           </linkerAddLib>
           <linkerLibItems>
             <linkerLibLibItem>mingw32</linkerLibLibItem>
             <linkerLibLibItem>SDLmain</linkerLibLibItem>
             <linkerLibLibItem>SDL.dll</linkerLibLibItem>
+            <linkerLibLibItem>SDL_ttf</linkerLibLibItem>
             <linkerLibLibItem>SDL_image</linkerLibLibItem>
             <linkerLibLibItem>SDL_mixer</linkerLibLibItem>
           </linkerLibItems>
         </linkerTool>
       </compileType>
+      <item path="lib/SDL_image.lib" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="lib/SDL_mixer.lib" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="lib/SDL_ttf.lib" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="lib/libSDL.dll.a" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="lib/libSDL.la" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="lib/libSDLmain.a" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="lib/libmingw32.a" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/audio/beat.wav" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/audio/high.wav" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/audio/low.wav" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/audio/medium.wav" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/images/grass.bmp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/images/ice.bmp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/images/lava.bmp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/images/mainMenuScreen.jpg"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="resources/images/stone.bmp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/images/water.bmp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/images/waterDrops.bmp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/levels/level.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/test/background.png" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/test/lazy.ttf" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/animation/Animation_Test.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/animation/Animation_Test.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/audio/Audio.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/audio/Audio.h" ex="false" tool="3" flavor2="0">
@@ -81,6 +169,14 @@
       <item path="src/core/LevelGrid.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/core/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/gameplay/Level.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/gameplay/Level.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/misc/DS_Grid.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/misc/DS_Grid.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -103,6 +199,55 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="lib/SDL_image.lib" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="lib/SDL_mixer.lib" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="lib/SDL_ttf.lib" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="lib/libSDL.dll.a" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="lib/libSDL.la" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="lib/libSDLmain.a" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="lib/libmingw32.a" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/audio/beat.wav" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/audio/high.wav" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/audio/low.wav" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/audio/medium.wav" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/images/grass.bmp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/images/ice.bmp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/images/lava.bmp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/images/mainMenuScreen.jpg"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="resources/images/stone.bmp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/images/water.bmp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/images/waterDrops.bmp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/levels/level.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/test/background.png" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/test/lazy.ttf" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/animation/Animation_Test.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/animation/Animation_Test.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/audio/Audio.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/audio/Audio.h" ex="false" tool="3" flavor2="0">
@@ -116,6 +261,14 @@
       <item path="src/core/LevelGrid.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/core/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/gameplay/Level.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/gameplay/Level.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/misc/DS_Grid.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/misc/DS_Grid.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
   </confs>

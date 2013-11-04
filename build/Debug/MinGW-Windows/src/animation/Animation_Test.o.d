@@ -1,5 +1,5 @@
-build/Debug/MinGW-Windows/src/core/GameManager.o: \
- src/core/GameManager.cpp src/core/GameManager.h src/core/LevelGrid.h \
+build/Debug/MinGW-Windows/src/animation/Animation_Test.o: \
+ src/animation/Animation_Test.cpp src/animation/Animation_Test.h \
  include/SDL/SDL.h include/SDL/SDL_main.h include/SDL/SDL_stdinc.h \
  include/SDL/SDL_config.h include/SDL/SDL_platform.h \
  include/SDL/SDL_config_win32.h include/SDL/begin_code.h \
@@ -11,12 +11,10 @@ build/Debug/MinGW-Windows/src/core/GameManager.o: \
  include/SDL/SDL_keysym.h include/SDL/SDL_mouse.h include/SDL/SDL_video.h \
  include/SDL/SDL_joystick.h include/SDL/SDL_quit.h \
  include/SDL/SDL_loadso.h include/SDL/SDL_timer.h \
- include/SDL/SDL_version.h src/animation/Animation_Test.h \
- include/SDL/SDL_image.h include/SDL/SDL.h include/SDL/SDL_ttf.h
+ include/SDL/SDL_version.h include/SDL/SDL_image.h include/SDL/SDL.h \
+ include/SDL/SDL_ttf.h
 
-src/core/GameManager.h:
-
-src/core/LevelGrid.h:
+src/animation/Animation_Test.h:
 
 include/SDL/SDL.h:
 
@@ -71,8 +69,6 @@ include/SDL/SDL_loadso.h:
 include/SDL/SDL_timer.h:
 
 include/SDL/SDL_version.h:
-
-src/animation/Animation_Test.h:
 
 include/SDL/SDL_image.h:
 

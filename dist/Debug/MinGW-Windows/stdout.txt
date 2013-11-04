@@ -1,17 +1,10 @@
 Initializing SDL subsystems...
 SDL subsystems initialized OK
-Setting up screen...
-Screen setup complete
-Screen width = 320
-Screen height = 320
 Initialization complete, entering menu system...
-10	105	5	5	5	5	5	5	5	5	5	
-4	4	1	1	1	1	1	1	1	5	
-5	4	1	1	1	1	1	1	1	5	
-5	4	1	1	1	1	1	1	1	5	
-5	4	1	1	1	1	1	1	1	5	
-5	4	1	1	1	1	1	1	1	5	
-5	4	4	3	3	4	4	4	1	5	
-5	1	1	3	3	1	1	4	1	5	
-5	1	1	1	1	1	1	4	4	4	
-5	5	5	5	5	5	5	5	5	5	
+Loaded 6 tile images
+Animation_Test object created
+1
+Starting MenuLoop...
+Loop ran 6477346 times
+gameState change: -1
+Clean up complete
