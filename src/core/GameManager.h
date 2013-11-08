@@ -1,27 +1,38 @@
+/*
+ * GameManager.h - core module
+ * Code contributed by: Sammy
+ * Header file
+ */
+
 #ifndef __GameProject__GameManager__
 #define __GameProject__GameManager__
 
+//Includes and namespace
 #include <iostream>
-#include "LevelGrid.h"
-#include "animation/Animation_Test.h"
+#include "ui\UI_Manager.h"
 #include "SDL/SDL_ttf.h"
-
 using namespace std;
+
+//Game state constants
+const int GS_QUIT = -1;
+const int GS_MENU = 1;
+const int GS_EDITOR = 2;
+const int GS_GAME = 3;
+const int GS_PAUSE = 4;
 
 class GameManager
 {
 public:
-    GameManager(Animation_Test*);
+    GameManager();
     ~GameManager();
-    void changeState(int);  //-1 = Quit, 1 = Menu, 2 = Game, 3 = Editor
-    void runGridTestLoop();
+    SDL_Surface* getScreen();
 private:
     SDL_Surface* screen;
-    Animation_Test* anim;
     int gameState;
-    void runMenuLoop();
-    void runGameLoop();
+    int menuState;
+    void runMenuLoop(int);
     void runEditorLoop();
+    void runGameLoop();
 };
 
 #endif

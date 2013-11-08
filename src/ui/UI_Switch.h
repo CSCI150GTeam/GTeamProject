@@ -1,29 +1,29 @@
+/*
+ * UI_Switch.h - UI module
+ * Code contributed by: Sammy
+ * Header file
+ */
+
 #ifndef UI_SWITCH_H
 #define	UI_SWITCH_H
 
+#include <iostream>
+#include <string>
 #include "SDL/SDL.h"
 #include "SDL/SDL_image.h"
 #include "SDL/SDL_ttf.h"
-#include <iostream>
-#include <string>
+#include "UI_Element.h"
 using namespace std;
 
-class UI_Switch
+class UI_Switch : public UI_Element
 {
 public:
-    UI_Switch(SDL_Surface*);
+    UI_Switch(int,int,string,string,bool);
     ~UI_Switch();
-    void drawOnScreen(int,int);
-    void checkMouseClick(int,int);
+    string handleEvents();
+    void drawOnScreen();
 private:
-    int x;
-    int y;
-    int width;
-    int height;
     bool state;
-    SDL_Surface* screen;
-    SDL_Surface* loadImage(string);
-    void applySurface(int,int,SDL_Surface*,SDL_Surface*);
 };
 
 #endif

@@ -1,5 +1,5 @@
-build/Debug/MinGW-Windows/src/core/main.o: src/core/main.cpp \
- include/SDL/SDL_ttf.h include/SDL/SDL.h include/SDL/SDL_main.h \
+build/Debug/MinGW-Windows/src/ui/UI_View.o: src/ui/UI_View.cpp \
+ src/ui/UI_View.h include/SDL/SDL.h include/SDL/SDL_main.h \
  include/SDL/SDL_stdinc.h include/SDL/SDL_config.h \
  include/SDL/SDL_platform.h include/SDL/SDL_config_win32.h \
  include/SDL/begin_code.h include/SDL/close_code.h \
@@ -11,13 +11,11 @@ build/Debug/MinGW-Windows/src/core/main.o: src/core/main.cpp \
  include/SDL/SDL_mouse.h include/SDL/SDL_video.h \
  include/SDL/SDL_joystick.h include/SDL/SDL_quit.h \
  include/SDL/SDL_loadso.h include/SDL/SDL_timer.h \
- include/SDL/SDL_version.h src/core/GameManager.h src/ui\UI_Manager.h \
- src/ui\UI_View.h include/SDL/SDL.h src/ui/UI_Switch.h \
- include/SDL/SDL_image.h src/ui/UI_Element.h src/core/Global.h \
- src/audio/Audio.h include/SDL/SDL_mixer.h include/SDL/SDL_types.h \
+ include/SDL/SDL_version.h src/ui/UI_Switch.h include/SDL/SDL_image.h \
+ include/SDL/SDL.h include/SDL/SDL_ttf.h src/ui/UI_Element.h \
  src/core/Global.h
 
-include/SDL/SDL_ttf.h:
+src/ui/UI_View.h:
 
 include/SDL/SDL.h:
 
@@ -73,26 +71,14 @@ include/SDL/SDL_timer.h:
 
 include/SDL/SDL_version.h:
 
-src/core/GameManager.h:
-
-src/ui\UI_Manager.h:
-
-src/ui\UI_View.h:
-
-include/SDL/SDL.h:
-
 src/ui/UI_Switch.h:
 
 include/SDL/SDL_image.h:
 
+include/SDL/SDL.h:
+
+include/SDL/SDL_ttf.h:
+
 src/ui/UI_Element.h:
-
-src/core/Global.h:
-
-src/audio/Audio.h:
-
-include/SDL/SDL_mixer.h:
-
-include/SDL/SDL_types.h:
 
 src/core/Global.h:

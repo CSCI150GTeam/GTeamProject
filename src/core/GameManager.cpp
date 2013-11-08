@@ -1,79 +1,84 @@
+/*
+ * GameManager.cpp - core module
+ * Code contributed by: Sammy
+ * Handles the game state (menus, editor, in-game), and is in control of starting the appropriate
+ * loops for each state when a change occurs. When the GameManager is initialized, the game state is set to MENU,
+ * so that the user will be taken immediately into the menu system when they launch the app
+ */
+
 #include "GameManager.h"
 
-GameManager::GameManager(Animation_Test* iAnim)
+//Constructor
+GameManager::GameManager()
 {
-    this->gameState = 1;
-    this->anim = iAnim;
-    runMenuLoop();
+    cout<<"\tGameManager initialized"<<endl;
+    cout<<"\tManagers initialized"<<endl;
+    this->gameState = GS_MENU;
+    cout<<"APP INITIALIZATION COMPLETE"<<endl;
+    cout<<"USER IS NOW CONTROLLING THE APP"<<endl;
+    this->menuState = 0;
+    runMenuLoop(menuState);
+    cout<<"USER IS NO LONGER CONTROLLING THE APP"<<endl;
 }
 
+//Destructor
 GameManager::~GameManager()
 {
     
 }
-/*
-void GameManager::runGridTestLoop()
+
+//Screen accessor method
+SDL_Surface* GameManager::getScreen()
 {
-    LevelGrid* lg = new LevelGrid(10,10);
-    lg->loadGrid();
-    lg->printGrid();
-    lg->drawGrid(screen);
-    
-    if( SDL_Flip(screen) == -1)
-        cout<<"Whoops, screen didn't flip in GameManager::runGridTestLoop()";
-    SDL_Delay(3000);
-}
-*/
-void GameManager::runMenuLoop()
-{
-    anim->drawMenuScreen(0,0);
-    cout<<anim->flipScreen()<<endl;
-    cout<<"Starting MenuLoop..."<<endl;
-    int x = 0;
-    while( this->gameState == 1 ) 
-    {
-        x++;
-        //Take input
-        SDL_Event event;
-        if( SDL_PollEvent( &event ) )
-        {
-            switch( event.type )
-            {
-                case SDL_QUIT: this->gameState = -1; break;
-            }
-        }
-        //Handle logic
-        //Update screen
-    }
-    cout<<"Loop ran "<<x<<" times"<<endl;
-    switch (gameState)
-    {
-        case -1: cout<<"gameState change: -1"<<endl; return; break;
-        case 2: cout<<"gameState change: 2"<<endl; runGameLoop(); break;
-        case 3: cout<<"gameState change: 3"<<endl; runEditorLoop(); break;
-    }
+    return this->screen;
 }
 
-void GameManager::runGameLoop()
+//Menu loop
+void GameManager::runMenuLoop(int iMenuState)
 {
-    while( this->gameState == 2 )
+    cout<<"\tEntering menus..."<<endl;
+    int menuState = iMenuState;
+    UI_View* currentMenuView; //= UI_Manager::menuViews->at(menuState);
+    while( this->gameState == GS_MENU ) 
     {
+        //Take input
         SDL_Event event;
-        if( SDL_PollEvent( &event ) )
-        {
-            switch( event.type )
-            {
-                case SDL_QUIT: this->gameState = -1; break;
-            }
-        }
+        SDL_PollEvent( &event );
+        if( event.type == SDL_QUIT )
+            gameState = GS_QUIT;
+        //Handle logic
+        //string result = currentMenuView->handleEvents(event);
+        
+        //Update screen
+    }
+    switch (gameState)
+    {
+        case GS_QUIT: cout<<"\tgameState change: Quit"<<endl; return; break;
+        case GS_GAME: cout<<"\tgameState change: Gameplay"<<endl; runGameLoop(); break;
+        case GS_EDITOR: cout<<"\tgameState change: Editor"<<endl; runEditorLoop(); break;
     }
 }
 
 void GameManager::runEditorLoop()
 {
-    while( this->gameState == 3 )
+    while( this->gameState == GS_EDITOR )
     {
         //Take input
+        SDL_Event event;
+        if( SDL_PollEvent( &event ) )
+        {
+            switch( event.type )
+            {
+                case SDL_QUIT: this->gameState = -1; break;
+            }
+        }
+    }
+}
+
+void GameManager::runGameLoop()
+{
+    while( this->gameState == GS_EDITOR )
+    {
         SDL_Event event;
         if( SDL_PollEvent( &event ) )
         {

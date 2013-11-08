@@ -1,10 +1,18 @@
-Initializing SDL subsystems...
-SDL subsystems initialized OK
-Initialization complete, entering menu system...
-Loaded 6 tile images
-Animation_Test object created
-1
-Starting MenuLoop...
-Loop ran 1836160 times
-gameState change: -1
-Clean up complete
+STARTING APP INITIALIZATION
+	Running initializeApp()
+		Initializing SDL subsystems...	SDL subsystem initialization succeeded
+		Setting window caption...	Window caption setup succeeded
+	initializeApp() ran successfully
+	Initializing managers
+		Initializing GameManager...	GameManager initialized
+	Managers initialized
+APP INITIALIZATION COMPLETE
+USER IS NOW CONTROLLING THE APP
+	Entering menus...
+	gameState change: Quit
+USER IS NO LONGER CONTROLLING THE APP
+STARTING APP CLEANUP
+	Deleting managers...		Manager deletion successful
+	Deleting screen surface...	Deleted screen surface
+	Running cleanUp()...		cleanUp() ran successfully
+APP CLEANUP COMPLETE
