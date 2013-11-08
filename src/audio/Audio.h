@@ -12,8 +12,8 @@ class Audio
 public:
     Audio();
     ~Audio();
-    void loadMusic();
-    void loadSoundEffects();
+    bool loadMusic(string);
+    bool loadSoundEffects(string);
     //void clean_up();
 
 private:
