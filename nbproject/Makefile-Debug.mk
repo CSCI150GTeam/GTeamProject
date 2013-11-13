@@ -60,7 +60,7 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=-Llib -L../../../../../MinGW/lib -lmingw32 -lSDLmain -lSDL.dll -lSDL_ttf -lSDL_image -lSDL_mixer
+LDLIBSOPTIONS=-L/C\MinGW\lib -lmingw32 -lSDLmain -lSDL.dll -lSDL_image -lSDL_mixer -lSDL_ttf
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
@@ -73,47 +73,47 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gteamproject.exe: ${OBJECTFILES}
 ${OBJECTDIR}/src/audio/Audio.o: src/audio/Audio.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/audio
 	${RM} $@.d
-	$(COMPILE.cc) -g -Iinclude -Isrc -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/audio/Audio.o src/audio/Audio.cpp
+	$(COMPILE.cc) -g -Isrc -I/C\MinGW\include -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/audio/Audio.o src/audio/Audio.cpp
 
 ${OBJECTDIR}/src/core/GameManager.o: src/core/GameManager.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/core
 	${RM} $@.d
-	$(COMPILE.cc) -g -Iinclude -Isrc -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/core/GameManager.o src/core/GameManager.cpp
+	$(COMPILE.cc) -g -Isrc -I/C\MinGW\include -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/core/GameManager.o src/core/GameManager.cpp
 
 ${OBJECTDIR}/src/core/Global.o: src/core/Global.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/core
 	${RM} $@.d
-	$(COMPILE.cc) -g -Iinclude -Isrc -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/core/Global.o src/core/Global.cpp
+	$(COMPILE.cc) -g -Isrc -I/C\MinGW\include -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/core/Global.o src/core/Global.cpp
 
 ${OBJECTDIR}/src/core/main.o: src/core/main.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/core
 	${RM} $@.d
-	$(COMPILE.cc) -g -Iinclude -Isrc -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/core/main.o src/core/main.cpp
+	$(COMPILE.cc) -g -Isrc -I/C\MinGW\include -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/core/main.o src/core/main.cpp
 
 ${OBJECTDIR}/src/gameplay/Level.o: src/gameplay/Level.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/gameplay
 	${RM} $@.d
-	$(COMPILE.cc) -g -Iinclude -Isrc -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/gameplay/Level.o src/gameplay/Level.cpp
+	$(COMPILE.cc) -g -Isrc -I/C\MinGW\include -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/gameplay/Level.o src/gameplay/Level.cpp
 
 ${OBJECTDIR}/src/misc/DS_Grid.o: src/misc/DS_Grid.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/misc
 	${RM} $@.d
-	$(COMPILE.cc) -g -Iinclude -Isrc -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/misc/DS_Grid.o src/misc/DS_Grid.cpp
+	$(COMPILE.cc) -g -Isrc -I/C\MinGW\include -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/misc/DS_Grid.o src/misc/DS_Grid.cpp
 
 ${OBJECTDIR}/src/ui/UI_Manager.o: src/ui/UI_Manager.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/ui
 	${RM} $@.d
-	$(COMPILE.cc) -g -Iinclude -Isrc -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/ui/UI_Manager.o src/ui/UI_Manager.cpp
+	$(COMPILE.cc) -g -Isrc -I/C\MinGW\include -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/ui/UI_Manager.o src/ui/UI_Manager.cpp
 
 ${OBJECTDIR}/src/ui/UI_Switch.o: src/ui/UI_Switch.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/ui
 	${RM} $@.d
-	$(COMPILE.cc) -g -Iinclude -Isrc -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/ui/UI_Switch.o src/ui/UI_Switch.cpp
+	$(COMPILE.cc) -g -Isrc -I/C\MinGW\include -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/ui/UI_Switch.o src/ui/UI_Switch.cpp
 
 ${OBJECTDIR}/src/ui/UI_View.o: src/ui/UI_View.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/ui
 	${RM} $@.d
-	$(COMPILE.cc) -g -Iinclude -Isrc -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/ui/UI_View.o src/ui/UI_View.cpp
+	$(COMPILE.cc) -g -Isrc -I/C\MinGW\include -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/ui/UI_View.o src/ui/UI_View.cpp
 
 # Subprojects
 .build-subprojects:

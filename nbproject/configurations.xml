@@ -86,22 +86,21 @@
       <compileType>
         <ccTool>
           <incDir>
-            <pElem>include</pElem>
             <pElem>src</pElem>
+            <pElem>C:\MinGW\include</pElem>
           </incDir>
         </ccTool>
         <linkerTool>
           <linkerAddLib>
-            <pElem>lib</pElem>
-            <pElem>../../../../../MinGW/lib</pElem>
+            <pElem>C:\MinGW\lib</pElem>
           </linkerAddLib>
           <linkerLibItems>
             <linkerLibLibItem>mingw32</linkerLibLibItem>
             <linkerLibLibItem>SDLmain</linkerLibLibItem>
             <linkerLibLibItem>SDL.dll</linkerLibLibItem>
-            <linkerLibLibItem>SDL_ttf</linkerLibLibItem>
             <linkerLibLibItem>SDL_image</linkerLibLibItem>
             <linkerLibLibItem>SDL_mixer</linkerLibLibItem>
+            <linkerLibLibItem>SDL_ttf</linkerLibLibItem>
           </linkerLibItems>
         </linkerTool>
       </compileType>

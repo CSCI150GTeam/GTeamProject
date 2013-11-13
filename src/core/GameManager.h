@@ -11,6 +11,7 @@
 #include <iostream>
 #include "ui\UI_Manager.h"
 #include "SDL/SDL_ttf.h"
+#include "SDL/SDL_image.h"
 using namespace std;
 
 //Game state constants

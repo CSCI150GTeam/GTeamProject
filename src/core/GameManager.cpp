@@ -39,6 +39,23 @@ void GameManager::runMenuLoop(int iMenuState)
     cout<<"\tEntering menus..."<<endl;
     int menuState = iMenuState;
     UI_View* currentMenuView; //= UI_Manager::menuViews->at(menuState);
+    
+    //Test
+    string filename = "resources\\images\\mainMenuScreen.jpg";
+    SDL_Surface* loadedImage = NULL;
+    SDL_Surface* optimizedImage = NULL;
+    loadedImage = IMG_Load(filename.c_str());
+    if( loadedImage != NULL )
+    {
+        cout<<"TEST Loaded image isn't Null!"<<endl;
+        optimizedImage = SDL_DisplayFormat(loadedImage);
+        SDL_FreeSurface(loadedImage);
+    }
+    SDL_Rect offset;
+    offset.x = 0;
+    offset.y = 0;
+    SDL_BlitSurface(optimizedImage,NULL,mainScreenSurface,&offset);
+    
     while( this->gameState == GS_MENU ) 
     {
         //Take input
@@ -49,7 +66,7 @@ void GameManager::runMenuLoop(int iMenuState)
         //Handle logic
         //string result = currentMenuView->handleEvents(event);
         
-        //Update screen
+        SDL_Flip( mainScreenSurface );
     }
     switch (gameState)
     {
