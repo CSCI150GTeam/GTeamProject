@@ -51,5 +51,4 @@ protected:
         SDL_BlitSurface(source,NULL,mainScreenSurface,&offset);
     }
 };
-
 #endif

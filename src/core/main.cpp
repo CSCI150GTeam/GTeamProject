@@ -33,6 +33,7 @@ void cleanUp();
 
 int main(int argc, char * args[])
 {
+    
     cout<<"STARTING APP INITIALIZATION"<<endl;
     
 //Initialize app
@@ -44,7 +45,7 @@ int main(int argc, char * args[])
     
 //Setup Game, Animation, and Audio Managers
     cout<<"\tInitializing managers"<<endl;
-    //AnimationManager* anm = animationManager;
+    //AnimationManager* anm = animationManager(screen);
     
     //AudioManager* aum = audioManager;
     
