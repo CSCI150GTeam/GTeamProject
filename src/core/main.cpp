@@ -21,6 +21,7 @@
 #include "GameManager.h"
 #include "ui/UI_Switch.h"
 #include "Global.h"
+#include "audio/AudioManager.h"
 
 using namespace std;
 
@@ -43,6 +44,11 @@ int main(int argc, char * args[])
     cout<<"\tInitializing managers"<<endl;
     //AnimationManager* anm = animationManager(screen);
     cout<<"\t\tInitializing AudioManager...";
+    
+    //Testing Audio Function
+    Audio* audio = new Audio();
+    //audio->playSound("soundEffect1");
+    audio->playSound("music1");
     
     cout<<"\t\tInitializing GameManager...";
     GameManager* gm = new GameManager();
