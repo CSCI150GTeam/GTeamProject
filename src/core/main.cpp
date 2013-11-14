@@ -33,22 +33,23 @@ void cleanUp();
 
 int main(int argc, char * args[])
 {
-    
     cout<<"STARTING APP INITIALIZATION"<<endl;
-    
-//Initialize app
     if( initializeApp() == false )
     {
         cout<<"\tinitializeApp() returned false"<<endl;
         return 1;
     }
     
-//Setup Game, Animation, and Audio Managers
     cout<<"\tInitializing managers"<<endl;
     //AnimationManager* anm = animationManager(screen);
-    
-    //AudioManager* aum = audioManager;
-    
+    cout<<"\t\tInitializing AudioManager...";
+    Audio* audio = new Audio();
+    if( audio == NULL )
+    {
+        cout<<"\t\tAudioManager failed to initialize"<<endl;
+        return 1;
+    }
+    audio->playSound("soundEffect1");
     cout<<"\t\tInitializing GameManager...";
     GameManager* gm = new GameManager();
     if( gm == NULL )
@@ -98,16 +99,12 @@ bool initializeApp()
     SDL_WM_SetCaption("Hello World", NULL);
     cout<<"\tWindow caption setup succeeded"<<endl;
     
-    /*
-    cout<<"\t\tSetting up screen...";
-    SDL_Surface* s = SDL_SetVideoMode(1024,768,32,SDL_SWSURFACE);
-    if( s == NULL )
+    if( Mix_OpenAudio( 22050, MIX_DEFAULT_FORMAT, 2, 4096 ) == -1 )
     {
-        cout<<"\t\tScreen setup failed"<<endl;
-        return NULL;
+        cout<<"Audio didn't open"<<endl;
+        return false;
     }
-    cout<<"\t\tScreen setup succeeded"<<endl;
-    */
+    
     cout<<"\tinitializeApp() ran successfully"<<endl;
     return true;
 }
