@@ -17,8 +17,8 @@
 #include <iostream>
 #include <string>
 #include "SDL/SDL_ttf.h"
+#include "SDL/SDL_mixer.h"
 #include "GameManager.h"
-#include "audio/Audio.h"
 #include "ui/UI_Switch.h"
 #include "Global.h"
 
@@ -43,13 +43,7 @@ int main(int argc, char * args[])
     cout<<"\tInitializing managers"<<endl;
     //AnimationManager* anm = animationManager(screen);
     cout<<"\t\tInitializing AudioManager...";
-    Audio* audio = new Audio();
-    if( audio == NULL )
-    {
-        cout<<"\t\tAudioManager failed to initialize"<<endl;
-        return 1;
-    }
-    audio->playSound("soundEffect1");
+    
     cout<<"\t\tInitializing GameManager...";
     GameManager* gm = new GameManager();
     if( gm == NULL )
