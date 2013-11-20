@@ -10,7 +10,7 @@ Audio::Audio()
     music1 = Mix_LoadMUS( "resources\\audio\\adventuring_song.mp3");
     if( music1 == NULL )
         cout<<"Music 1 is Null"<<endl;
-    
+
     cout<<"\tAudio initialization complete!"<<endl;
 }
 
@@ -37,6 +37,7 @@ void Audio::playSound(string filename)
             cout<<"Error in playing sound"<<endl;
     }
 }
+
 
 
 /*

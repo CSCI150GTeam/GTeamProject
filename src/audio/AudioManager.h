@@ -19,6 +19,7 @@ public:
 private:
     Mix_Chunk* soundEffect1;
     Mix_Music* music1;
+    // set channel 1 to half volume
 };
 
 #endif
