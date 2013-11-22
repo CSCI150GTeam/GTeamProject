@@ -1,10 +1,3 @@
-/* 
- * File:   Unit.h
- * Author: JSG
- *
- * Created on November 15, 2013, 3:02 PM
- */
-
 #include <iostream>
 #include "SDL/SDL.h"
 #include <string>
