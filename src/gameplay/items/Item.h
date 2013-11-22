@@ -9,11 +9,12 @@ using namespace std;
 
 class Item {
 public:
-    Item();
-    ~Item();
+    Item(){}
+    ~Item(){}
     
 private:
     string name;
+    int icons[];
 
 };
 

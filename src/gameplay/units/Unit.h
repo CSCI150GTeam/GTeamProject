@@ -9,8 +9,8 @@ using namespace std;
 
 class Unit {
 public:
-    Unit();
-    ~Unit();
+    Unit(){}
+    ~Unit(){}
     
 private:
     int health;

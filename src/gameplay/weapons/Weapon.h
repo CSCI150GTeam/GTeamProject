@@ -9,8 +9,8 @@ using namespace std;
 
 class Weapon {
 public:
-    Weapon();
-    ~Weapon();
+    Weapon(){}
+    ~Weapon(){}
     void Attack();
     
 private:
