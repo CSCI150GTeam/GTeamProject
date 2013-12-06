@@ -35,14 +35,26 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/src/core/GameManager.o \
-	${OBJECTDIR}/src/core/Global.o \
-	${OBJECTDIR}/src/core/main.o \
-	${OBJECTDIR}/src/gameplay/Level.o \
-	${OBJECTDIR}/src/misc/DS_Grid.o \
-	${OBJECTDIR}/src/ui/UI_Manager.o \
-	${OBJECTDIR}/src/ui/UI_Switch.o \
-	${OBJECTDIR}/src/ui/UI_View.o
+	${OBJECTDIR}/src/Application.o \
+	${OBJECTDIR}/src/Armor.o \
+	${OBJECTDIR}/src/AudioManager.o \
+	${OBJECTDIR}/src/Boss.o \
+	${OBJECTDIR}/src/Editor.o \
+	${OBJECTDIR}/src/Enemy.o \
+	${OBJECTDIR}/src/FirstAid.o \
+	${OBJECTDIR}/src/Game.o \
+	${OBJECTDIR}/src/Ghost.o \
+	${OBJECTDIR}/src/Global.o \
+	${OBJECTDIR}/src/Knife.o \
+	${OBJECTDIR}/src/Level.o \
+	${OBJECTDIR}/src/MapGrid.o \
+	${OBJECTDIR}/src/Pistol.o \
+	${OBJECTDIR}/src/Player.o \
+	${OBJECTDIR}/src/Shotgun.o \
+	${OBJECTDIR}/src/Sword.o \
+	${OBJECTDIR}/src/UI_View.o \
+	${OBJECTDIR}/src/ViewManager.o \
+	${OBJECTDIR}/src/main.o
 
 
 # C Compiler Flags
@@ -69,45 +81,105 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gteamproject.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gteamproject ${OBJECTFILES} ${LDLIBSOPTIONS}
 
-${OBJECTDIR}/src/core/GameManager.o: src/core/GameManager.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src/core
+${OBJECTDIR}/src/Application.o: src/Application.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/core/GameManager.o src/core/GameManager.cpp
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/Application.o src/Application.cpp
 
-${OBJECTDIR}/src/core/Global.o: src/core/Global.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src/core
+${OBJECTDIR}/src/Armor.o: src/Armor.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/core/Global.o src/core/Global.cpp
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/Armor.o src/Armor.cpp
 
-${OBJECTDIR}/src/core/main.o: src/core/main.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src/core
+${OBJECTDIR}/src/AudioManager.o: src/AudioManager.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/core/main.o src/core/main.cpp
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/AudioManager.o src/AudioManager.cpp
 
-${OBJECTDIR}/src/gameplay/Level.o: src/gameplay/Level.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src/gameplay
+${OBJECTDIR}/src/Boss.o: src/Boss.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/gameplay/Level.o src/gameplay/Level.cpp
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/Boss.o src/Boss.cpp
 
-${OBJECTDIR}/src/misc/DS_Grid.o: src/misc/DS_Grid.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src/misc
+${OBJECTDIR}/src/Editor.o: src/Editor.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/misc/DS_Grid.o src/misc/DS_Grid.cpp
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/Editor.o src/Editor.cpp
 
-${OBJECTDIR}/src/ui/UI_Manager.o: src/ui/UI_Manager.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src/ui
+${OBJECTDIR}/src/Enemy.o: src/Enemy.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/ui/UI_Manager.o src/ui/UI_Manager.cpp
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/Enemy.o src/Enemy.cpp
 
-${OBJECTDIR}/src/ui/UI_Switch.o: src/ui/UI_Switch.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src/ui
+${OBJECTDIR}/src/FirstAid.o: src/FirstAid.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/ui/UI_Switch.o src/ui/UI_Switch.cpp
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/FirstAid.o src/FirstAid.cpp
 
-${OBJECTDIR}/src/ui/UI_View.o: src/ui/UI_View.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src/ui
+${OBJECTDIR}/src/Game.o: src/Game.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/ui/UI_View.o src/ui/UI_View.cpp
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/Game.o src/Game.cpp
+
+${OBJECTDIR}/src/Ghost.o: src/Ghost.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/Ghost.o src/Ghost.cpp
+
+${OBJECTDIR}/src/Global.o: src/Global.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/Global.o src/Global.cpp
+
+${OBJECTDIR}/src/Knife.o: src/Knife.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/Knife.o src/Knife.cpp
+
+${OBJECTDIR}/src/Level.o: src/Level.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/Level.o src/Level.cpp
+
+${OBJECTDIR}/src/MapGrid.o: src/MapGrid.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/MapGrid.o src/MapGrid.cpp
+
+${OBJECTDIR}/src/Pistol.o: src/Pistol.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/Pistol.o src/Pistol.cpp
+
+${OBJECTDIR}/src/Player.o: src/Player.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/Player.o src/Player.cpp
+
+${OBJECTDIR}/src/Shotgun.o: src/Shotgun.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/Shotgun.o src/Shotgun.cpp
+
+${OBJECTDIR}/src/Sword.o: src/Sword.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/Sword.o src/Sword.cpp
+
+${OBJECTDIR}/src/UI_View.o: src/UI_View.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/UI_View.o src/UI_View.cpp
+
+${OBJECTDIR}/src/ViewManager.o: src/ViewManager.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/ViewManager.o src/ViewManager.cpp
+
+${OBJECTDIR}/src/main.o: src/main.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/main.o src/main.cpp
 
 # Subprojects
 .build-subprojects:

@@ -2,7 +2,7 @@
 #define	LEVEL_H
 
 #include <string>
-#include "misc/DS_Grid.h"
+#include "MapGrid.h"
 using namespace std;
 
 class Level
@@ -11,7 +11,7 @@ public:
     Level();
     ~Level();
 private:
-    DS_Grid* grid;
+    MapGrid* grid;
     string levelName;
 };
 

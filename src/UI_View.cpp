@@ -8,7 +8,6 @@
 
 UI_View::UI_View()
 {
-    this->elements = new vector<UI_Element*>;
 }
 
 UI_View::~UI_View()

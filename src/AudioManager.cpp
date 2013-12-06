@@ -1,7 +1,7 @@
 #include "AudioManager.h"
 using namespace std;
     
-Audio::Audio()
+AudioManager::AudioManager()
 {
     soundEffect1 = Mix_LoadWAV( "resources\\audio\\high.wav" );
     if( soundEffect1 == NULL )
@@ -14,14 +14,14 @@ Audio::Audio()
     cout<<"\tAudio initialization complete!"<<endl;
 }
 
-Audio::~Audio()
+AudioManager::~AudioManager()
 {
     Mix_FreeChunk( soundEffect1 );
     Mix_FreeMusic( music1 );
     Mix_CloseAudio;
 }
 
-void Audio::playSound(string filename)
+void AudioManager ::playSound(string filename)
 {
     if(filename == "soundEffect1")
     {

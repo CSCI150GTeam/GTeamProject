@@ -1,6 +1,6 @@
-#include "DS_Grid.h"
+#include "MapGrid.h"
 
-DS_Grid::DS_Grid(int nWidth, int nHeight)
+MapGrid::MapGrid(int nWidth, int nHeight)
 {
     this->width = nWidth;
     this->height = nHeight;
@@ -17,20 +17,17 @@ DS_Grid::DS_Grid(int nWidth, int nHeight)
     cout<<"interal contains "<<internal->size()<<" elements";
 }
 
-DS_Grid::~DS_Grid()
+MapGrid::~MapGrid()
 {
     delete internal;
 }
 
-void DS_Grid::addRows(int numRows)
+void MapGrid::addRows(int numRows)
 {
-    for(int i = 0; i < this->width; i++)
-        for(int j = 0; j < numRows; j++)
-            internal->at(i)->push_back(0);
     
 }
 
-void DS_Grid::addColumns(int numCols)
+void MapGrid::addColumns(int numCols)
 {
     
 }

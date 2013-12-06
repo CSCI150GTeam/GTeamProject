@@ -10,15 +10,7 @@
             <sourceEncoding>UTF-8</sourceEncoding>
             <make-dep-projects/>
             <sourceRootList>
-                <sourceRootElem>src/core</sourceRootElem>
-                <sourceRootElem>src/animation</sourceRootElem>
-                <sourceRootElem>src/audio</sourceRootElem>
-                <sourceRootElem>src/editor</sourceRootElem>
-                <sourceRootElem>src/networking</sourceRootElem>
-                <sourceRootElem>src/ui</sourceRootElem>
-                <sourceRootElem>src/misc</sourceRootElem>
-                <sourceRootElem>src/gameplay</sourceRootElem>
-                <sourceRootElem>tests</sourceRootElem>
+                <sourceRootElem>src</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>

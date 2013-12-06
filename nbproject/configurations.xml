@@ -28,50 +28,66 @@
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="f1" displayName="src" projectFiles="true">
-      <logicalFolder name="f1" displayName="animation" projectFiles="true">
-      </logicalFolder>
-      <logicalFolder name="f2" displayName="audio" projectFiles="true">
-      </logicalFolder>
       <logicalFolder name="f3" displayName="core" projectFiles="true">
-        <itemPath>src/core/GameManager.cpp</itemPath>
-        <itemPath>src/core/GameManager.h</itemPath>
-        <itemPath>src/core/Global.cpp</itemPath>
-        <itemPath>src/core/Global.h</itemPath>
-        <itemPath>src/core/main.cpp</itemPath>
+        <itemPath>src/Application.cpp</itemPath>
+        <itemPath>src/Application.h</itemPath>
+        <itemPath>src/Global.cpp</itemPath>
+        <itemPath>src/Global.h</itemPath>
+        <itemPath>src/main.cpp</itemPath>
       </logicalFolder>
       <logicalFolder name="f4" displayName="editor" projectFiles="true">
+        <itemPath>src/Editor.cpp</itemPath>
+        <itemPath>src/Editor.h</itemPath>
       </logicalFolder>
-      <logicalFolder name="f8" displayName="gameplay" projectFiles="true">
-        <itemPath>src/gameplay/Level.cpp</itemPath>
-        <itemPath>src/gameplay/Level.h</itemPath>
+      <logicalFolder name="f8" displayName="game" projectFiles="true">
+        <logicalFolder name="f1" displayName="items" projectFiles="true">
+          <itemPath>src/Armor.cpp</itemPath>
+          <itemPath>src/Armor.h</itemPath>
+          <itemPath>src/FirstAid.cpp</itemPath>
+          <itemPath>src/FirstAid.h</itemPath>
+          <itemPath>src/Item.h</itemPath>
+          <itemPath>src/Knife.cpp</itemPath>
+          <itemPath>src/Knife.h</itemPath>
+          <itemPath>src/Pistol.cpp</itemPath>
+          <itemPath>src/Pistol.h</itemPath>
+          <itemPath>src/Shotgun.cpp</itemPath>
+          <itemPath>src/Shotgun.h</itemPath>
+          <itemPath>src/Sword.cpp</itemPath>
+          <itemPath>src/Sword.h</itemPath>
+          <itemPath>src/Weapon.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="f2" displayName="units" projectFiles="true">
+          <itemPath>src/Boss.cpp</itemPath>
+          <itemPath>src/Boss.h</itemPath>
+          <itemPath>src/Enemy.cpp</itemPath>
+          <itemPath>src/Enemy.h</itemPath>
+          <itemPath>src/Ghost.cpp</itemPath>
+          <itemPath>src/Ghost.h</itemPath>
+          <itemPath>src/Player.cpp</itemPath>
+          <itemPath>src/Player.h</itemPath>
+          <itemPath>src/Unit.h</itemPath>
+        </logicalFolder>
+        <itemPath>src/Game.cpp</itemPath>
+        <itemPath>src/Game.h</itemPath>
+        <itemPath>src/Level.cpp</itemPath>
+        <itemPath>src/Level.h</itemPath>
+        <itemPath>src/MapGrid.cpp</itemPath>
+        <itemPath>src/MapGrid.h</itemPath>
       </logicalFolder>
-      <logicalFolder name="f7" displayName="misc" projectFiles="true">
-        <itemPath>src/misc/DS_Grid.cpp</itemPath>
-        <itemPath>src/misc/DS_Grid.h</itemPath>
+      <logicalFolder name="f7" displayName="menu" projectFiles="true">
+        <itemPath>src/UI_View.cpp</itemPath>
+        <itemPath>src/UI_View.h</itemPath>
+        <itemPath>src/ViewManager.cpp</itemPath>
+        <itemPath>src/ViewManager.h</itemPath>
       </logicalFolder>
-      <logicalFolder name="f5" displayName="networking" projectFiles="true">
-      </logicalFolder>
-      <logicalFolder name="f6" displayName="ui" projectFiles="true">
-        <itemPath>src/ui/UI_Element.h</itemPath>
-        <itemPath>src/ui/UI_Manager.cpp</itemPath>
-        <itemPath>src/ui/UI_Manager.h</itemPath>
-        <itemPath>src/ui/UI_Switch.cpp</itemPath>
-        <itemPath>src/ui/UI_Switch.h</itemPath>
-        <itemPath>src/ui/UI_View.cpp</itemPath>
-        <itemPath>src/ui/UI_View.h</itemPath>
+      <logicalFolder name="f6" displayName="utility" projectFiles="true">
+        <itemPath>src/AudioManager.cpp</itemPath>
+        <itemPath>src/AudioManager.h</itemPath>
       </logicalFolder>
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>
-    <Elem>src/core</Elem>
-    <Elem>src/animation</Elem>
-    <Elem>src/audio</Elem>
-    <Elem>src/editor</Elem>
-    <Elem>src/networking</Elem>
-    <Elem>src/ui</Elem>
-    <Elem>src/misc</Elem>
-    <Elem>src/gameplay</Elem>
-    <Elem>tests</Elem>
+    <Elem>src</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -137,37 +153,89 @@
       </item>
       <item path="resources/test/lazy.ttf" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="src/core/GameManager.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Application.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/core/GameManager.h" ex="false" tool="3" flavor2="0">
+      <item path="src/Application.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="src/core/Global.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Armor.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/core/Global.h" ex="false" tool="3" flavor2="0">
+      <item path="src/Armor.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="src/core/main.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/AudioManager.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/gameplay/Level.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/AudioManager.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="src/gameplay/Level.h" ex="false" tool="3" flavor2="0">
+      <item path="src/Boss.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/misc/DS_Grid.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Boss.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="src/misc/DS_Grid.h" ex="false" tool="3" flavor2="0">
+      <item path="src/Editor.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/ui/UI_Element.h" ex="false" tool="3" flavor2="0">
+      <item path="src/Editor.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="src/ui/UI_Manager.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Enemy.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/ui/UI_Manager.h" ex="false" tool="3" flavor2="0">
+      <item path="src/Enemy.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="src/ui/UI_Switch.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/FirstAid.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/ui/UI_Switch.h" ex="false" tool="3" flavor2="0">
+      <item path="src/FirstAid.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="src/ui/UI_View.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Game.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/ui/UI_View.h" ex="false" tool="3" flavor2="0">
+      <item path="src/Game.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Ghost.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Ghost.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Global.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Global.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Item.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Knife.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Knife.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Level.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Level.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/MapGrid.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/MapGrid.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Pistol.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Pistol.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Player.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Player.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Shotgun.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Shotgun.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Sword.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Sword.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/UI_View.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/UI_View.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Unit.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ViewManager.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ViewManager.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Weapon.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -225,37 +293,89 @@
       </item>
       <item path="resources/test/lazy.ttf" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="src/core/GameManager.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Application.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/core/GameManager.h" ex="false" tool="3" flavor2="0">
+      <item path="src/Application.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="src/core/Global.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Armor.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/core/Global.h" ex="false" tool="3" flavor2="0">
+      <item path="src/Armor.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="src/core/main.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/AudioManager.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/gameplay/Level.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/AudioManager.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="src/gameplay/Level.h" ex="false" tool="3" flavor2="0">
+      <item path="src/Boss.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/misc/DS_Grid.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Boss.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="src/misc/DS_Grid.h" ex="false" tool="3" flavor2="0">
+      <item path="src/Editor.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/ui/UI_Element.h" ex="false" tool="3" flavor2="0">
+      <item path="src/Editor.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="src/ui/UI_Manager.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Enemy.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/ui/UI_Manager.h" ex="false" tool="3" flavor2="0">
+      <item path="src/Enemy.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="src/ui/UI_Switch.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/FirstAid.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/ui/UI_Switch.h" ex="false" tool="3" flavor2="0">
+      <item path="src/FirstAid.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="src/ui/UI_View.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Game.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/ui/UI_View.h" ex="false" tool="3" flavor2="0">
+      <item path="src/Game.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Ghost.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Ghost.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Global.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Global.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Item.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Knife.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Knife.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Level.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Level.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/MapGrid.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/MapGrid.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Pistol.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Pistol.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Player.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Player.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Shotgun.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Shotgun.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Sword.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Sword.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/UI_View.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/UI_View.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Unit.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ViewManager.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ViewManager.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Weapon.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
   </confs>

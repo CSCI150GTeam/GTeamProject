@@ -5,11 +5,11 @@
 #include <vector>
 using namespace std;
 
-class DS_Grid
+class MapGrid
 {
 public:
-    DS_Grid(int,int);
-    ~DS_Grid();
+    MapGrid(int,int);
+    ~MapGrid();
     void addRows(int);
     void addColumns(int);
 private:

@@ -1,5 +1,5 @@
-#ifndef __GameProject__Audio__
-#define __GameProject__Audio__
+#ifndef __GameProject__AudioManager__
+#define __GameProject__AudioManager__
 
 #include <iostream>
 #include "SDL/SDL.h"
@@ -7,11 +7,11 @@
 #include <string>
 using namespace std;
 
-class Audio
+class AudioManager
 {
 public:
-    Audio();
-    ~Audio();
+    AudioManager();
+    ~AudioManager();
     void loadSound(string);
     void playSound(string);
     //void clean_up();
