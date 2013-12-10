@@ -13,6 +13,9 @@ public:
     Game();
     ~Game();
     
+    int runGameLoop(bool);
+    void pauseGameLoop();
+    
 private:
     
 };
