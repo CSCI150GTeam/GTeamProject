@@ -11,10 +11,10 @@ class Game
 {
 public:
     Game();
-    Game(const Game& orig);
-    virtual ~Game();
+    ~Game();
+    
 private:
-
+    
 };
 
 #endif
