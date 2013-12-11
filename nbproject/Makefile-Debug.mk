@@ -40,7 +40,6 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/Editor.o \
 	${OBJECTDIR}/src/Enemy.o \
 	${OBJECTDIR}/src/Game.o \
-	${OBJECTDIR}/src/Global.o \
 	${OBJECTDIR}/src/Level.o \
 	${OBJECTDIR}/src/LevelGrid.o \
 	${OBJECTDIR}/src/Menu.o \
@@ -102,11 +101,6 @@ ${OBJECTDIR}/src/Game.o: src/Game.cpp
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} $@.d
 	$(COMPILE.cc) -g -Isrc -I/C\MinGW\include -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/Game.o src/Game.cpp
-
-${OBJECTDIR}/src/Global.o: src/Global.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src
-	${RM} $@.d
-	$(COMPILE.cc) -g -Isrc -I/C\MinGW\include -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/Global.o src/Global.cpp
 
 ${OBJECTDIR}/src/Level.o: src/Level.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src

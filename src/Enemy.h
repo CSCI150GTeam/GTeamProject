@@ -1,4 +1,5 @@
 #include "Unit.h"
+#include "Global.h"
 #include <string>
 #include "SDL/SDL_ttf.h"
 #include "SDL/SDL_image.h"
@@ -16,20 +17,15 @@ const int ENEMY_LEFT = 1;
 #ifndef ENEMY_H
 #define	ENEMY_H
 
-class Enemy : public Unit {
+class Enemy : public Unit
+{
 public:
     Enemy();
     ~Enemy();
-    void handle_events();        //handles input
-    void move();                 //moves the figure
-    void show();                 //shows the figure
-    void set_clips();            //sets the clips for the individual sprites in the sprite sheet
-    
+    void update();
+    void draw();
 private:
-  
-    SDL_Surface *enemy;           //the surfaces of image
 
 };
 
-#endif	/* ENEMY_H */
-
+#endif

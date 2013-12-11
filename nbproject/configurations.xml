@@ -20,6 +20,10 @@
       </logicalFolder>
       <logicalFolder name="f3" displayName="levels" projectFiles="true">
         <itemPath>resources/levels/level.txt</itemPath>
+        <itemPath>resources/levels/mLv1.txt</itemPath>
+        <itemPath>resources/levels/sLv1.txt</itemPath>
+        <itemPath>resources/levels/sLv2.txt</itemPath>
+        <itemPath>resources/levels/tiles.txt</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="f1" displayName="src" projectFiles="true">
@@ -65,7 +69,6 @@
       <logicalFolder name="f6" displayName="utility" projectFiles="true">
         <itemPath>src/AudioManager.cpp</itemPath>
         <itemPath>src/AudioManager.h</itemPath>
-        <itemPath>src/Global.cpp</itemPath>
         <itemPath>src/Global.h</itemPath>
         <itemPath>src/Timer.cpp</itemPath>
         <itemPath>src/Timer.h</itemPath>
@@ -128,6 +131,14 @@
       </item>
       <item path="resources/levels/level.txt" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="resources/levels/mLv1.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/levels/sLv1.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/levels/sLv2.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/levels/tiles.txt" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="resources/test/lazy.ttf" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/Application.cpp" ex="false" tool="1" flavor2="0">
@@ -149,8 +160,6 @@
       <item path="src/Game.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/Game.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/Global.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/Global.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -240,6 +249,14 @@
       </item>
       <item path="resources/levels/level.txt" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="resources/levels/mLv1.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/levels/sLv1.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/levels/sLv2.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/levels/tiles.txt" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="resources/test/lazy.ttf" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/Application.cpp" ex="false" tool="1" flavor2="0">
@@ -261,8 +278,6 @@
       <item path="src/Game.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/Game.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/Global.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/Global.h" ex="false" tool="3" flavor2="0">
       </item>

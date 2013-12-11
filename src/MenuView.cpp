@@ -3,7 +3,7 @@
  * Author: mcnightthao
  * 
  * Created on December 9, 2013, 1:23 PM
- */
+ 
 
 #include "MenuView.h"
 
@@ -67,3 +67,5 @@ void MenuView::loadImage(){
     
     
 }
+ * 
+ * */

@@ -3,7 +3,7 @@
  * Author: mcnightthao
  *
  * Created on December 9, 2013, 1:23 PM
- */
+ 
 
 #ifndef MENUVIEW_H
 #define	MENUVIEW_H
@@ -30,3 +30,4 @@ private:
 
 #endif	/* MENUVIEW_H */
 
+*/

@@ -34,7 +34,8 @@ int Game::runGameLoop(bool)
             case (SDL_KEYDOWN):
                 switch (event.key.keysym.sym)
                 {
-                    case SDLK_w:;
+                    case SDLK_w:
+                        currentLevel -> getPlayer(1) -> setYVel(-16);
                         break;
                     case SDLK_s:;
                         break;

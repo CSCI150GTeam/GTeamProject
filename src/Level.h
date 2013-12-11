@@ -17,6 +17,8 @@ public:
     
     void update();
     void drawUnits();
+    
+    Player* getPlayer(int);
 private:
     Player* player1;
     //Player* player2;
