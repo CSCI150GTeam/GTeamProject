@@ -3,15 +3,13 @@
 Player::Player()
 {
     health = 100;
-    name = "Player";
+    xVelocity = 0;
+    yVelocity = 0;
     
     //Initialize the offsets (position of unit)
     x = 0;
-    y = 0; 
+    y = 0;
     
-    //Initialize the velocity (speed or movement of unit)
-    xVel = 0;
-    yVel = 0;
     
     //Initialize animation variables 
     frame = 0;
@@ -44,6 +42,7 @@ void Player::handle_events()
             case SDLK_RIGHT: xVel += PLAYER_WIDTH / 2; break;
         }
     }
+    
     //If a key was released
     else if( event.type == SDL_KEYUP )
     {

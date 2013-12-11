@@ -7,11 +7,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/HAL9000/Documents/NetBeansProjects/GTeamProject/src/Global.cpp</file>
-            <file>file:/C:/Users/HAL9000/Documents/NetBeansProjects/GTeamProject/src/Editor.h</file>
+            <file>file:/C:/Users/HAL9000/Documents/NetBeansProjects/GTeamProject/src/Game.cpp</file>
+            <file>file:/C:/Users/HAL9000/Documents/NetBeansProjects/GTeamProject/src/Game.h</file>
             <file>file:/C:/Users/HAL9000/Documents/NetBeansProjects/GTeamProject/src/Application.cpp</file>
-            <file>file:/C:/Users/HAL9000/Documents/NetBeansProjects/GTeamProject/src/Level.cpp</file>
-            <file>file:/C:/Users/HAL9000/Documents/NetBeansProjects/GTeamProject/src/Editor.cpp</file>
+            <file>file:/C:/Users/HAL9000/Documents/NetBeansProjects/GTeamProject/src/Application.h</file>
+            <file>file:/C:/Users/HAL9000/Documents/NetBeansProjects/GTeamProject/src/main.cpp</file>
         </group>
     </open-files>
 </project-private>

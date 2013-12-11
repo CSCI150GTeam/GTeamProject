@@ -1,3 +1,4 @@
+/*
 #include "Editor.h"
 
 Editor::Editor()
@@ -40,3 +41,5 @@ void Editor::editNew()
     grid = new MapGrid(10,10);
     
 }
+
+*/

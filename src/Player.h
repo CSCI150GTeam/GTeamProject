@@ -16,7 +16,8 @@ const int PLAYER_LEFT = 1;
 #ifndef PLAYER_H
 #define	PLAYER_H
 
-class Player : public Unit {
+class Player : public Unit
+{
 public:
     Player();
     ~Player();
@@ -24,11 +25,7 @@ public:
     void move();                 //moves the figure
     void show();                 //shows the figure
     void set_clips();            //sets the clips for the individual sprites in the sprite sheet
-    
 private:
-
-    SDL_Surface *player;          //the surfaces of image
-
 };
 
 #endif	/* PLAYER_H */

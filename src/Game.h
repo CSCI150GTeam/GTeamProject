@@ -1,11 +1,9 @@
-/*
- * %<%name%>%.h - <module> module
- * Code contributed by: <names here>
- * Header file
- */
-
 #ifndef GAME_H
 #define	GAME_H
+
+#include "Level.h"
+
+using namespace std;
 
 class Game
 {
@@ -15,9 +13,8 @@ public:
     
     int runGameLoop(bool);
     void pauseGameLoop();
-    
 private:
-    
+    Level* currentLevel;
 };
 
 #endif

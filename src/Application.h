@@ -19,11 +19,6 @@
 
 using namespace std;
 
-const int GS_EXIT = -1;
-const int GS_MENU = 1;
-const int GS_EDIT = 2;
-const int GS_GAME = 3;
-
 class Application
 {
 public:

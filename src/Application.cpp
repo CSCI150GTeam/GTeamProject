@@ -47,11 +47,15 @@ void Application::runApplication()
     {
         switch( gameState )
         {
-            case GS_MENU: break; //Run menu loop
+            case GS_MENU:
+                //menu -> runMenu();
+                break; //Run menu loop
             case GS_EDIT:
                 //editor -> runEditor();
-                break; //Run editor loop
-            case GS_GAME: break; //Run game loop
+                break;
+            case GS_GAME:
+                //game -> runGame();
+                break; //Run game loop
         }
     }
 }
