@@ -4,10 +4,11 @@
 
 Application::Application()
 {
-    audio = NULL;
     editor = NULL;
     menu = NULL;
     game = NULL;
+
+    gameState = GS_MENU;
 }
 
 //Destructor
@@ -27,38 +28,46 @@ bool Application::initializeApplication()
         return false;
     }
 
-    //Initialize SDL_Mixer
-    if (Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 4096) == -1) {
-        cout << "Audio didn't open" << endl;
-        return false;
-    }
-
     //Set window caption
     SDL_WM_SetCaption("Hello World", NULL);
 
-    audio = new AudioManager();
     return true;
 }
 
 void Application::runApplication()
 {
-    while (gameState != GS_EXIT) {
+    cout<<"running main app loop"<<endl;
+    while (gameState != GS_EXIT)
+    {
+        cout<<"gameState is "<<gameState<<endl;
         switch (gameState)
         {
             case GS_MENU:
+                cout<<"running menu loop"<<endl;
                 menu = new Menu();
-                //menu -> runMenu();
+                gameState = menu -> runMenu();
                 delete menu;
+                cout<<"exiting menu loop, gameState is "<<gameState<<endl;
                 break;
-            case GS_EDIT:
+            case GS_EDIT_NEW: case GS_EDIT_LOAD:
+                /*
+                cout<<"running editor loop"<<endl;
                 editor = new Editor();
-                //editor -> runEditor();
-                delete editor;
+                //gameState = editor -> runEditor();
+                delete editor; */
+                gameState = GS_MENU;
                 break;
-            case GS_GAME:
-                game = new Game();
-                //game -> runGame();
-                delete game;
+            case GS_GAME_NEW: case GS_GAME_CONT:
+                /*
+                if( gameState == GS_GAME_NEW )
+                    game = new Game(true);
+                else game = new Game(false);
+                gameState = game -> runGame();
+                delete game; */
+                gameState = GS_MENU;
+                break;
+            case GS_GAME_JOIN: case GS_GAME_HOST:
+                gameState = GS_MENU;
                 break;
         }
     }

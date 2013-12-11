@@ -1,5 +1,4 @@
 #include "LevelGrid.h"
-#include "Application.h"
 
 LevelGrid::LevelGrid(int width, int length)
 {
@@ -30,10 +29,10 @@ LevelGrid::~LevelGrid()
     
 }
 
-void LevelGrid::loadGrid()
+void LevelGrid::loadGrid(string filePath)
 {
     ifstream infile;
-    infile.open("level.txt");
+    infile.open(filePath.c_str());
     if( infile.fail() )
         cout<<"File read failed";
     else

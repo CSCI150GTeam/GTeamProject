@@ -17,25 +17,25 @@
 
 using namespace std;
 
-const string BRICK_IMG = "brick32.jpg"; //1
-const string DIRT_IMG = "dirt32.jpg"; //2
-const string DIRTYBIRCK_IMG = "dirtybrick32.jpg"; //3
-const string GRASS_IMG = "grass32.jpg"; //4
-const string LAVA_IMG = "lava32.jpg"; //5
-const string REDCARPET_IMG = "redcarpet32.jpg"; //6
-const string STONE_IMG = "stone32.jpg"; //7
-const string WATER_IMG = "water32.jpg"; //8
-const string WOOD_IMG = "wood32.jpg"; //8
+const string BRICK_IMG = "C:/Users/HAL9000/Documents/NetBeansProjects/GTeamProject/resources/Brick.jpg"; //1
+const string DIRT_IMG = "resources/dirt32.jpg"; //2
+const string DIRTYBIRCK_IMG = "resources/dirtybrick32.jpg"; //3
+const string GRASS_IMG = "resources/grass32.jpg"; //4
+const string LAVA_IMG = "resources/lava32.jpg"; //5
+const string REDCARPET_IMG = "resources/redcarpet32.jpg"; //6
+const string STONE_IMG = "resources/stone32.jpg"; //7
+const string WATER_IMG = "resources/water32.jpg"; //8
+const string WOOD_IMG = "resources/wood32.jpg"; //8
 
 class LevelGrid
 {
 public:
-    LevelGrid(int x,int y);
+    LevelGrid(int,int);
     ~LevelGrid();
     
     //Primary functions
     void drawGrid();
-    void loadGrid();
+    void loadGrid(string);
    
     //Auxillary/debug functions
     void printGrid();

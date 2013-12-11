@@ -2,17 +2,16 @@
 #define	GAME_H
 
 #include "Level.h"
-
-using namespace std;
+#include "Utility.h"
 
 class Game
 {
 public:
-    Game();
+    Game(bool);
     ~Game();
     
-    int runGame(bool);
-    void pauseGame();
+    int runGame();
+    int pauseGame();
 private:
     Level* currentLevel;
 };

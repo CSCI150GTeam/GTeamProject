@@ -36,7 +36,6 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/src/Application.o \
-	${OBJECTDIR}/src/AudioManager.o \
 	${OBJECTDIR}/src/Editor.o \
 	${OBJECTDIR}/src/Enemy.o \
 	${OBJECTDIR}/src/Game.o \
@@ -47,6 +46,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/Player.o \
 	${OBJECTDIR}/src/Projectile.o \
 	${OBJECTDIR}/src/Timer.o \
+	${OBJECTDIR}/src/Utility.o \
 	${OBJECTDIR}/src/command.o \
 	${OBJECTDIR}/src/main.o \
 	${OBJECTDIR}/src/multiLoop.o \
@@ -81,11 +81,6 @@ ${OBJECTDIR}/src/Application.o: src/Application.cpp
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/Application.o src/Application.cpp
-
-${OBJECTDIR}/src/AudioManager.o: src/AudioManager.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src
-	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/AudioManager.o src/AudioManager.cpp
 
 ${OBJECTDIR}/src/Editor.o: src/Editor.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
@@ -136,6 +131,11 @@ ${OBJECTDIR}/src/Timer.o: src/Timer.cpp
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/Timer.o src/Timer.cpp
+
+${OBJECTDIR}/src/Utility.o: src/Utility.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/Utility.o src/Utility.cpp
 
 ${OBJECTDIR}/src/command.o: src/command.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src

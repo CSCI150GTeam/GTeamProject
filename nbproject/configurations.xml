@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configurationDescriptor version="90">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
-    <logicalFolder name="f2"
-                   displayName="resources"
-                   projectFiles="true"
-                   kind="ROOT">
+    <logicalFolder name="f2" displayName="resources" projectFiles="true">
+      <itemPath>resources/Xolonium-Regular.ttf</itemPath>
       <itemPath>resources/adventuring_song.mp3</itemPath>
       <itemPath>resources/beat.wav</itemPath>
       <itemPath>resources/high.wav</itemPath>
@@ -61,12 +59,12 @@
         <itemPath>src/net.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f6" displayName="utility" projectFiles="true">
-        <itemPath>src/AudioManager.cpp</itemPath>
-        <itemPath>src/AudioManager.h</itemPath>
         <itemPath>src/Global.cpp</itemPath>
         <itemPath>src/Global.h</itemPath>
         <itemPath>src/Timer.cpp</itemPath>
         <itemPath>src/Timer.h</itemPath>
+        <itemPath>src/Utility.cpp</itemPath>
+        <itemPath>src/Utility.h</itemPath>
       </logicalFolder>
     </logicalFolder>
   </logicalFolder>
@@ -103,6 +101,8 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
+      <item path="resources/Xolonium-Regular.ttf" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="resources/adventuring_song.mp3" ex="false" tool="3" flavor2="0">
       </item>
       <item path="resources/beat.wav" ex="false" tool="3" flavor2="0">
@@ -138,10 +138,6 @@
       <item path="src/Application.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/Application.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/AudioManager.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/AudioManager.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/Editor.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -184,6 +180,10 @@
       <item path="src/Timer.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/Unit.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Utility.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Utility.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/command.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -218,6 +218,8 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="resources/Xolonium-Regular.ttf" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="resources/adventuring_song.mp3" ex="false" tool="3" flavor2="0">
       </item>
       <item path="resources/beat.wav" ex="false" tool="3" flavor2="0">
@@ -253,10 +255,6 @@
       <item path="src/Application.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/Application.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/AudioManager.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/AudioManager.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/Editor.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -299,6 +297,10 @@
       <item path="src/Timer.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/Unit.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Utility.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Utility.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/command.cpp" ex="false" tool="1" flavor2="0">
       </item>

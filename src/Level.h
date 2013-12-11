@@ -13,7 +13,7 @@ using namespace std;
 class Level
 {
 public:
-    Level();
+    Level(int);
     ~Level();
     
     void update();
@@ -22,6 +22,11 @@ public:
     
     Player* getPlayer(int);
 private:
+    void loadSpawns(string);
+    
+    SDL_Rect p1Spawn;
+    SDL_Rect p2Spawn;
+            
     LevelGrid* grid;
     Player* player1;
     //Player* player2;

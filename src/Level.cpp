@@ -1,8 +1,22 @@
 #include "Level.h"
 
-Level::Level()
+Level::Level(int startingLevel)
 {
+    grid = new LevelGrid(SCREEN_WIDTH/32,SCREEN_HEIGHT/32);
+    player1 = new Player();
+    //player2 = new Player();
+    enemies = new vector<Enemy*>;
+    projectiles = new vector<Projectile*>;
     
+    switch( startingLevel )
+    {
+        case 1:
+            grid->loadGrid("Resources\\level1.txt");
+            break;
+        case 2:
+            //etc...
+            break;
+    }
 }
 
 Level::~Level()
