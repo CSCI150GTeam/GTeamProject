@@ -7,6 +7,8 @@ Application::Application()
     game = NULL;
     
     audio = NULL;
+    
+    mainScreenSurface = SDL_SetVideoMode(SCREEN_WIDTH,SCREEN_HEIGHT,32,SDL_SWSURFACE);
 }
 
 //Destructor
@@ -60,4 +62,9 @@ void Application::runApplication()
                 break; //Run game loop
         }
     }
+}
+
+SDL_Surface* Application::getScreen()
+{
+    return mainScreenSurface;
 }

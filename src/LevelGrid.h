@@ -14,6 +14,7 @@
 #include "SDL/SDL_image.h"
 #include <fstream>
 #include "Global.h"
+
 using namespace std;
 
 const string BRICK_IMG = "C:/Users/Lena/Documents/NetBeansProjects/SDL_Project/brick32.jpg"; //1

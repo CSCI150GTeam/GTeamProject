@@ -65,6 +65,7 @@
       <logicalFolder name="f6" displayName="utility" projectFiles="true">
         <itemPath>src/AudioManager.cpp</itemPath>
         <itemPath>src/AudioManager.h</itemPath>
+        <itemPath>src/Global.cpp</itemPath>
         <itemPath>src/Global.h</itemPath>
         <itemPath>src/Timer.cpp</itemPath>
         <itemPath>src/Timer.h</itemPath>
@@ -155,6 +156,8 @@
       <item path="src/Game.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/Game.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Global.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/Global.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -272,6 +275,8 @@
       <item path="src/Game.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/Game.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Global.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/Global.h" ex="false" tool="3" flavor2="0">
       </item>

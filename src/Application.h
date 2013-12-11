@@ -28,8 +28,9 @@ public:
     ~Application();
     bool initializeApplication();
     void runApplication();
+    SDL_Surface* getScreen();
 private:
-    //SDL_Surface* mainScreenSurface;
+    SDL_Surface* mainScreenSurface;
     int gameState;
     
     //Editor* editor;

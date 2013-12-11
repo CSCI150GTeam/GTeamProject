@@ -1,4 +1,5 @@
 #include "LevelGrid.h"
+#include "Application.h"
 
 LevelGrid::LevelGrid(int width, int length)
 {

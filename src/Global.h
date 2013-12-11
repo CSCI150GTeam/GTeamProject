@@ -6,7 +6,7 @@
 const int SCREEN_WIDTH = 1280;
 const int SCREEN_HEIGHT = 768;
 
-const SDL_Surface* mainScreenSurface = SDL_SetVideoMode(SCREEN_WIDTH,SCREEN_HEIGHT,32,SDL_SWSURFACE);
+extern SDL_Surface* mainScreenSurface;
 
 const int GS_EXIT = -1;
 const int GS_MENU = 1;
