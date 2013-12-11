@@ -11,9 +11,10 @@ public:
     ~Game();
     
     int runGame();
+    int multiGame(int);
     int pauseGame();
-private:
-    Level* currentLevel;
+    bool playerUno;
+    Level* currentLevel;       
 };
 
 #endif

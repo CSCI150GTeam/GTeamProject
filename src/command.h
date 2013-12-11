@@ -8,15 +8,18 @@
 #ifndef COMMAND_H
 #define	COMMAND_H
 
+#include "Game.h"
+
 class command{
     int sock;
     int endturn;
     char turn[200];
+    Game *gp;
 public:
-    command(int);
+    command(int, Game*);
     ~command();    	    
     void push(char*);
-    void take(char*);
+    void take();
     void execute();
 };
 
