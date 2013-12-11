@@ -5,15 +5,15 @@
 
 Game::Game()
 {
-
+    
 }
 
 Game::~Game()
 {
-
+    
 }
 
-int Game::runGameLoop(bool)
+int Game::runGame(bool)
 {
     Timer fps;
     const int FRAMES_PER_SECOND = 30;
@@ -59,12 +59,11 @@ int Game::runGameLoop(bool)
                     case SDLK_j:;
                         break;
                     case SDLK_ESCAPE:
-                        pauseGameLoop();
+                        pauseGame();
                         ;
                         break;
                 }
                 break;
-
             default:
                 break;
         }
@@ -73,14 +72,14 @@ int Game::runGameLoop(bool)
         currentLevel -> update();
 
         //Draw
-        //map grid
+        currentLevel -> drawGrid();
         currentLevel -> drawUnits();
         if (SDL_Flip(mainScreenSurface) == -1)
             return -1;
     }
 }
 
-void Game::pauseGameLoop()
+void Game::pauseGame()
 {
     
 }

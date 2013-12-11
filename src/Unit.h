@@ -25,7 +25,6 @@ protected:
     int yVel;                     //the y velocity
     int frame;                    //its current frame
     int status;                   //its animation status
-    SDL_Surface* sprite;
 };
 
 #endif
