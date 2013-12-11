@@ -3,8 +3,9 @@
 
 #include <vector>
 
-#include "Player.h"
 #include "Enemy.h"
+#include "LevelGrid.h"
+#include "Player.h"
 #include "Projectile.h"
 
 using namespace std;
@@ -16,10 +17,12 @@ public:
     ~Level();
     
     void update();
+    void drawGrid();
     void drawUnits();
     
     Player* getPlayer(int);
 private:
+    LevelGrid* grid;
     Player* player1;
     //Player* player2;
     vector<Enemy*>* enemies;

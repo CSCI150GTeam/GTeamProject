@@ -1,3 +1,6 @@
+#ifndef UNIT_H
+#define	UNIT_H
+
 #include <iostream>
 #include "SDL/SDL.h"
 #include "Timer.h"
@@ -5,8 +8,6 @@
 using namespace std;
 
 // Unit (Global characteristics for players and enemies)
-#ifndef UNIT_H
-#define	UNIT_H
 
 class Unit
 {

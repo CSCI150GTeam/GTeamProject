@@ -44,7 +44,6 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/Level.o \
 	${OBJECTDIR}/src/LevelGrid.o \
 	${OBJECTDIR}/src/Menu.o \
-	${OBJECTDIR}/src/MenuView.o \
 	${OBJECTDIR}/src/Player.o \
 	${OBJECTDIR}/src/Projectile.o \
 	${OBJECTDIR}/src/Timer.o \
@@ -122,11 +121,6 @@ ${OBJECTDIR}/src/Menu.o: src/Menu.cpp
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/Menu.o src/Menu.cpp
-
-${OBJECTDIR}/src/MenuView.o: src/MenuView.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src
-	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/MenuView.o src/MenuView.cpp
 
 ${OBJECTDIR}/src/Player.o: src/Player.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src

@@ -3,11 +3,11 @@
  * Author: mcnightthao
  * 
  * Created on December 9, 2013, 1:22 PM
- 
+ */
 
 #include "Menu.h"
 #include "Application.h"
-
+/*
 Menu::Menu(int x, int y, int w, int h) {
        
     box.x = x; 
@@ -57,11 +57,5 @@ int Menu::MS_handleEvents(){
      }
     
     
-    
-    
-    
-    
-    
 }
- * 
- * */
+ */

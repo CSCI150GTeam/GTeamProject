@@ -1,6 +1,6 @@
-/*
 #include "Editor.h"
 
+/*
 Editor::Editor()
 {
     editorState = EDT_NLOAD;
@@ -39,7 +39,6 @@ void Editor::editExisting(int input);
 void Editor::editNew()
 {
     grid = new MapGrid(10,10);
-    
 }
 
 */

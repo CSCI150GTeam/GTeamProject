@@ -11,8 +11,8 @@ public:
     Game();
     ~Game();
     
-    int runGameLoop(bool);
-    void pauseGameLoop();
+    int runGame(bool);
+    void pauseGame();
 private:
     Level* currentLevel;
 };

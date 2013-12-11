@@ -4,15 +4,11 @@
  * Header file
  */
 
-/*
 #ifndef EDITOR_H
 #define	EDITOR_H
 
-#include "MapGrid.h"
-
+#include "LevelGrid.h"
 #include "SDL/SDL.h"
-
-class Application;
 
 using namespace std;
 
@@ -22,6 +18,7 @@ const int EDT_LOAD = 1;
 
 class Editor
 {
+/*
 public:
     Editor();
     ~Editor();
@@ -30,9 +27,7 @@ public:
 private:
     int editorState;
     MapGrid* grid;
-    
+*/    
 };
 
 #endif
-
-*/

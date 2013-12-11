@@ -12,12 +12,11 @@
 #include "SDL/SDL.h"
 #include "SDL/SDL_mixer.h"
 
-#include "Global.h"
-//#include "Editor.h"
-#include "Game.h"
-#include "Menu.h"
-
 #include "AudioManager.h"
+#include "Editor.h"
+#include "Game.h"
+#include "Global.h"
+#include "Menu.h"
 
 using namespace std;
 
@@ -28,15 +27,13 @@ public:
     ~Application();
     bool initializeApplication();
     void runApplication();
-    SDL_Surface* getScreen();
 private:
-    SDL_Surface* mainScreenSurface;
     int gameState;
     
-    //Editor* editor;
-    Game* game;
-    
     AudioManager* audio;
+    Editor* editor;
+    Menu* menu;
+    Game* game;
 };
 
 #endif

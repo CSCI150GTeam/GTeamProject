@@ -17,7 +17,7 @@
 
 using namespace std;
 
-const string BRICK_IMG = "C:/Users/Lena/Documents/NetBeansProjects/SDL_Project/brick32.jpg"; //1
+const string BRICK_IMG = "brick32.jpg"; //1
 const string DIRT_IMG = "dirt32.jpg"; //2
 const string DIRTYBIRCK_IMG = "dirtybrick32.jpg"; //3
 const string GRASS_IMG = "grass32.jpg"; //4

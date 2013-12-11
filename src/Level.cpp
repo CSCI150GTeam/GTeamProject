@@ -30,6 +30,11 @@ void Level::drawUnits()
         projectiles -> at(j) -> draw();
 }
 
+void Level::drawGrid()
+{
+    grid->drawGrid();
+}
+
 Player* Level::getPlayer(int player)
 {
     if( player == 1 )
