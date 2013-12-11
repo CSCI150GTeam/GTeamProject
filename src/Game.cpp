@@ -35,26 +35,41 @@ int Game::runGameLoop(bool)
                 switch (event.key.keysym.sym)
                 {
                     case SDLK_w:
-                        currentLevel -> getPlayer(1) -> setYVel(-16);
+                        currentLevel->getPlayer(1)->setYVel(-16);
+                        //currentLevel->getPlayer(2)->setYVel(-16);
                         break;
-                    case SDLK_s:;
+                    case SDLK_s:
+                        currentLevel->getPlayer(1)->setYVel(+16);
+                        //currentLevel->getPlayer(2)->setYVel(+16);
                         break;
-                    case SDLK_a:;
+                    case SDLK_a:
+                        currentLevel->getPlayer(1)->setXVel(-16);
+                        //currentLevel->getPlayer(2)->setXVel(-16);
                         break;
-                    case SDLK_d:;
+                    case SDLK_d:
+                        currentLevel->getPlayer(1)->setXVel(+16);
+                        //currentLevel->getPlayer(2)->setXVel(+16);
                         break;
                 }
                 break;
             case (SDL_KEYUP):
                 switch (event.key.keysym.sym)
                 {
-                    case SDLK_w:;
+                    case SDLK_w:
+                        currentLevel->getPlayer(1)->setYVel(-16);
+                        //currentLevel->getPlayer(2)->setYVel(-16);
                         break;
-                    case SDLK_s:;
+                    case SDLK_s:
+                        currentLevel->getPlayer(1)->setYVel(+16);
+                        //currentLevel->getPlayer(2)->setYVel(+16);
                         break;
-                    case SDLK_a:;
+                    case SDLK_a:
+                        currentLevel->getPlayer(1)->setXVel(-16);
+                        //currentLevel->getPlayer(2)->setXVel(-16);
                         break;
-                    case SDLK_d:;
+                    case SDLK_d:
+                        currentLevel->getPlayer(1)->setXVel(+16);
+                        //currentLevel->getPlayer(2)->setXVel(+16);
                         break;
                     case SDLK_j:;
                         break;
