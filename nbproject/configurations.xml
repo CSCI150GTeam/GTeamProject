@@ -1,30 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configurationDescriptor version="90">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
-    <logicalFolder name="Resources" displayName="Resources" projectFiles="true">
-      <logicalFolder name="f1" displayName="audio" projectFiles="true">
-        <itemPath>resources/audio/beat.wav</itemPath>
-        <itemPath>resources/audio/high.wav</itemPath>
-        <itemPath>resources/audio/low.wav</itemPath>
-        <itemPath>resources/audio/medium.wav</itemPath>
-      </logicalFolder>
-      <logicalFolder name="f4" displayName="fonts" projectFiles="true">
-        <itemPath>resources/test/lazy.ttf</itemPath>
-      </logicalFolder>
-      <logicalFolder name="f2" displayName="images" projectFiles="true">
-        <itemPath>../../../Downloads/Menus/1380036_577822825616379_839244702_n.jpg</itemPath>
-        <itemPath>../../../Downloads/Menus/menu2.png</itemPath>
-        <itemPath>../../../Downloads/Menus/menu3.png</itemPath>
-        <itemPath>../../../Downloads/Menus/menu4.png</itemPath>
-        <itemPath>../../../Downloads/Menus/menu5.png</itemPath>
-      </logicalFolder>
-      <logicalFolder name="f3" displayName="levels" projectFiles="true">
-        <itemPath>resources/levels/level.txt</itemPath>
-        <itemPath>resources/levels/mLv1.txt</itemPath>
-        <itemPath>resources/levels/sLv1.txt</itemPath>
-        <itemPath>resources/levels/sLv2.txt</itemPath>
-        <itemPath>resources/levels/tiles.txt</itemPath>
-      </logicalFolder>
+    <logicalFolder name="f2"
+                   displayName="resources"
+                   projectFiles="true"
+                   kind="ROOT">
+      <itemPath>resources/adventuring_song.mp3</itemPath>
+      <itemPath>resources/beat.wav</itemPath>
+      <itemPath>resources/high.wav</itemPath>
+      <itemPath>resources/lazy.ttf</itemPath>
+      <itemPath>resources/level.txt</itemPath>
+      <itemPath>resources/low.wav</itemPath>
+      <itemPath>resources/mLv1.txt</itemPath>
+      <itemPath>resources/medium.wav</itemPath>
+      <itemPath>resources/menu2.png</itemPath>
+      <itemPath>resources/menu3.png</itemPath>
+      <itemPath>resources/menu4.png</itemPath>
+      <itemPath>resources/menu5.png</itemPath>
+      <itemPath>resources/menuHighlight.jpg</itemPath>
+      <itemPath>resources/sLv1.txt</itemPath>
+      <itemPath>resources/sLv2.txt</itemPath>
+      <itemPath>resources/tiles.txt</itemPath>
     </logicalFolder>
     <logicalFolder name="f1" displayName="src" projectFiles="true">
       <logicalFolder name="f3" displayName="core" projectFiles="true">
@@ -108,38 +104,37 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
-      <item path="../../../Downloads/Menus/1380036_577822825616379_839244702_n.jpg"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="resources/adventuring_song.mp3" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="../../../Downloads/Menus/menu2.png" ex="false" tool="3" flavor2="0">
+      <item path="resources/beat.wav" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="../../../Downloads/Menus/menu3.png" ex="false" tool="3" flavor2="0">
+      <item path="resources/high.wav" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="../../../Downloads/Menus/menu4.png" ex="false" tool="3" flavor2="0">
+      <item path="resources/lazy.ttf" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="../../../Downloads/Menus/menu5.png" ex="false" tool="3" flavor2="0">
+      <item path="resources/level.txt" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/audio/beat.wav" ex="false" tool="3" flavor2="0">
+      <item path="resources/low.wav" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/audio/high.wav" ex="false" tool="3" flavor2="0">
+      <item path="resources/mLv1.txt" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/audio/low.wav" ex="false" tool="3" flavor2="0">
+      <item path="resources/medium.wav" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/audio/medium.wav" ex="false" tool="3" flavor2="0">
+      <item path="resources/menu2.png" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/levels/level.txt" ex="false" tool="3" flavor2="0">
+      <item path="resources/menu3.png" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/levels/mLv1.txt" ex="false" tool="3" flavor2="0">
+      <item path="resources/menu4.png" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/levels/sLv1.txt" ex="false" tool="3" flavor2="0">
+      <item path="resources/menu5.png" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/levels/sLv2.txt" ex="false" tool="3" flavor2="0">
+      <item path="resources/menuHighlight.jpg" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/levels/tiles.txt" ex="false" tool="3" flavor2="0">
+      <item path="resources/sLv1.txt" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/test/lazy.ttf" ex="false" tool="3" flavor2="0">
+      <item path="resources/sLv2.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/tiles.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/Application.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -226,38 +221,37 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="../../../Downloads/Menus/1380036_577822825616379_839244702_n.jpg"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="resources/adventuring_song.mp3" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="../../../Downloads/Menus/menu2.png" ex="false" tool="3" flavor2="0">
+      <item path="resources/beat.wav" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="../../../Downloads/Menus/menu3.png" ex="false" tool="3" flavor2="0">
+      <item path="resources/high.wav" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="../../../Downloads/Menus/menu4.png" ex="false" tool="3" flavor2="0">
+      <item path="resources/lazy.ttf" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="../../../Downloads/Menus/menu5.png" ex="false" tool="3" flavor2="0">
+      <item path="resources/level.txt" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/audio/beat.wav" ex="false" tool="3" flavor2="0">
+      <item path="resources/low.wav" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/audio/high.wav" ex="false" tool="3" flavor2="0">
+      <item path="resources/mLv1.txt" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/audio/low.wav" ex="false" tool="3" flavor2="0">
+      <item path="resources/medium.wav" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/audio/medium.wav" ex="false" tool="3" flavor2="0">
+      <item path="resources/menu2.png" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/levels/level.txt" ex="false" tool="3" flavor2="0">
+      <item path="resources/menu3.png" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/levels/mLv1.txt" ex="false" tool="3" flavor2="0">
+      <item path="resources/menu4.png" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/levels/sLv1.txt" ex="false" tool="3" flavor2="0">
+      <item path="resources/menu5.png" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/levels/sLv2.txt" ex="false" tool="3" flavor2="0">
+      <item path="resources/menuHighlight.jpg" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/levels/tiles.txt" ex="false" tool="3" flavor2="0">
+      <item path="resources/sLv1.txt" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/test/lazy.ttf" ex="false" tool="3" flavor2="0">
+      <item path="resources/sLv2.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/tiles.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/Application.cpp" ex="false" tool="1" flavor2="0">
       </item>
