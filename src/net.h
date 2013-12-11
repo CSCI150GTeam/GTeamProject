@@ -12,8 +12,8 @@
 #include <winsock2.h>
 #include <ws2tcpip.h>
 
-void server();
-void client(char*);
+int server();
+int client(char*);
 
 #endif	/* NET_H */
 

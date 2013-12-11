@@ -1,4 +1,5 @@
 #include "Application.h"
+#include "net.h"
 
 //Constructor
 
@@ -66,7 +67,17 @@ void Application::runApplication()
                 delete game; */
                 gameState = GS_MENU;
                 break;
-            case GS_GAME_JOIN: case GS_GAME_HOST:
+            //assumes new games for multiplayer
+            case GS_GAME_JOIN: 
+                game= new Game(true);
+                game->playerUno= false;
+                char serv_ip[16];             
+                gameState= game->multiGame(client(serv_ip));
+                break;
+            case GS_GAME_HOST:
+                game= new Game(true);
+                game->playerUno= true;
+                gameState= game->multiGame(server());
                 gameState = GS_MENU;
                 break;
         }

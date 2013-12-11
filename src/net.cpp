@@ -5,7 +5,7 @@ using namespace std;
 
 #define MYPORT "65531"
 
-void server(){
+int server(){
     WSADATA wsaData; 
     if (WSAStartup(MAKEWORD(2,2), &wsaData) != 0){
       fprintf(stderr, "WSAStartup failed.\n");
@@ -26,7 +26,7 @@ void server(){
     if(getaddrinfo(NULL, MYPORT, &hints, &res)!=0){
         cout<<"getaddrinfo Failed.";
         WSACleanup();
-        return;
+        exit(1);
     }
 
     // make a listen socket
@@ -35,7 +35,7 @@ void server(){
         cout<<"\nCreating listen socket failed: "<<WSAGetLastError();
         freeaddrinfo(res);
         WSACleanup();
-        return;
+        exit(1);
     }
     
     //bind the socket
@@ -43,7 +43,7 @@ void server(){
         cout<<"\nBinding listen socket failed: "<<WSAGetLastError();
         freeaddrinfo(res);
         WSACleanup();
-        return;
+        exit(1);
     }
     
     freeaddrinfo(res); 
@@ -53,7 +53,7 @@ void server(){
         cout<<"\nListening failed: "<<WSAGetLastError();
         closesocket(sockfd);
         WSACleanup();
-        return;
+        exit(1);
     }
 
     //accept an incoming connection:
@@ -64,11 +64,12 @@ void server(){
         cout<<"Could not accept: "<<WSAGetLastError();
         closesocket(new_fd);
         WSACleanup();
-        return;
-    }   
+        exit(1);
+    }
+    return new_fd;
 }
 
-void client(char *server){ 
+int client(char *server){ 
     cout<<"\nClient understands server IP as: "<<server;
     
     WSADATA wsaData; 
@@ -87,7 +88,7 @@ void client(char *server){
     if(getaddrinfo(server, MYPORT, &hints, &res)!=0){
         cout<<"\ngetaddrinfo Failed.";
         WSACleanup();
-        return;
+        exit(1);
     }
      
     //create send socket
@@ -96,7 +97,7 @@ void client(char *server){
         cout<<"\nCreating socket failed: "<<WSAGetLastError();
         freeaddrinfo(res);
         WSACleanup();
-        return;
+        exit(1);
     }
     
     //connect to server
@@ -105,7 +106,8 @@ void client(char *server){
         freeaddrinfo(res);
         closesocket(sockfd);
         WSACleanup();
-        return;        
+        exit(1);       
     }   freeaddrinfo(res);
-
+    
+    return sockfd;
 }
