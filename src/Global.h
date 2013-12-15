@@ -27,4 +27,9 @@ const int MS_MULTI = 9;
 const int MS_EDIT = 10;
 const int MS_SET = 11;
 
+const int PLAYER_UP = 1200;
+const int PLAYER_RIGHT = 300;
+const int PLAYER_DOWN = 600;
+const int PLAYER_LEFT = 900;
+
 #endif

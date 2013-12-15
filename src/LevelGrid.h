@@ -10,6 +10,7 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 #include "SDL/SDL.h"
 #include "SDL/SDL_image.h"
 #include <fstream>
@@ -17,7 +18,7 @@
 
 using namespace std;
 
-const string BRICK_IMG = "C:/Users/HAL9000/Documents/NetBeansProjects/GTeamProject/resources/Brick.jpg"; //1
+const string BRICK_IMG = "resources/Brick32.jpg"; //1
 const string DIRT_IMG = "resources/dirt32.jpg"; //2
 const string DIRTYBIRCK_IMG = "resources/dirtybrick32.jpg"; //3
 const string GRASS_IMG = "resources/grass32.jpg"; //4
@@ -42,9 +43,19 @@ public:
     
 private:
     //Variables
-    int** grid;
+    vector< vector<int>*>* grid;
     int width;
     int height;
+    
+    SDL_Surface* brick;
+    SDL_Surface* dirt;
+    SDL_Surface* dirtybrick;
+    SDL_Surface* grass;
+    SDL_Surface* lava;
+    SDL_Surface* redcarpet;
+    SDL_Surface* stone;
+    SDL_Surface* water;
+    SDL_Surface* wood;
     
     //Primary functions
     SDL_Surface* loadImage(string);

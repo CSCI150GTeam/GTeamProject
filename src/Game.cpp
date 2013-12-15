@@ -5,10 +5,12 @@
 
 Game::Game(bool newGame)
 {
-    if( newGame == true )
+    cout << "Creating game object..." << endl;
+    if (newGame == true)
         currentLevel = new Level(1);
     else
-        currentLevel = new Level(-1); //Should read from save file for which level to load
+        currentLevel = new Level(1); //should read level from save file
+    cout << "game object created" << endl;
 }
 
 Game::~Game()
@@ -18,7 +20,6 @@ Game::~Game()
 
 int Game::runGame()
 {
-    bool firstRun = true;
     Timer fps;
     const int FRAMES_PER_SECOND = 30;
 
@@ -27,14 +28,10 @@ int Game::runGame()
     bool quit = false;
 
     while (quit == false) {
-        if(firstRun)
-            cout<<"Starting game loop"<<endl;
         fps.start();
         if (fps.get_ticks() < 1000 / FRAMES_PER_SECOND)
             SDL_Delay((1000 / FRAMES_PER_SECOND) - fps.get_ticks());
 
-        if(firstRun)
-            cout<<"Input"<<endl;
         //Input
         if (SDL_PollEvent(&event)) {
             switch (event.type)
@@ -84,11 +81,13 @@ int Game::runGame()
                             //currentLevel->getPlayer(2)->setXVel(+0);
                             break;
                         case SDLK_ESCAPE:
-                            switch ( pauseGame() )
+                            int x = pauseGame();
+                            switch (x)
                             {
-                                case 1: break;
-                                case 0: return 0;
-                                case -1: return -1;
+                                case false:
+                                    break;
+                                case true:
+                                    return GS_MENU;
                             }
                             break;
                     }
@@ -97,32 +96,29 @@ int Game::runGame()
                     break;
             }
         }
-        if(firstRun)
-            cout<<"Update"<<endl;
         //Update
         currentLevel -> update();
-        
-        if(firstRun)
-            cout<<"Draw"<<endl;
-        
+
         //Draw
         currentLevel -> drawGrid();
         currentLevel -> drawUnits();
-        if(firstRun)
-            cout<<"Flip"<<endl;
+        //displayDebug();
         if (SDL_Flip(mainScreenSurface) == -1)
             cout << "SDL_Flip failed" << endl;
-        firstRun = false;
     }
 }
 
-int Game::pauseGame()
+bool Game::pauseGame()
 {
-    int pauseValue = 1;
+    bool isPaused = true;
     SDL_Event event;
-    SDL_Surface* pauseMenu = Utility::loadImage("resources\\menu3.png");
+    SDL_Surface* pauseMenu = Utility::loadImage("Resources\\menu2.png");
+    if(pauseMenu == NULL)
+        cout<<"Pause menu image didn't load"<<endl;
 
-    while (pauseValue == 1) {
+    while (isPaused)
+    {
+        cout<<"in pause loop";
         if (SDL_PollEvent(&event)) {
             switch (event.type)
             {
@@ -134,17 +130,15 @@ int Game::pauseGame()
                         int y = event.button.y;
                         if (x > 390 && x < 890) {
                             if (y > 134 && y < 234)
-                                return pauseValue;
+                                return false;
                             else if (y > 234 && y < 334)
-                                pauseValue = 0;
-                            else if (y > 334 && y < 444)
-                                pauseValue = -1;
+                                return true;
                         }
                     }
                     break;
                 /**/case SDL_KEYUP:
                     if (event.key.keysym.sym == SDLK_ESCAPE)
-                        return pauseValue;
+                        return false;
                     break;
                 default: break;
             }
@@ -153,7 +147,18 @@ int Game::pauseGame()
         Utility::applySurface(0, 0, pauseMenu);
         text->displayText(523, 158, "Unpause", 46);
         text->displayText(505, 258, "Quit", 46);
-        text->displayText(589, 558, "Exit", 46);
+        if (SDL_Flip(mainScreenSurface) == -1)
+            cout << "SDL_Flip failed" << endl;
     }
-    return pauseValue;
+    SDL_FreeSurface(pauseMenu);
+    return false;
+}
+
+void Game::displayDebug()
+{
+    cout << "Displaying debug" << endl;
+    char* lol;
+    lol = currentLevel->getPlayer(1)->getX();
+    cout << lol << endl;
+    text->displayText(0, 0, lol, 20);
 }

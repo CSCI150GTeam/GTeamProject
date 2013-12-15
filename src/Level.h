@@ -22,16 +22,16 @@ public:
     
     Player* getPlayer(int);
 private:
-    void loadSpawns(string);
+    //void loadSpawns(string);
     
-    SDL_Rect p1Spawn;
-    SDL_Rect p2Spawn;
+    //SDL_Rect p1Spawn;
+    //SDL_Rect p2Spawn;
             
     LevelGrid* grid;
     Player* player1;
     //Player* player2;
-    vector<Enemy*>* enemies;
-    vector<Projectile*>* projectiles;
+    //vector<Enemy*>* enemies;
+    //vector<Projectile*>* projectiles;
 };
 
 #endif

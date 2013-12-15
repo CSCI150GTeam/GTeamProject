@@ -1,5 +1,6 @@
 #include "net.h"
 #include "command.h"
+/*
 
 command::command(int sockfd, Game *gameID){sock= sockfd; endturn= 0; gp= gameID;}
 command::~command(){}
@@ -75,3 +76,4 @@ void command::execute(){
     }
     endturn= 0; turn[endturn]= '\0';
 }
+*/

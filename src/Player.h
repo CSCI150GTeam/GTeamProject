@@ -7,33 +7,31 @@
 #include "SDL/SDL_image.h"
 #include "SDL/SDL_mixer.h"
 #include "Global.h"
+#include <cstdlib>
 using namespace std;
 
 class Player : public Unit
 {
 public:
-    Player();
+    Player(int,int);
     ~Player();
-    //void handle_events();        //handles input
-    //void move();                 //moves the figure
-    //void show();                 //shows the figure
     void apply_surface( int, int, SDL_Surface*, SDL_Rect* );
     void set_clips();
     SDL_Surface *load_image( string );
     
     void update();
     void draw();
+    
+    char* getX();
+    char* getY();
+    char* getXVel();
+    char* getYVel();
+    char* getDirection();
 private:
     
     //The dimensions of the image
     const int PLAYER_WIDTH = 32;
     const int PLAYER_HEIGHT = 32;
-
-    //The direction status of the stick figure
-    const int PLAYER_UP = 0;
-    const int PLAYER_RIGHT = 1;
-    const int PLAYER_DOWN = 2;
-    const int PLAYER_LEFT = 3;
 
     //The surfaces
     SDL_Surface *player_sprite_up = NULL;

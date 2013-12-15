@@ -3,7 +3,7 @@
  * Author: Blaize
  *
  * Created on December 10, 2013, 12:46 AM
- */
+ 
 
 #ifndef COMMAND_H
 #define	COMMAND_H
@@ -23,5 +23,5 @@ public:
     void execute();
 };
 
-#endif	/* COMMAND_H */
+#endif */
 

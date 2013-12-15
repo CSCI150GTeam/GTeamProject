@@ -37,18 +37,17 @@ bool Application::initializeApplication()
 
 void Application::runApplication()
 {
-    cout<<"running main app loop"<<endl;
-    while (gameState != GS_EXIT)
-    {
-        cout<<"gameState is "<<gameState<<endl;
+    cout << "running main app loop" << endl;
+    while (gameState != GS_EXIT) {
+        cout << "gameState is " << gameState << endl;
         switch (gameState)
         {
             case GS_MENU:
-                cout<<"running menu loop"<<endl;
+                cout << "running menu loop" << endl;
                 menu = new Menu();
                 gameState = menu -> runMenu();
                 delete menu;
-                cout<<"exiting menu loop, gameState is "<<gameState<<endl;
+                cout << "exiting menu loop, gameState is " << gameState << endl;
                 break;
             case GS_EDIT_NEW: case GS_EDIT_LOAD:
                 /*
@@ -58,27 +57,13 @@ void Application::runApplication()
                 delete editor; */
                 gameState = GS_MENU;
                 break;
-            case GS_GAME_NEW: case GS_GAME_CONT:
-                /*
-                if( gameState == GS_GAME_NEW )
-                    game = new Game(true);
-                else game = new Game(false);
+            case GS_GAME_NEW:  case GS_GAME_CONT: case GS_GAME_HOST: case GS_GAME_JOIN:
+                cout<<"case GS_GAME_NEW"<<endl;
+                Game* game = new Game(true);
+                cout<<"game object created, running loop"<<endl;
                 gameState = game -> runGame();
-                delete game; */
-                gameState = GS_MENU;
-                break;
-            //assumes new games for multiplayer
-            case GS_GAME_JOIN: 
-                game= new Game(true);
-                game->playerUno= false;
-                char serv_ip[16];             
-                gameState= game->multiGame(client(serv_ip));
-                break;
-            case GS_GAME_HOST:
-                game= new Game(true);
-                game->playerUno= true;
-                gameState= game->multiGame(server());
-                gameState = GS_MENU;
+                cout<<"exiting loop"<<endl;
+                delete game;
                 break;
         }
     }

@@ -11,10 +11,12 @@ public:
     ~Game();
     
     int runGame();
-    int multiGame(int);
-    int pauseGame();
-    bool playerUno;
-    Level* currentLevel;       
+    bool pauseGame();
+    void displayDebug();
+    Level* currentLevel;
+    
+    //bool playerUno;
+    //int multiGame(int);
 };
 
 #endif

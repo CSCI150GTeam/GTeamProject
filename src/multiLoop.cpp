@@ -3,6 +3,7 @@
 #include "Application.h"
 #include "Global.h"
 #include "command.h"
+/*
 
 int Game::multiGame(int sockfd)
 {
@@ -99,3 +100,4 @@ int Game::multiGame(int sockfd)
         firstRun = false;
     }
 }
+*/

@@ -2,9 +2,11 @@
 
 Level::Level(int startingLevel)
 {
-    grid = new LevelGrid(SCREEN_WIDTH/32,SCREEN_HEIGHT/32);
-    player1 = new Player();
-    //player2 = new Player();
+    cout<<"Creating level object"<<endl;
+    grid = new LevelGrid(40,24);
+    grid -> loadGrid("Resources\\sLv1.txt");
+    player1 = new Player(0,0);
+    /*player2 = new Player();
     enemies = new vector<Enemy*>;
     projectiles = new vector<Projectile*>;
     
@@ -16,7 +18,8 @@ Level::Level(int startingLevel)
         case 2:
             //etc...
             break;
-    }
+    } */
+    cout<<"level object created"<<endl;
 }
 
 Level::~Level()
@@ -27,21 +30,21 @@ Level::~Level()
 void Level::update()
 {
     player1 -> update();
-    //player2 -> update();
+    /*player2 -> update();
     for( int i = 0; i < enemies->size(); i++)
         enemies -> at(i) -> update();
     for( int j = 0; j < projectiles->size(); j++)
-        projectiles -> at(j) -> update();
+        projectiles -> at(j) -> update(); */
 }
 
 void Level::drawUnits()
 {
     player1 -> draw();
-    //player2 -> draw();
+    /*player2 -> draw();
     for( int i = 0; i < enemies->size(); i++)
         enemies -> at(i) -> draw();
     for( int j = 0; j < projectiles->size(); j++)
-        projectiles -> at(j) -> draw();
+        projectiles -> at(j) -> draw(); */
 }
 
 void Level::drawGrid()

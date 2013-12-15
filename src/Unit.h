@@ -20,12 +20,12 @@ public:
     virtual void draw() = 0;
 protected:
     int health;                   //unit health percentage
-    int x;                        //the x offset
-    int y;                        //the y offset
+    int xOffset;                        //the x offset
+    int yOffset;                        //the y offset
     int xVel;                     //the x velocity
     int yVel;                     //the y velocity
     int frame;                    //its current frame
-    int status;                   //its animation status
+    int direction;                   //its animation status
 };
 
 #endif
