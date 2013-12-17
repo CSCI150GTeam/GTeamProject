@@ -10,9 +10,10 @@
 Menu::Menu()
 {
     currentView = MS_MAIN;
-    menuScreen_2 = load_image("resources\\menu2.png");
-    menuScreen_3 = load_image("resources\\menu3.png");
-    menuScreen_5 = load_image("resources\\menu5.png");
+    shouldDrawScreen = true;
+    menuScreen_1 = Utility::loadImage("resources\\menu1.png");
+    menuScreen_3 = Utility::loadImage("resources\\menu3.png");
+    menuScreen_5 = Utility::loadImage("resources\\menu5.png");
 }
 
 Menu::~Menu()
@@ -23,26 +24,28 @@ Menu::~Menu()
 int Menu::runMenu()
 {
     SDL_Event event;
-    while (true) {
-        if (SDL_PollEvent(&event)) {
+    while (true)
+    {
+        if (SDL_PollEvent(&event))
+        {
             if (event.type == SDL_QUIT)
-                return -1;
-            else if (event.type == SDL_MOUSEBUTTONUP) {
+                return GS_EXIT;
+            else if (event.type == SDL_MOUSEBUTTONUP)
+            {
                 int x = event.button.x;
                 int y = event.button.y;
-                cout << "received click at (" << x << "," << y << ")" << endl;
                 int rValue = handleEvents(x, y);
-                cout << "rValue = " << rValue << endl;
                 if (rValue <= MAX_GS)
-                {
-                    cout<<"Received game state change"<<endl;
                     return rValue;
-                }
                 else
+                {
+                    shouldDrawScreen = true;
                     currentView = rValue;
+                }
             }
         }
-        drawScreen(currentView);
+        if( shouldDrawScreen )
+            drawScreen(currentView);
     }
 }
 
@@ -66,11 +69,17 @@ int Menu::handleEvents(int x, int y)
                     return currentView;
                 break;
 
-            case MS_SINGLE:// single player 
+            case MS_SINGLE:// single player
                 if (y > 134 && y < 234)
                     return GS_GAME_NEW;
                 else if (y > 234 && y < 334)
-                    return GS_GAME_CONT;
+                {
+                    if( Utility::checkSaveData() )
+                        return GS_GAME_CONT;
+                    else
+                        return currentView;
+                        break;
+                }
                 else if (y > 334 && y < 434)
                     return MS_MAIN;
                 else
@@ -113,12 +122,15 @@ int Menu::handleEvents(int x, int y)
 
 void Menu::drawScreen(int)
 {
+    LevelGrid* grid = new LevelGrid(1280,768);
+    grid -> loadGrid("resources\\menuBackground.txt");
+    grid -> drawGrid();
     int textSize = 46;
     switch (currentView)
     {
         case MS_MAIN:
             //Buttons
-            Menu_applySurface(0, 0, menuScreen_5);
+            Utility::applySurface(0, 0, menuScreen_5);
             //Text
             text -> displayText(466, 158, "Single Player", textSize);
             text -> displayText(487, 258, "Multiplayer", textSize);
@@ -128,15 +140,18 @@ void Menu::drawScreen(int)
             break;
         case MS_SINGLE:
             //Buttons
-            Menu_applySurface(0, 0, menuScreen_3);
+            Utility::applySurface(0, 0, menuScreen_3);
             //Text
             text -> displayText(501, 158, "New Game", textSize);
-            text -> displayText(442, 258, "Continue", textSize);
+            if( Utility::checkSaveData() )
+                text -> displayText(442, 258, "Continue", textSize);
+            else
+                text -> displayText(422,258,"No Save Data", textSize);
             text -> displayText(573, 358, "Back", textSize);
             break;
         case MS_MULTI:
             //Buttons
-            Menu_applySurface(0, 0, menuScreen_3);
+            Utility::applySurface(0, 0, menuScreen_3);
             //Text
             text -> displayText(499,158, "Join Game", textSize);
             text -> displayText(495,258, "Host Game", textSize);
@@ -144,16 +159,14 @@ void Menu::drawScreen(int)
             break;
         case MS_EDIT:
             //Buttons
-            Menu_applySurface(0, 0, menuScreen_3);
+            Utility::applySurface(0, 0, menuScreen_3);
             //Text
             text -> displayText(518, 158, "New Map", textSize);
             text -> displayText(509, 258, "Load Map", textSize);
             text -> displayText(573, 358, "Back", textSize);
             break;
         case MS_SET:
-            //Buttons
-            Menu_applySurface(0, 0, menuScreen_2);
-            //Text
+            Utility::applySurface(0, 0, menuScreen_1);
             text -> displayText(573, 158, "Back", textSize);
         default:
             break;
@@ -161,32 +174,6 @@ void Menu::drawScreen(int)
 
     if (SDL_Flip(mainScreenSurface))
         cout << "SDL_Flip failed" << endl;
-}
-
-void Menu::Menu_applySurface(int x, int y, SDL_Surface* source)
-{
-    SDL_Rect offset;
-
-    //Get the offsets
-    offset.x = x;
-    offset.y = y;
-
-    SDL_BlitSurface(source, NULL, mainScreenSurface, &offset);
-}
-
-SDL_Surface *Menu::load_image(std::string filename)
-{
-    SDL_Surface* loadedImage = NULL;
-    SDL_Surface* optimizedImage = NULL;
-    loadedImage = IMG_Load(filename.c_str());
-
-    if (loadedImage != NULL) {
-
-        optimizedImage = SDL_DisplayFormat(loadedImage);
-        SDL_FreeSurface(loadedImage);
-        if (optimizedImage != NULL) {
-            SDL_SetColorKey(optimizedImage, SDL_SRCCOLORKEY, SDL_MapRGB(optimizedImage->format, 0, 0xFF, 0xFF));
-        } else cout << "image failed to load in load_image function" << endl;
-    }
-    return optimizedImage;
+    
+    shouldDrawScreen = false;
 }

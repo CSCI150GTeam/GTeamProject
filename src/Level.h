@@ -17,16 +17,11 @@ public:
     ~Level();
     
     void update();
-    void drawGrid();
-    void drawUnits();
-    
+    void draw();
     Player* getPlayer(int);
+    bool inEndzone();
 private:
-    //void loadSpawns(string);
-    
-    //SDL_Rect p1Spawn;
-    //SDL_Rect p2Spawn;
-            
+    void loadGrid(int);
     LevelGrid* grid;
     Player* player1;
     //Player* player2;

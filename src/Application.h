@@ -26,11 +26,10 @@ class Application
 public:
     Application();
     ~Application();
-    bool initializeApplication();
+    
     void runApplication();
 private:
     int gameState;
-    
     Editor* editor;
     Menu* menu;
     Game* game;

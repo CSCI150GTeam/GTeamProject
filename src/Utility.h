@@ -8,6 +8,7 @@
 #define	UTILITY_H
 
 #include <iostream>
+#include <fstream>
 
 #include "SDL/SDL.h"
 #include "SDL/SDL_image.h"
@@ -22,17 +23,16 @@ namespace Utility
 {
     void applySurface(int,int,SDL_Surface*);
     SDL_Surface* loadImage(string);
+    bool checkSaveData();
 
     class Audio
     {
     public:
         Audio();
         ~Audio();
-        void loadSound(string);
         void playSound(string);
-        //void clean_up();
-
     private:
+        bool loadSounds();
         Mix_Chunk* soundEffect1;
         Mix_Music* music1;
     };

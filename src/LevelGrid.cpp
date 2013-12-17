@@ -2,25 +2,19 @@
 
 LevelGrid::LevelGrid(int width, int height)
 {
-    cout << "creating level grid object" << endl;
     //initialize variables
     width = width;
     height = height;
-    cout << "Width x height is" << width << " x " << height << endl;
     grid = new vector<vector<int>*>;
 
-    cout << "Filling grid" << endl;
     //fill grid with int arrays
     for (int i = 0; i < height; i++)
         grid->push_back(new vector<int>);
-    cout << "vector has size" << grid->size() << endl;
 
-    cout << "filling grid with 1s" << endl;
-    //assign 0s to all slots in the grid
+    //assign 1s to all slots in the grid
     for (int i = 0; i < height; i++)
         for (int j = 0; j < width; j++)
             grid->at(i)->push_back(1);
-    cout << "level grid object created" << endl;
 
     brick = loadImage(BRICK_IMG);
     dirt = loadImage(DIRT_IMG);
@@ -46,28 +40,39 @@ LevelGrid::~LevelGrid()
     SDL_FreeSurface(wood);
 }
 
+bool LevelGrid::inEndzone(int x, int y)
+{
+    if ((x > endzone.x) && (x < (endzone.x + endzone.w)) && (y > endzone.y) && (y < (endzone.y + endzone.h)))
+        return true;
+    else return false;
+}
+
 void LevelGrid::loadGrid(string filePath)
 {
-    cout << "loading grid" << endl;
     ifstream infile;
     infile.open(filePath.c_str());
-    if (infile.fail())
-        cout << "File read failed";
-    else
-        for (int i = 0; i < 24; i++) {
-            for (int j = 0; j < 40; j++) {
-                int temp;
-                if (infile >> temp)
-                    grid->at(i)->at(j) = temp;
-                else
-                    break;
-            }
-            if (!infile)
+    for (int i = 0; i < 24; i++) {
+        for (int j = 0; j < 40; j++) {
+            int temp;
+            if (infile >> temp)
+                grid->at(i)->at(j) = temp;
+            else
                 break;
         }
+        if (!infile)
+            break;
+    }
+    infile >> p1Spawn.x;
+    infile >> p1Spawn.y;
+    infile >> p2Spawn.x;
+    infile >> p2Spawn.y;
+    infile >> endzone.x;
+    infile >> endzone.y;
+    infile >> endzone.w;
+    infile >> endzone.h;
+    
     infile.close();
-    cout << "grid loaded" << endl;
-    printGrid();
+    //printGrid();
 }
 
 void LevelGrid::printGrid()
@@ -78,6 +83,10 @@ void LevelGrid::printGrid()
         }
         cout << endl;
     }
+    cout << "Player 1 spawn: (" << p1Spawn.x << "," << p1Spawn.y << ")" << endl;
+    cout << "Player 2 spawn: (" << p2Spawn.x << "," << p2Spawn.y << ")" << endl;
+    cout << "Endzone is the area covered by x = " << endzone.x << " to x = " << endzone.x + endzone.w
+            << " and y = " << endzone.y << " to y = " << endzone.y + endzone.h << endl;
 }
 
 void LevelGrid::drawGrid()
@@ -117,6 +126,21 @@ void LevelGrid::drawGrid()
 
             }
     }
+}
+
+SDL_Rect LevelGrid::getP1Spawn()
+{
+    return p1Spawn;
+}
+
+SDL_Rect LevelGrid::getP2Spawn()
+{
+    return p2Spawn;
+}
+
+SDL_Rect LevelGrid::getEndzone()
+{
+    return endzone;
 }
 
 SDL_Surface* LevelGrid::loadImage(string filename)

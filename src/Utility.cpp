@@ -15,56 +15,80 @@ SDL_Surface* Utility::loadImage(string filename)
 {
     SDL_Surface* loadedImage = NULL;
     SDL_Surface* optimizedImage = NULL;
+    
     loadedImage = IMG_Load(filename.c_str());
-    if( loadedImage != NULL )
+    
+    if (loadedImage != NULL)
     {
         optimizedImage = SDL_DisplayFormat(loadedImage);
         SDL_FreeSurface(loadedImage);
+        
+        if (optimizedImage != NULL)
+        {
+            Uint32 colorkey = SDL_MapRGB(optimizedImage->format, 0, 0xFF, 0);
+            SDL_SetColorKey(optimizedImage, SDL_SRCCOLORKEY, colorkey);
+        }
+        else
+            cout << "Error: (Utility.cpp loadImage(string) Optimized image is NULL" << endl;
     }
     else
-        cout<<"Error: Image file failed to load";
+        cout << "Error: (Utility.cpp loadImage(string) Loaded image is NULL" << endl;
     return optimizedImage;
+}
+
+bool Utility::checkSaveData()
+{
+    int temp;
+    ifstream infile;
+    infile.open("resources\\SaveGameData.txt");
+    infile >> temp;
+    if ( infile.fail() )
+    {
+        return false;
+    }
+    infile.close();
+    return true;
 }
 
 Utility::Audio::Audio()
 {
-    //Initialize SDL_Mixer
     if (Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 4096) == -1)
         cout << "Audio didn't open" << endl;
-   
-    soundEffect1 = Mix_LoadWAV( "resources\\audio\\high.wav" );
-    if( soundEffect1 == NULL )
-        cout<<"Sound effect 1 is Null"<<endl;
-    
-    music1 = Mix_LoadMUS( "resources\\audio\\adventuring_song.mp3");
-    if( music1 == NULL )
-        cout<<"Music 1 is Null"<<endl;
-
-    cout<<"\tAudio initialization complete!"<<endl;
+    loadSounds();
 }
 
 Utility::Audio::~Audio()
 {
-    Mix_FreeChunk( soundEffect1 );
-    Mix_FreeMusic( music1 );
+    Mix_FreeChunk(soundEffect1);
+    Mix_FreeMusic(music1);
     Mix_CloseAudio;
 }
 
 void Utility::Audio::playSound(string filename)
 {
-    if(filename == "soundEffect1")
-    {
-        cout<<"playing SE1"<<endl;
-        if( Mix_PlayChannel(-1,soundEffect1,-1) == -1 )
-            cout<<"Error in playing sound"<<endl;
+    if (filename == "soundEffect1") {
+        cout << "playing SE1" << endl;
+        if (Mix_PlayChannel(-1, soundEffect1, -1) == -1)
+            cout << "Error in playing sound" << endl;
     }
-    
-    if(filename == "music1")
-    {
-        cout<<"playing M1"<<endl;
-        if( Mix_PlayMusic(music1,-1) == -1 )
-            cout<<"Error in playing sound"<<endl;
+
+    if (filename == "music1") {
+        cout << "playing M1" << endl;
+        if (Mix_PlayMusic(music1, -1) == -1)
+            cout << "Error in playing sound" << endl;
     }
+}
+
+bool Utility::Audio::loadSounds()
+{
+    soundEffect1 = Mix_LoadWAV("resources\\high.wav");
+    if (soundEffect1 == NULL)
+        cout << "Sound effect 1 is Null" << endl;
+
+    music1 = Mix_LoadMUS("resources\\adventuring_song.mp3");
+    if (music1 == NULL)
+        cout << "Music 1 is Null" << endl;
+    return true;
 }
 
 Utility::Text::Text()

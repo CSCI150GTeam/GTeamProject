@@ -17,6 +17,7 @@
 
 #include "Global.h"
 #include "Utility.h"
+#include "LevelGrid.h"
 
 using namespace std;
 
@@ -26,13 +27,11 @@ public:
     ~Menu();
     int runMenu();
     void drawScreen(int);
-    
-    void Menu_applySurface(int x, int y, SDL_Surface* source); 
-    SDL_Surface *load_image( std::string filename );
 private:
     int currentView; //keeps track of what screen you're on
     int handleEvents(int,int);
-    
+    bool shouldDrawScreen;
+    SDL_Surface* menuScreen_1;
     SDL_Surface* menuScreen_2;
     SDL_Surface* menuScreen_3;
     SDL_Surface* menuScreen_5;

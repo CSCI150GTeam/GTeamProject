@@ -26,7 +26,7 @@ const string LAVA_IMG = "resources/lava32.jpg"; //5
 const string REDCARPET_IMG = "resources/redcarpet32.jpg"; //6
 const string STONE_IMG = "resources/stone32.jpg"; //7
 const string WATER_IMG = "resources/water32.jpg"; //8
-const string WOOD_IMG = "resources/wood32.jpg"; //8
+const string WOOD_IMG = "resources/wood32.jpg"; //9
 
 class LevelGrid
 {
@@ -34,18 +34,24 @@ public:
     LevelGrid(int,int);
     ~LevelGrid();
     
-    //Primary functions
     void drawGrid();
     void loadGrid(string);
-   
-    //Auxillary/debug functions
-    void printGrid();
     
+    bool inEndzone(int,int);
+    
+    SDL_Rect getP1Spawn();
+    SDL_Rect getP2Spawn();
+    SDL_Rect getEndzone();
 private:
-    //Variables
     vector< vector<int>*>* grid;
     int width;
     int height;
+    
+    SDL_Rect p1Spawn;
+    SDL_Rect p2Spawn;
+    SDL_Rect endzone;
+    
+    void printGrid();
     
     SDL_Surface* brick;
     SDL_Surface* dirt;

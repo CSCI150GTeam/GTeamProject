@@ -2,36 +2,52 @@
 <configurationDescriptor version="90">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <logicalFolder name="f2" displayName="resources" projectFiles="true">
-      <itemPath>resources/Xolonium-Regular.ttf</itemPath>
-      <itemPath>resources/adventuring_song.mp3</itemPath>
-      <itemPath>resources/beat.wav</itemPath>
-      <itemPath>resources/brick32.jpg</itemPath>
-      <itemPath>resources/dirt32.jpg</itemPath>
-      <itemPath>resources/dirtyBrick32.jpg</itemPath>
-      <itemPath>resources/foo-red-1.png</itemPath>
-      <itemPath>resources/foo-red-2.png</itemPath>
-      <itemPath>resources/foo-red-3.png</itemPath>
-      <itemPath>resources/foo-red-4.png</itemPath>
-      <itemPath>resources/grass32.jpg</itemPath>
-      <itemPath>resources/high.wav</itemPath>
-      <itemPath>resources/lava32.jpg</itemPath>
-      <itemPath>resources/lazy.ttf</itemPath>
-      <itemPath>resources/level.txt</itemPath>
-      <itemPath>resources/low.wav</itemPath>
-      <itemPath>resources/mLv1.txt</itemPath>
-      <itemPath>resources/medium.wav</itemPath>
-      <itemPath>resources/menu2.png</itemPath>
-      <itemPath>resources/menu3.png</itemPath>
-      <itemPath>resources/menu4.png</itemPath>
-      <itemPath>resources/menu5.png</itemPath>
-      <itemPath>resources/menuHighlight.jpg</itemPath>
-      <itemPath>resources/redCarpet32.jpg</itemPath>
-      <itemPath>resources/sLv1.txt</itemPath>
-      <itemPath>resources/sLv2.txt</itemPath>
-      <itemPath>resources/stone32.jpg</itemPath>
-      <itemPath>resources/tiles.txt</itemPath>
-      <itemPath>resources/water32.jpg</itemPath>
-      <itemPath>resources/wood32.jpg</itemPath>
+      <logicalFolder name="f5" displayName="audio" projectFiles="true">
+        <itemPath>resources/adventuring_song.mp3</itemPath>
+        <itemPath>resources/beat.wav</itemPath>
+        <itemPath>resources/high.wav</itemPath>
+        <itemPath>resources/low.wav</itemPath>
+        <itemPath>resources/medium.wav</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f6" displayName="fonts" projectFiles="true">
+        <itemPath>resources/Xolonium-Regular.ttf</itemPath>
+        <itemPath>resources/lazy.ttf</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f4"
+                     displayName="level files/save game files"
+                     projectFiles="true">
+        <itemPath>resources/menuBackground.txt</itemPath>
+        <itemPath>resources/s1.txt</itemPath>
+        <itemPath>resources/s2.txt</itemPath>
+        <itemPath>resources/s3.txt</itemPath>
+        <itemPath>resources/s4.txt</itemPath>
+        <itemPath>resources/s5.txt</itemPath>
+        <itemPath>resources/saveGameData.txt</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f1" displayName="menu images" projectFiles="true">
+        <itemPath>resources/menu2.png</itemPath>
+        <itemPath>resources/menu3.png</itemPath>
+        <itemPath>resources/menu4.png</itemPath>
+        <itemPath>resources/menu5.png</itemPath>
+        <itemPath>resources/menuHighlight.jpg</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f3" displayName="sprite images" projectFiles="true">
+        <itemPath>resources/foo-red-1.png</itemPath>
+        <itemPath>resources/foo-red-2.png</itemPath>
+        <itemPath>resources/foo-red-3.png</itemPath>
+        <itemPath>resources/foo-red-4.png</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f2" displayName="tile images" projectFiles="true">
+        <itemPath>resources/brick32.jpg</itemPath>
+        <itemPath>resources/dirt32.jpg</itemPath>
+        <itemPath>resources/dirtyBrick32.jpg</itemPath>
+        <itemPath>resources/grass32.jpg</itemPath>
+        <itemPath>resources/lava32.jpg</itemPath>
+        <itemPath>resources/redCarpet32.jpg</itemPath>
+        <itemPath>resources/stone32.jpg</itemPath>
+        <itemPath>resources/water32.jpg</itemPath>
+        <itemPath>resources/wood32.jpg</itemPath>
+      </logicalFolder>
     </logicalFolder>
     <logicalFolder name="f1" displayName="src" projectFiles="true">
       <logicalFolder name="f3" displayName="core" projectFiles="true">
@@ -142,11 +158,7 @@
       </item>
       <item path="resources/lazy.ttf" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/level.txt" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="resources/low.wav" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="resources/mLv1.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="resources/medium.wav" ex="false" tool="3" flavor2="0">
       </item>
@@ -158,17 +170,25 @@
       </item>
       <item path="resources/menu5.png" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="resources/menuBackground.txt" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="resources/menuHighlight.jpg" ex="false" tool="3" flavor2="0">
       </item>
       <item path="resources/redCarpet32.jpg" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/sLv1.txt" ex="false" tool="3" flavor2="0">
+      <item path="resources/s1.txt" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/sLv2.txt" ex="false" tool="3" flavor2="0">
+      <item path="resources/s2.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/s3.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/s4.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/s5.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/saveGameData.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="resources/stone32.jpg" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="resources/tiles.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="resources/water32.jpg" ex="false" tool="3" flavor2="0">
       </item>
@@ -285,11 +305,7 @@
       </item>
       <item path="resources/lazy.ttf" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/level.txt" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="resources/low.wav" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="resources/mLv1.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="resources/medium.wav" ex="false" tool="3" flavor2="0">
       </item>
@@ -301,17 +317,25 @@
       </item>
       <item path="resources/menu5.png" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="resources/menuBackground.txt" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="resources/menuHighlight.jpg" ex="false" tool="3" flavor2="0">
       </item>
       <item path="resources/redCarpet32.jpg" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/sLv1.txt" ex="false" tool="3" flavor2="0">
+      <item path="resources/s1.txt" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/sLv2.txt" ex="false" tool="3" flavor2="0">
+      <item path="resources/s2.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/s3.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/s4.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/s5.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/saveGameData.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="resources/stone32.jpg" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="resources/tiles.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="resources/water32.jpg" ex="false" tool="3" flavor2="0">
       </item>

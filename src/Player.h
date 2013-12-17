@@ -22,11 +22,8 @@ public:
     void update();
     void draw();
     
-    char* getX();
-    char* getY();
-    char* getXVel();
-    char* getYVel();
-    char* getDirection();
+    int getX();
+    int getY();
 private:
     
     //The dimensions of the image
