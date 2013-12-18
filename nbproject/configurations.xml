@@ -3,50 +3,49 @@
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <logicalFolder name="f2" displayName="resources" projectFiles="true">
       <logicalFolder name="f5" displayName="audio" projectFiles="true">
-        <itemPath>resources/adventuring_song.mp3</itemPath>
-        <itemPath>resources/beat.wav</itemPath>
-        <itemPath>resources/high.wav</itemPath>
-        <itemPath>resources/low.wav</itemPath>
-        <itemPath>resources/medium.wav</itemPath>
+        <itemPath>resources/sfx_buttonPress.wav</itemPath>
+        <itemPath>resources/sfx_readyGo.wav</itemPath>
+        <itemPath>resources/sfx_victory.wav</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f4" displayName="data files" projectFiles="true">
+        <itemPath>resources/data_c1.txt</itemPath>
+        <itemPath>resources/data_s1.txt</itemPath>
+        <itemPath>resources/data_s2.txt</itemPath>
+        <itemPath>resources/data_s3.txt</itemPath>
+        <itemPath>resources/data_s4.txt</itemPath>
+        <itemPath>resources/data_s5.txt</itemPath>
+        <itemPath>resources/data_saveGameData.txt</itemPath>
       </logicalFolder>
       <logicalFolder name="f6" displayName="fonts" projectFiles="true">
-        <itemPath>resources/Xolonium-Regular.ttf</itemPath>
-        <itemPath>resources/lazy.ttf</itemPath>
-      </logicalFolder>
-      <logicalFolder name="f4"
-                     displayName="level files/save game files"
-                     projectFiles="true">
-        <itemPath>resources/menuBackground.txt</itemPath>
-        <itemPath>resources/s1.txt</itemPath>
-        <itemPath>resources/s2.txt</itemPath>
-        <itemPath>resources/s3.txt</itemPath>
-        <itemPath>resources/s4.txt</itemPath>
-        <itemPath>resources/s5.txt</itemPath>
-        <itemPath>resources/saveGameData.txt</itemPath>
-      </logicalFolder>
-      <logicalFolder name="f1" displayName="menu images" projectFiles="true">
-        <itemPath>resources/menu2.png</itemPath>
-        <itemPath>resources/menu3.png</itemPath>
-        <itemPath>resources/menu4.png</itemPath>
-        <itemPath>resources/menu5.png</itemPath>
-        <itemPath>resources/menuHighlight.jpg</itemPath>
+        <itemPath>resources/font_Xolonium-Regular.ttf</itemPath>
+        <itemPath>resources/font_lazy.ttf</itemPath>
       </logicalFolder>
       <logicalFolder name="f3" displayName="sprite images" projectFiles="true">
-        <itemPath>resources/foo-red-1.png</itemPath>
-        <itemPath>resources/foo-red-2.png</itemPath>
-        <itemPath>resources/foo-red-3.png</itemPath>
-        <itemPath>resources/foo-red-4.png</itemPath>
+        <itemPath>resources/sprite_RedDown.png</itemPath>
+        <itemPath>resources/sprite_RedLeft.png</itemPath>
+        <itemPath>resources/sprite_RedRight.png</itemPath>
+        <itemPath>resources/sprite_RedUp.png</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="tile images" projectFiles="true">
-        <itemPath>resources/brick32.jpg</itemPath>
-        <itemPath>resources/dirt32.jpg</itemPath>
-        <itemPath>resources/dirtyBrick32.jpg</itemPath>
-        <itemPath>resources/grass32.jpg</itemPath>
-        <itemPath>resources/lava32.jpg</itemPath>
-        <itemPath>resources/redCarpet32.jpg</itemPath>
-        <itemPath>resources/stone32.jpg</itemPath>
-        <itemPath>resources/water32.jpg</itemPath>
-        <itemPath>resources/wood32.jpg</itemPath>
+        <itemPath>resources/tile_brick32.jpg</itemPath>
+        <itemPath>resources/tile_dirt32.jpg</itemPath>
+        <itemPath>resources/tile_dirtyBrick32.jpg</itemPath>
+        <itemPath>resources/tile_grass32.jpg</itemPath>
+        <itemPath>resources/tile_lava32.jpg</itemPath>
+        <itemPath>resources/tile_redCarpet32.jpg</itemPath>
+        <itemPath>resources/tile_stone32.jpg</itemPath>
+        <itemPath>resources/tile_water32.jpg</itemPath>
+        <itemPath>resources/tile_wood32.jpg</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f1" displayName="ui images" projectFiles="true">
+        <itemPath>resources/ui_menu1.png</itemPath>
+        <itemPath>resources/ui_menu2.png</itemPath>
+        <itemPath>resources/ui_menu3.png</itemPath>
+        <itemPath>resources/ui_menu4.png</itemPath>
+        <itemPath>resources/ui_menu5.png</itemPath>
+        <itemPath>resources/ui_menuBackground.txt</itemPath>
+        <itemPath>resources/ui_menuHighlight.jpg</itemPath>
+        <itemPath>resources/ui_topBar.png</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="f1" displayName="src" projectFiles="true">
@@ -71,10 +70,10 @@
         </logicalFolder>
         <itemPath>src/Game.cpp</itemPath>
         <itemPath>src/Game.h</itemPath>
+        <itemPath>src/Grid.cpp</itemPath>
+        <itemPath>src/Grid.h</itemPath>
         <itemPath>src/Level.cpp</itemPath>
         <itemPath>src/Level.h</itemPath>
-        <itemPath>src/LevelGrid.cpp</itemPath>
-        <itemPath>src/LevelGrid.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f7" displayName="menu" projectFiles="true">
         <itemPath>src/Menu.cpp</itemPath>
@@ -130,69 +129,74 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
-      <item path="resources/Xolonium-Regular.ttf" ex="false" tool="3" flavor2="0">
+      <item path="resources/data_c1.txt" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/adventuring_song.mp3" ex="false" tool="3" flavor2="0">
+      <item path="resources/data_s1.txt" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/beat.wav" ex="false" tool="3" flavor2="0">
+      <item path="resources/data_s2.txt" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/brick32.jpg" ex="false" tool="3" flavor2="0">
+      <item path="resources/data_s3.txt" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/dirt32.jpg" ex="false" tool="3" flavor2="0">
+      <item path="resources/data_s4.txt" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/dirtyBrick32.jpg" ex="false" tool="3" flavor2="0">
+      <item path="resources/data_s5.txt" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/foo-red-1.png" ex="false" tool="3" flavor2="0">
+      <item path="resources/data_saveGameData.txt" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/foo-red-2.png" ex="false" tool="3" flavor2="0">
+      <item path="resources/font_Xolonium-Regular.ttf"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
-      <item path="resources/foo-red-3.png" ex="false" tool="3" flavor2="0">
+      <item path="resources/font_lazy.ttf" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/foo-red-4.png" ex="false" tool="3" flavor2="0">
+      <item path="resources/sfx_buttonPress.wav" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/grass32.jpg" ex="false" tool="3" flavor2="0">
+      <item path="resources/sfx_readyGo.wav" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/high.wav" ex="false" tool="3" flavor2="0">
+      <item path="resources/sfx_victory.wav" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/lava32.jpg" ex="false" tool="3" flavor2="0">
+      <item path="resources/sprite_RedDown.png" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/lazy.ttf" ex="false" tool="3" flavor2="0">
+      <item path="resources/sprite_RedLeft.png" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/low.wav" ex="false" tool="3" flavor2="0">
+      <item path="resources/sprite_RedRight.png" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/medium.wav" ex="false" tool="3" flavor2="0">
+      <item path="resources/sprite_RedUp.png" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/menu2.png" ex="false" tool="3" flavor2="0">
+      <item path="resources/tile_brick32.jpg" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/menu3.png" ex="false" tool="3" flavor2="0">
+      <item path="resources/tile_dirt32.jpg" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/menu4.png" ex="false" tool="3" flavor2="0">
+      <item path="resources/tile_dirtyBrick32.jpg" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/menu5.png" ex="false" tool="3" flavor2="0">
+      <item path="resources/tile_grass32.jpg" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/menuBackground.txt" ex="false" tool="3" flavor2="0">
+      <item path="resources/tile_lava32.jpg" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/menuHighlight.jpg" ex="false" tool="3" flavor2="0">
+      <item path="resources/tile_redCarpet32.jpg" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/redCarpet32.jpg" ex="false" tool="3" flavor2="0">
+      <item path="resources/tile_stone32.jpg" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/s1.txt" ex="false" tool="3" flavor2="0">
+      <item path="resources/tile_water32.jpg" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/s2.txt" ex="false" tool="3" flavor2="0">
+      <item path="resources/tile_wood32.jpg" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/s3.txt" ex="false" tool="3" flavor2="0">
+      <item path="resources/ui_menu1.png" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/s4.txt" ex="false" tool="3" flavor2="0">
+      <item path="resources/ui_menu2.png" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/s5.txt" ex="false" tool="3" flavor2="0">
+      <item path="resources/ui_menu3.png" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/saveGameData.txt" ex="false" tool="3" flavor2="0">
+      <item path="resources/ui_menu4.png" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/stone32.jpg" ex="false" tool="3" flavor2="0">
+      <item path="resources/ui_menu5.png" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/water32.jpg" ex="false" tool="3" flavor2="0">
+      <item path="resources/ui_menuBackground.txt" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/wood32.jpg" ex="false" tool="3" flavor2="0">
+      <item path="resources/ui_menuHighlight.jpg" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/ui_topBar.png" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/Application.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -214,13 +218,13 @@
       </item>
       <item path="src/Global.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="src/Grid.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Grid.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/Level.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/Level.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/LevelGrid.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/LevelGrid.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/Menu.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -277,69 +281,74 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="resources/Xolonium-Regular.ttf" ex="false" tool="3" flavor2="0">
+      <item path="resources/data_c1.txt" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/adventuring_song.mp3" ex="false" tool="3" flavor2="0">
+      <item path="resources/data_s1.txt" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/beat.wav" ex="false" tool="3" flavor2="0">
+      <item path="resources/data_s2.txt" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/brick32.jpg" ex="false" tool="3" flavor2="0">
+      <item path="resources/data_s3.txt" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/dirt32.jpg" ex="false" tool="3" flavor2="0">
+      <item path="resources/data_s4.txt" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/dirtyBrick32.jpg" ex="false" tool="3" flavor2="0">
+      <item path="resources/data_s5.txt" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/foo-red-1.png" ex="false" tool="3" flavor2="0">
+      <item path="resources/data_saveGameData.txt" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/foo-red-2.png" ex="false" tool="3" flavor2="0">
+      <item path="resources/font_Xolonium-Regular.ttf"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
-      <item path="resources/foo-red-3.png" ex="false" tool="3" flavor2="0">
+      <item path="resources/font_lazy.ttf" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/foo-red-4.png" ex="false" tool="3" flavor2="0">
+      <item path="resources/sfx_buttonPress.wav" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/grass32.jpg" ex="false" tool="3" flavor2="0">
+      <item path="resources/sfx_readyGo.wav" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/high.wav" ex="false" tool="3" flavor2="0">
+      <item path="resources/sfx_victory.wav" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/lava32.jpg" ex="false" tool="3" flavor2="0">
+      <item path="resources/sprite_RedDown.png" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/lazy.ttf" ex="false" tool="3" flavor2="0">
+      <item path="resources/sprite_RedLeft.png" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/low.wav" ex="false" tool="3" flavor2="0">
+      <item path="resources/sprite_RedRight.png" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/medium.wav" ex="false" tool="3" flavor2="0">
+      <item path="resources/sprite_RedUp.png" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/menu2.png" ex="false" tool="3" flavor2="0">
+      <item path="resources/tile_brick32.jpg" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/menu3.png" ex="false" tool="3" flavor2="0">
+      <item path="resources/tile_dirt32.jpg" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/menu4.png" ex="false" tool="3" flavor2="0">
+      <item path="resources/tile_dirtyBrick32.jpg" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/menu5.png" ex="false" tool="3" flavor2="0">
+      <item path="resources/tile_grass32.jpg" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/menuBackground.txt" ex="false" tool="3" flavor2="0">
+      <item path="resources/tile_lava32.jpg" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/menuHighlight.jpg" ex="false" tool="3" flavor2="0">
+      <item path="resources/tile_redCarpet32.jpg" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/redCarpet32.jpg" ex="false" tool="3" flavor2="0">
+      <item path="resources/tile_stone32.jpg" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/s1.txt" ex="false" tool="3" flavor2="0">
+      <item path="resources/tile_water32.jpg" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/s2.txt" ex="false" tool="3" flavor2="0">
+      <item path="resources/tile_wood32.jpg" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/s3.txt" ex="false" tool="3" flavor2="0">
+      <item path="resources/ui_menu1.png" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/s4.txt" ex="false" tool="3" flavor2="0">
+      <item path="resources/ui_menu2.png" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/s5.txt" ex="false" tool="3" flavor2="0">
+      <item path="resources/ui_menu3.png" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/saveGameData.txt" ex="false" tool="3" flavor2="0">
+      <item path="resources/ui_menu4.png" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/stone32.jpg" ex="false" tool="3" flavor2="0">
+      <item path="resources/ui_menu5.png" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/water32.jpg" ex="false" tool="3" flavor2="0">
+      <item path="resources/ui_menuBackground.txt" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/wood32.jpg" ex="false" tool="3" flavor2="0">
+      <item path="resources/ui_menuHighlight.jpg" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/ui_topBar.png" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/Application.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -361,13 +370,13 @@
       </item>
       <item path="src/Global.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="src/Grid.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Grid.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/Level.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/Level.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/LevelGrid.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/LevelGrid.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/Menu.cpp" ex="false" tool="1" flavor2="0">
       </item>

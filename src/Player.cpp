@@ -8,6 +8,7 @@ Player::Player(int x, int y)
     yOffset = y;
     xVel = 0;
     yVel = 0;
+    speed = 8;
 
     //Initialize animation variables
     frame = 0;
@@ -16,10 +17,10 @@ Player::Player(int x, int y)
     set_clips();
 
     //Load the sprite sheet
-    player_sprite_up = load_image("Resources\\foo-red-1.png"); // move up
-    player_sprite_right = load_image("Resources\\foo-red-2.png"); // move right
-    player_sprite_down = load_image("Resources\\foo-red-3.png"); // move down
-    player_sprite_left = load_image("Resources\\foo-red-4.png"); // move left
+    player_sprite_up = Utility::loadImage("resources\\sprite_RedUp.png"); // move up
+    player_sprite_right = Utility::loadImage("resources\\sprite_RedRight.png"); // move right
+    player_sprite_down = Utility::loadImage("resources\\sprite_RedDown.png"); // move down
+    player_sprite_left = Utility::loadImage("resources\\sprite_RedLeft.png"); // move left
     if (player_sprite_up == NULL || player_sprite_right == NULL || player_sprite_down == NULL || player_sprite_left == NULL)
         cout << "Plyaer sprite didn't load" << endl;
 }
@@ -34,22 +35,7 @@ Player::~Player()
 
 }
 
-SDL_Surface* Player::load_image(string filename)
-{
-    SDL_Surface* loadedImage = NULL;
-    SDL_Surface* optimizedImage = NULL;
-
-    loadedImage = IMG_Load(filename.c_str());
-    if (loadedImage != NULL) {
-        optimizedImage = SDL_DisplayFormat(loadedImage);
-        SDL_FreeSurface(loadedImage);
-        if (optimizedImage != NULL)
-            SDL_SetColorKey(optimizedImage, SDL_SRCCOLORKEY, SDL_MapRGB(optimizedImage->format, 0, 0xFF, 0xFF));
-    }
-    return optimizedImage;
-}
-
-void Player::apply_surface(int x, int y, SDL_Surface* source, SDL_Rect* clip = NULL)
+void Player::apply_surface(int x, int y, SDL_Surface* source, SDL_Rect* clip)
 {
     //Holds offsets
     SDL_Rect offset;
@@ -60,6 +46,54 @@ void Player::apply_surface(int x, int y, SDL_Surface* source, SDL_Rect* clip = N
 
     //Blit
     SDL_BlitSurface(source, clip, mainScreenSurface, &offset);
+}
+
+void Player::input(SDL_Event event)
+{
+    switch (event.type)
+    {
+        case (SDL_KEYDOWN):
+            switch (event.key.keysym.sym)
+            {
+                case SDLK_w:
+                    yVel -= speed;
+                    break;
+                case SDLK_s:
+                    yVel += speed;
+                    break;
+                case SDLK_a:
+                    xVel -= speed;
+                    break;
+                case SDLK_d:
+                    xVel += speed;
+                    break;
+                    //shoot
+                case SDLK_j:
+                    break;
+            }
+            break;
+        case (SDL_KEYUP):
+            switch (event.key.keysym.sym)
+            {
+                case SDLK_w:
+                    yVel += speed;
+                    break;
+                case SDLK_s:
+                    yVel -= speed;
+                    break;
+                case SDLK_a:
+                    xVel += speed;
+                    break;
+                case SDLK_d:
+                    xVel -= speed;
+                    break;
+                default:
+                    break;
+            }
+            break;
+        default:
+            break;
+    }
 }
 
 void Player::update()
@@ -79,14 +113,14 @@ void Player::update()
         direction = PLAYER_RIGHT;
     }
     if (yVel < 0) {
-        if (yOffset >= 0 && yOffset <= 768)
+        if (yOffset >= 0 && yOffset <= 640)
             yOffset += yVel;
         else
             yOffset = 0;
         direction = PLAYER_UP;
     }
     if (yVel > 0) {
-        if (yOffset >= 0 && yOffset <= 768)
+        if (yOffset >= 0 && yOffset <= 640)
             yOffset += yVel;
         else
             yOffset = 0;
@@ -94,31 +128,32 @@ void Player::update()
     }
 }
 
-void Player::draw()
+void Player::draw(int frame)
 {
     if (xVel == 0 && yVel == 0)
-        frame = 1;
-    else frame++;
-
-    if (frame > 2)
+        frame = 0;
+    else if (frame == 15 || frame == 30)
+        frame++;
+    
+    if (frame > 3)
         frame = 0;
 
-    else switch (direction)
-        {
-            case PLAYER_UP:
-                apply_surface(xOffset, yOffset, player_sprite_up, clipsUp);
-                break;
-            case PLAYER_RIGHT:
-                apply_surface(xOffset, yOffset, player_sprite_right, clipsRight);
-                break;
-            case PLAYER_DOWN:
-                apply_surface(xOffset, yOffset, player_sprite_down, clipsDown);
-                break;
-            case PLAYER_LEFT:
-                apply_surface(xOffset, yOffset, player_sprite_left, clipsLeft);
-                break;
+    switch (direction)
+    {
+        case PLAYER_UP:
+            apply_surface(xOffset, yOffset, player_sprite_up, &spriteClips[frame]);
+            break;
+        case PLAYER_RIGHT:
+            apply_surface(xOffset, yOffset, player_sprite_right, &spriteClips[frame]);
+            break;
+        case PLAYER_DOWN:
+            apply_surface(xOffset, yOffset, player_sprite_down, &spriteClips[frame]);
+            break;
+        case PLAYER_LEFT:
+            apply_surface(xOffset, yOffset, player_sprite_left, &spriteClips[frame]);
+            break;
 
-        }
+    }
 }
 
 int Player::getX()
@@ -134,68 +169,23 @@ int Player::getY()
 void Player::set_clips()
 {
     //Clip the sprites Right move
-    clipsRight[ 0 ].x = 0;
-    clipsRight[ 0 ].y = 0;
-    clipsRight[ 0 ].w = PLAYER_WIDTH;
-    clipsRight[ 0 ].h = PLAYER_HEIGHT;
+    spriteClips[ 0 ].x = PLAYER_WIDTH;
+    spriteClips[ 0 ].y = 0;
+    spriteClips[ 0 ].w = PLAYER_WIDTH;
+    spriteClips[ 0 ].h = PLAYER_HEIGHT;
 
-    clipsRight[ 1 ].x = PLAYER_WIDTH;
-    clipsRight[ 1 ].y = 0;
-    clipsRight[ 1 ].w = PLAYER_WIDTH;
-    clipsRight[ 1 ].h = PLAYER_HEIGHT;
+    spriteClips[ 1 ].x = 0;
+    spriteClips[ 1 ].y = 0;
+    spriteClips[ 1 ].w = PLAYER_WIDTH;
+    spriteClips[ 1 ].h = PLAYER_HEIGHT;
 
-    clipsRight[ 2 ].x = PLAYER_WIDTH * 2;
-    clipsRight[ 2 ].y = 0;
-    clipsRight[ 2 ].w = PLAYER_WIDTH;
-    clipsRight[ 2 ].h = PLAYER_HEIGHT;
+    spriteClips[ 2 ].x = PLAYER_WIDTH;
+    spriteClips[ 2 ].y = 0;
+    spriteClips[ 2 ].w = PLAYER_WIDTH;
+    spriteClips[ 2 ].h = PLAYER_HEIGHT;
 
-    //Clip the sprites Left move
-
-    clipsLeft[ 0 ].x = 0;
-    clipsLeft[ 0 ].y = 0;
-    clipsLeft[ 0 ].w = PLAYER_WIDTH;
-    clipsLeft[ 0 ].h = PLAYER_HEIGHT;
-
-    clipsLeft[ 1 ].x = PLAYER_WIDTH;
-    clipsLeft[ 1 ].y = 0;
-    clipsLeft[ 1 ].w = PLAYER_WIDTH;
-    clipsLeft[ 1 ].h = PLAYER_HEIGHT;
-
-    clipsLeft[ 2 ].x = PLAYER_WIDTH * 2;
-    clipsLeft[ 2 ].y = 0;
-    clipsLeft[ 2 ].w = PLAYER_WIDTH;
-    clipsLeft[ 2 ].h = PLAYER_HEIGHT;
-
-    //Clip the sprites Down move
-
-    clipsDown[ 0 ].x = 0;
-    clipsDown[ 0 ].y = 0;
-    clipsDown[ 0 ].w = PLAYER_WIDTH;
-    clipsDown[ 0 ].h = PLAYER_HEIGHT;
-
-    clipsDown[ 1 ].x = PLAYER_WIDTH;
-    clipsDown[ 1 ].y = 0;
-    clipsDown[ 1 ].w = PLAYER_WIDTH;
-    clipsDown[ 1 ].h = PLAYER_HEIGHT;
-
-    clipsDown[ 2 ].x = PLAYER_WIDTH * 2;
-    clipsDown[ 2 ].y = 0;
-    clipsDown[ 2 ].w = PLAYER_WIDTH;
-    clipsDown[ 2 ].h = PLAYER_HEIGHT;
-    //Clip the sprites Up move
-
-    clipsUp[ 0 ].x = 0;
-    clipsUp[ 0 ].y = 0;
-    clipsUp[ 0 ].w = PLAYER_WIDTH;
-    clipsUp[ 0 ].h = PLAYER_HEIGHT;
-
-    clipsUp[ 1 ].x = PLAYER_WIDTH;
-    clipsUp[ 1 ].y = 0;
-    clipsUp[ 1 ].w = PLAYER_WIDTH;
-    clipsUp[ 1 ].h = PLAYER_HEIGHT;
-
-    clipsUp[ 2 ].x = PLAYER_WIDTH * 2;
-    clipsUp[ 2 ].y = 0;
-    clipsUp[ 2 ].w = PLAYER_WIDTH;
-    clipsUp[ 2 ].h = PLAYER_HEIGHT;
+    spriteClips[ 3 ].x = PLAYER_WIDTH * 2;
+    spriteClips[ 3 ].y = 0;
+    spriteClips[ 3 ].w = PLAYER_WIDTH;
+    spriteClips[ 3 ].h = PLAYER_HEIGHT;
 }

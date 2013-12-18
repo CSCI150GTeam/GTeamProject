@@ -13,20 +13,23 @@ class Game
 public:
     Game(bool);
     ~Game();
+    
     int runGame();
+    
+    int getFrameCounter();
 private:
-    int currentLevelNumber;
     Level* currentLevel;
+    
+    int currentLevelNumber, frameCounter;
+    Timer fps, gameTimer;
     
     int runGameLoop();
     int input();
     int update();
-    int draw();
+    int draw(int);
+    
     bool pauseGame();
     void displayDebug();
-    
-    //bool playerUno;
-    //int multiGame(int);
 };
 
 #endif

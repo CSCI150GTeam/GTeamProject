@@ -15,23 +15,19 @@ SDL_Surface* Utility::loadImage(string filename)
 {
     SDL_Surface* loadedImage = NULL;
     SDL_Surface* optimizedImage = NULL;
-    
+
     loadedImage = IMG_Load(filename.c_str());
-    
-    if (loadedImage != NULL)
-    {
+
+    if (loadedImage != NULL) {
         optimizedImage = SDL_DisplayFormat(loadedImage);
         SDL_FreeSurface(loadedImage);
-        
-        if (optimizedImage != NULL)
-        {
+
+        if (optimizedImage != NULL) {
             Uint32 colorkey = SDL_MapRGB(optimizedImage->format, 0, 0xFF, 0);
             SDL_SetColorKey(optimizedImage, SDL_SRCCOLORKEY, colorkey);
-        }
-        else
+        } else
             cout << "Error: (Utility.cpp loadImage(string) Optimized image is NULL" << endl;
-    }
-    else
+    } else
         cout << "Error: (Utility.cpp loadImage(string) Loaded image is NULL" << endl;
     return optimizedImage;
 }
@@ -40,56 +36,75 @@ bool Utility::checkSaveData()
 {
     int temp;
     ifstream infile;
-    infile.open("resources\\SaveGameData.txt");
+    infile.open("resources\\data_SaveGameData.txt");
     infile >> temp;
-    if ( infile.fail() )
-    {
+    if (infile.fail()) {
         return false;
     }
     infile.close();
     return true;
 }
 
+/* ---------------- Audio ------------------------ */
+
 Utility::Audio::Audio()
 {
-    if (Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 4096) == -1)
-        cout << "Audio didn't open" << endl;
-    loadSounds();
+    cout<<"DEBUG: (Utility.cpp) Audio constructor called."<<endl;
+    if (Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 1024) == -1)
+        cout << "ERROR: (Utility::Audio) Mix_OpenAudio failed to initialize" << endl;
+    
+    buttonPress = Mix_LoadWAV("resources\\sfx_buttonPress.wav");
+    levelBegin = Mix_LoadWAV("resources\\sfx_readyGo.wav");
+    levelEnd = Mix_LoadWAV("resources\\sfx_victory.wav");
+    music1 = Mix_LoadMUS("resources\\sfx_music1.wav");
+    
+    if( buttonPress == NULL || levelBegin == NULL || levelEnd == NULL )
+        cout<<"ERROR: (Utility::Audio) Sounds effects didn't load!"<<endl;
+    else
+        ::cout<<"DEBUG: Audio constructor finished successfully."<<endl;
 }
 
 Utility::Audio::~Audio()
 {
-    Mix_FreeChunk(soundEffect1);
+    Mix_CloseAudio();
+    
+    Mix_FreeChunk(buttonPress);
+    Mix_FreeChunk(levelBegin);
+    Mix_FreeChunk(levelEnd);
     Mix_FreeMusic(music1);
-    Mix_CloseAudio;
 }
 
-void Utility::Audio::playSound(string filename)
+void Utility::Audio::playSound(int soundName)
 {
-    if (filename == "soundEffect1") {
-        cout << "playing SE1" << endl;
-        if (Mix_PlayChannel(-1, soundEffect1, -1) == -1)
-            cout << "Error in playing sound" << endl;
+    int rValue;
+    switch(soundName)
+    {
+        case SFX_BUTTON:
+            rValue = Mix_PlayChannel(0,buttonPress,0);
+            break;
+        case SFX_BEGIN:
+            rValue = Mix_PlayChannel(1,levelBegin,0);
+            break;
+        case SFX_END:
+            rValue = Mix_PlayChannel(1,levelEnd,0);
+            break;
     }
-
-    if (filename == "music1") {
-        cout << "playing M1" << endl;
-        if (Mix_PlayMusic(music1, -1) == -1)
-            cout << "Error in playing sound" << endl;
-    }
+    cout<<"DEBUG: (Audio::playSound) Mix_PlayChannel returned "<<rValue<<endl;
 }
 
-bool Utility::Audio::loadSounds()
+void Utility::Audio::playMusic(int musicName)
 {
-    soundEffect1 = Mix_LoadWAV("resources\\high.wav");
-    if (soundEffect1 == NULL)
-        cout << "Sound effect 1 is Null" << endl;
-
-    music1 = Mix_LoadMUS("resources\\adventuring_song.mp3");
-    if (music1 == NULL)
-        cout << "Music 1 is Null" << endl;
-    return true;
+    switch(musicName)
+    {
+        case SFX_MUS1:
+            Mix_PlayMusic(music1,-1);
+            break;
+        default:
+            break;
+    }
 }
+
+/* ---------------- Text ------------------------ */
 
 Utility::Text::Text()
 {
@@ -97,7 +112,7 @@ Utility::Text::Text()
         cout << "TTF didn't inititialize" << endl;
 
     fontSize = 44;
-    font = TTF_OpenFont("resources\\Xolonium-Regular.ttf", fontSize);
+    font = TTF_OpenFont("resources\\font_Xolonium-Regular.ttf", fontSize);
     color = {255, 255, 255};
 }
 
@@ -109,7 +124,7 @@ Utility::Text::~Text()
 void Utility::Text::displayText(int x, int y, char* iStr, int iSize)
 {
     if (fontSize != iSize)
-        font = TTF_OpenFont("resources\\Xolonium-Regular.ttf", iSize);
+        font = TTF_OpenFont("resources\\font_Xolonium-Regular.ttf", iSize);
     SDL_Surface* temp = TTF_RenderText_Solid(font, iStr, color);
     Utility::applySurface(x, y, temp);
     SDL_FreeSurface(temp);

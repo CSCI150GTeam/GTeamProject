@@ -7,7 +7,11 @@
 #include "SDL/SDL_image.h"
 #include "SDL/SDL_mixer.h"
 #include "Global.h"
+#include "Utility.h"
 #include <cstdlib>
+
+class Game;
+
 using namespace std;
 
 class Player : public Unit
@@ -16,16 +20,15 @@ public:
     Player(int,int);
     ~Player();
     void apply_surface( int, int, SDL_Surface*, SDL_Rect* );
-    void set_clips();
-    SDL_Surface *load_image( string );
     
+    void input(SDL_Event);
     void update();
-    void draw();
+    void draw(int);
     
     int getX();
     int getY();
 private:
-    
+    void set_clips();
     //The dimensions of the image
     const int PLAYER_WIDTH = 32;
     const int PLAYER_HEIGHT = 32;
@@ -41,10 +44,7 @@ private:
     SDL_Event event;
 
     //The areas of the sprite sheet
-    SDL_Rect clipsUp[ 3 ];
-    SDL_Rect clipsDown[ 3 ];
-    SDL_Rect clipsRight[ 3 ];
-    SDL_Rect clipsLeft[ 3 ];
+    SDL_Rect spriteClips[ 4 ];
 
 };
 

@@ -2,11 +2,14 @@
 #define	LEVEL_H
 
 #include <vector>
+#include <fstream>
+#include <string>
 
 #include "Enemy.h"
-#include "LevelGrid.h"
+#include "Grid.h"
 #include "Player.h"
 #include "Projectile.h"
+#include "Global.h"
 
 using namespace std;
 
@@ -15,18 +18,24 @@ class Level
 public:
     Level(int);
     ~Level();
-    
+    void input(SDL_Event);
     void update();
-    void draw();
+    void draw(int);
+    
     Player* getPlayer(int);
-    bool inEndzone();
+    bool victoryCondition();
 private:
-    void loadGrid(int);
-    LevelGrid* grid;
+    void loadLevel(int);
+    
+    Grid* grid;
     Player* player1;
     //Player* player2;
     //vector<Enemy*>* enemies;
     //vector<Projectile*>* projectiles;
+    
+    SDL_Rect p1Spawn;
+    SDL_Rect p2Spawn;
+    SDL_Rect endzone;
 };
 
 #endif

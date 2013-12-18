@@ -14,16 +14,15 @@ class Unit
 public:
     Unit(){}
     ~Unit(){}
-    void setXVel(int iVel) { xVel = iVel; }
-    void setYVel(int iVel) { yVel = iVel; }
     virtual void update() = 0;
-    virtual void draw() = 0;
+    virtual void draw(int) = 0;
 protected:
     int health;                   //unit health percentage
     int xOffset;                        //the x offset
     int yOffset;                        //the y offset
     int xVel;                     //the x velocity
     int yVel;                     //the y velocity
+    int speed;
     int frame;                    //its current frame
     int direction;                   //its animation status
 };

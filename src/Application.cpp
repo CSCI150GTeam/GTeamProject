@@ -12,7 +12,7 @@ Application::Application()
     gameState = GS_MENU;
 
     if (SDL_Init(SDL_INIT_EVERYTHING) == -1) {
-        cout << "\tERROR: SDL subsystem initialization failed!" << endl;
+        cout << "ERROR: SDL subsystem initialization failed!" << endl;
         gameState = GS_EXIT;
     }
 

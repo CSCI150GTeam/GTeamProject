@@ -17,9 +17,8 @@
 
 #include "Global.h"
 #include "Utility.h"
-#include "LevelGrid.h"
+#include "Grid.h"
 
-using namespace std;
 
 class Menu {
 public:

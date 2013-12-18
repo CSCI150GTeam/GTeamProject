@@ -9,6 +9,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <string>
 
 #include "SDL/SDL.h"
 #include "SDL/SDL_image.h"
@@ -22,7 +23,7 @@ using namespace std;
 namespace Utility
 {
     void applySurface(int,int,SDL_Surface*);
-    SDL_Surface* loadImage(string);
+    SDL_Surface* loadImage(std::string);
     bool checkSaveData();
 
     class Audio
@@ -30,10 +31,12 @@ namespace Utility
     public:
         Audio();
         ~Audio();
-        void playSound(string);
+        void playSound(int);
+        void playMusic(int);
     private:
-        bool loadSounds();
-        Mix_Chunk* soundEffect1;
+        Mix_Chunk* buttonPress;
+        Mix_Chunk* levelBegin;
+        Mix_Chunk* levelEnd;
         Mix_Music* music1;
     };
 
@@ -47,7 +50,6 @@ namespace Utility
         TTF_Font* font;
         int fontSize;
         SDL_Color color;
-        void applySurface(int, int, SDL_Surface*);
     };
 
 };

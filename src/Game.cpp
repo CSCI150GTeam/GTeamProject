@@ -6,7 +6,7 @@ Game::Game(bool newGame)
         currentLevelNumber = 1;
     else {
         ifstream infile;
-        infile.open("resources\\SaveGameData.txt");
+        infile.open("resources\\data_saveGameData.txt");
         infile >> currentLevelNumber;
         infile.close();
     }
@@ -21,17 +21,23 @@ Game::~Game()
 int Game::runGame()
 {
     bool quit = false;
-    while (!quit) {
-        if (runGameLoop() == GS_MENU)
+    while (!quit)
+    {
+        audio->playMusic(SFX_MUS1);
+        if (runGameLoop() == GS_MENU) {
+            Mix_HaltMusic();
+            cout << "DEBUG: (Game.cpp) game is quitting." << endl;
             return GS_MENU;
-        cout<<"DEBUG: (Game.cpp) Level complete, loading victory screen"<<endl;
+        }
+        cout << "DEBUG: (Game.cpp) Level complete, loading victory screen" << endl;
         currentLevelNumber++;
 
         SDL_Event event;
-        SDL_Surface* victoryMenu = Utility::loadImage("Resources\\menu2.png");
+        SDL_Surface* victoryMenu = Utility::loadImage("Resources\\ui_menu2.png");
         bool atVictoryScreen = true;
 
-        while (atVictoryScreen) {
+        while (atVictoryScreen)
+        {
             if (SDL_PollEvent(&event)) {
                 switch (event.type)
                 {
@@ -41,6 +47,7 @@ int Game::runGame()
                             if (x > 390 && x < 890) {
                                 if (y > 134 && y < 234) //Continue
                                 {
+                                    audio->playSound(SFX_BUTTON);
                                     delete currentLevel;
                                     currentLevel = new Level(currentLevelNumber);
                                     atVictoryScreen = false;
@@ -48,10 +55,12 @@ int Game::runGame()
                                         quit = true;
                                     break;
                                 } else if (y > 234 && y < 334) {
+                                    audio->playSound(SFX_BUTTON);
                                     ofstream outfile;
-                                    outfile.open("resources\\SaveGameData.txt");
+                                    outfile.open("resources\\data_saveGameData.txt");
                                     outfile << currentLevelNumber;
                                     outfile.close();
+                                    Mix_HaltMusic();
                                     return GS_MENU;
                                 }
                             }
@@ -69,25 +78,21 @@ int Game::runGame()
                 cout << "SDL_Flip failed" << endl;
         }
     }
+    Mix_HaltMusic();
     //display game complete screen
     return GS_MENU;
 }
 
 int Game::runGameLoop()
 {
-    Timer fps;
-    const int FRAMES_PER_SECOND = 30;
+    audio->playSound(SFX_BEGIN);
+    frameCounter = 0;
+
     bool victory = false;
 
+    gameTimer.start();
     while (!victory) {
         fps.start();
-        if (fps.get_ticks() < 1000 / FRAMES_PER_SECOND)
-            SDL_Delay((1000 / FRAMES_PER_SECOND) - fps.get_ticks());
-
-        /* 0 = continue
-         * 1 = victory
-         * 2 = quit (return GS_MENU)
-         */
 
         switch (input())
         {
@@ -100,84 +105,42 @@ int Game::runGameLoop()
             case 0: break;
             case 1: victory = true;
                 break;
-            case 2: return GS_MENU;
             default: break;
         }
-        switch (draw())
+        switch (draw(frameCounter))
         {
             case 0: break;
             case 2: return GS_MENU;
             default: break;
         }
+        frameCounter++;
+        if (frameCounter > 30)
+            frameCounter = 0;
+        if (fps.get_ticks() < 1000 / FRAMES_PER_SECOND)
+            SDL_Delay((1000 / FRAMES_PER_SECOND) - fps.get_ticks());
     }
+    audio->playSound(SFX_END);
+    return 1;
 }
 
 int Game::input()
 {
     SDL_Event event;
-    if (SDL_PollEvent(&event)) {
-        switch (event.type)
-        {
-            case (SDL_KEYDOWN):
-                switch (event.key.keysym.sym)
-                {
-                    case SDLK_w:
-                        currentLevel->getPlayer(1)->setYVel(-16);
-                        //currentLevel->getPlayer(2)->setYVel(-16);
-                        break;
-                    case SDLK_s:
-                        currentLevel->getPlayer(1)->setYVel(+16);
-                        //currentLevel->getPlayer(2)->setYVel(+16);
-                        break;
-                    case SDLK_a:
-                        currentLevel->getPlayer(1)->setXVel(-16);
-                        //currentLevel->getPlayer(2)->setXVel(-16);
-                        break;
-                    case SDLK_d:
-                        currentLevel->getPlayer(1)->setXVel(+16);
-                        //currentLevel->getPlayer(2)->setXVel(+16);
-                        break;
-                        //shoot
-                    case SDLK_j:
-                        break;
-                }
-                break;
-            case (SDL_KEYUP):
-                switch (event.key.keysym.sym)
-                {
-                    case SDLK_w:
-                        currentLevel->getPlayer(1)->setYVel(0);
-                        //currentLevel->getPlayer(2)->setYVel(0);
-                        break;
-                    case SDLK_s:
-                        currentLevel->getPlayer(1)->setYVel(+0);
-                        //currentLevel->getPlayer(2)->setYVel(+0);
-                        break;
-                    case SDLK_a:
-                        currentLevel->getPlayer(1)->setXVel(0);
-                        //currentLevel->getPlayer(2)->setXVel(0);
-                        break;
-                    case SDLK_d:
-                        currentLevel->getPlayer(1)->setXVel(+0);
-                        //currentLevel->getPlayer(2)->setXVel(+0);
-                        break;
-                    case SDLK_ESCAPE:
-                        int x = pauseGame();
-                        switch (x)
-                        {
-                            case false:
-                                break;
-                            case true:
-                                return 2;
-                                break;
-                        }
-                        break;
-                }
-                break;
-            default:
-                break;
-        }
 
+    if (SDL_PollEvent(&event)) {
+        currentLevel->input(event);
+        if (event.type == SDL_KEYUP)
+            if (event.key.keysym.sym == SDLK_ESCAPE) {
+                bool x = pauseGame();
+                switch (x)
+                {
+                    case false:
+                        break;
+                    case true:
+                        return 2;
+                        break;
+                }
+            }
     }
     return 0;
 }
@@ -185,15 +148,20 @@ int Game::input()
 int Game::update()
 {
     currentLevel -> update();
-    if (currentLevel -> inEndzone())
+    if (currentLevel -> victoryCondition())
         return 1;
     else return 0;
 }
 
-int Game::draw()
+int Game::draw(int frame)
 {
-    currentLevel -> draw();
+    SDL_Surface* bar = Utility::loadImage("resources\\ui_topBar.png");
+    Utility::applySurface(0, 640, bar);
+
+    currentLevel -> draw(frame);
+
     //displayDebug();
+
     if (SDL_Flip(mainScreenSurface) == -1)
         return 2;
     else
@@ -202,9 +170,10 @@ int Game::draw()
 
 bool Game::pauseGame()
 {
+    gameTimer.pause();
     bool isPaused = true;
     SDL_Event event;
-    SDL_Surface* pauseMenu = Utility::loadImage("Resources\\menu2.png");
+    SDL_Surface* pauseMenu = Utility::loadImage("Resources\\ui_menu2.png");
     if (pauseMenu == NULL)
         cout << "Pause menu image didn't load" << endl;
 
@@ -218,12 +187,15 @@ bool Game::pauseGame()
                     if (event.button.button == SDL_BUTTON_LEFT) {
                         int x = event.button.x;
                         int y = event.button.y;
+
                         if (x > 390 && x < 890) {
-                            if (y > 134 && y < 234)
+                            if (y > 134 && y < 234) {
+                                audio->playSound(SFX_BUTTON);
                                 return false;
-                            else if (y > 234 && y < 334) {
+                            } else if (y > 234 && y < 334) {
+                                audio->playSound(SFX_BUTTON);
                                 ofstream outfile;
-                                outfile.open("resources\\SaveGameData.txt");
+                                outfile.open("resources\\data_saveGameData.txt");
                                 outfile << currentLevelNumber;
                                 outfile.close();
                                 return true;
@@ -245,6 +217,7 @@ bool Game::pauseGame()
             cout << "SDL_Flip failed" << endl;
     }
     SDL_FreeSurface(pauseMenu);
+    gameTimer.unpause();
     return false;
 }
 
@@ -255,4 +228,9 @@ void Game::displayDebug()
     //lol = currentLevel->getPlayer(1)->getX();
     cout << lol << endl;
     text->displayText(0, 0, lol, 20);
+}
+
+int Game::getFrameCounter()
+{
+    return frameCounter;
 }

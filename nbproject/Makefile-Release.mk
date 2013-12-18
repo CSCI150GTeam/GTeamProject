@@ -40,8 +40,8 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/Enemy.o \
 	${OBJECTDIR}/src/Game.o \
 	${OBJECTDIR}/src/Global.o \
+	${OBJECTDIR}/src/Grid.o \
 	${OBJECTDIR}/src/Level.o \
-	${OBJECTDIR}/src/LevelGrid.o \
 	${OBJECTDIR}/src/Menu.o \
 	${OBJECTDIR}/src/Player.o \
 	${OBJECTDIR}/src/Projectile.o \
@@ -102,15 +102,15 @@ ${OBJECTDIR}/src/Global.o: src/Global.cpp
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/Global.o src/Global.cpp
 
+${OBJECTDIR}/src/Grid.o: src/Grid.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/Grid.o src/Grid.cpp
+
 ${OBJECTDIR}/src/Level.o: src/Level.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/Level.o src/Level.cpp
-
-${OBJECTDIR}/src/LevelGrid.o: src/LevelGrid.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src
-	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/LevelGrid.o src/LevelGrid.cpp
 
 ${OBJECTDIR}/src/Menu.o: src/Menu.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
