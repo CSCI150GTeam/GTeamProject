@@ -5,6 +5,7 @@ command::command(){}
 command::~command(){}
 
 void command::setSocket(int sockfd){sock= sockfd;}
+int command::getSocket(){return sock;}
 
 //for player commands
 void command::push(SDL_Event event, bool multiPlayer){

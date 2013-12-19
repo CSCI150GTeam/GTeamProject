@@ -23,10 +23,12 @@ public:
     
     void input(char*);
     void update();
-    void draw(int);
+    void draw();
     
     int getX();
     int getY();
+    int getXVel();
+    int getYVel();
 private:
     void set_clips();
     //The dimensions of the image

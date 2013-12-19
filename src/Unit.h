@@ -15,7 +15,7 @@ public:
     Unit(){}
     ~Unit(){}
     virtual void update() = 0;
-    virtual void draw(int) = 0;
+    virtual void draw() = 0;
     int getHealth() { return health; }
 protected:
     int health;                   //unit health percentage

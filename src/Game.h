@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 
+#include "net.h"
 #include "Level.h"
 #include "Utility.h"
 #include "Timer.h"
@@ -14,24 +15,25 @@
 class Game
 {
 public:
-    Game(bool);
+    Game(bool,int);
     ~Game();
-    
     int runGame();
     
     int getFrameCounter();
     int getCurrentLevelNumber();
+    
+    bool multiPlayer;
 private:
     Level* currentLevel;
     
     int currentLevelNumber, frameCounter;
-    Timer fps, gameTimer; bool multiPlayer;
+    Timer fps, gameTimer; 
     command CMD;
     
     int runGameLoop();
     int input();
     int update();
-    int draw(int);
+    int draw();
     
     bool pauseGame();
     void displayInfoBar();

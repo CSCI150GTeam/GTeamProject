@@ -38,6 +38,7 @@
         <itemPath>resources/tile_wood32.jpg</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="ui images" projectFiles="true">
+        <itemPath>resources/ui_blackScreen.png</itemPath>
         <itemPath>resources/ui_editorBackground.png</itemPath>
         <itemPath>resources/ui_editorHighlight.png</itemPath>
         <itemPath>resources/ui_horizontalLine.png</itemPath>
@@ -184,6 +185,8 @@
       <item path="resources/tile_water32.jpg" ex="false" tool="3" flavor2="0">
       </item>
       <item path="resources/tile_wood32.jpg" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/ui_blackScreen.png" ex="false" tool="3" flavor2="0">
       </item>
       <item path="resources/ui_editorBackground.png" ex="false" tool="3" flavor2="0">
       </item>
@@ -340,6 +343,8 @@
       <item path="resources/tile_water32.jpg" ex="false" tool="3" flavor2="0">
       </item>
       <item path="resources/tile_wood32.jpg" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/ui_blackScreen.png" ex="false" tool="3" flavor2="0">
       </item>
       <item path="resources/ui_editorBackground.png" ex="false" tool="3" flavor2="0">
       </item>

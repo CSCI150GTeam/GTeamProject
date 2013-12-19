@@ -17,4 +17,3 @@ int client(char*);
 void endNet(int);
 
 #endif	/* NET_H */
-

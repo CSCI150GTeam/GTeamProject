@@ -11,6 +11,7 @@
 #include "Player.h"
 #include "Projectile.h"
 #include "Global.h"
+#include "Game.h"
 
 using namespace std;
 
@@ -21,7 +22,7 @@ public:
     ~Level();
     void input(char*, char*);
     void update();
-    void draw(int);
+    void draw();
     
     Player* getPlayer(int);
     Grid* getGrid();
@@ -29,11 +30,10 @@ public:
     vector<string>* getInfoBarData();
 private:
     void loadLevel(int);
-    
-    char name[40];
+    bool multiplayer;
     Grid* grid;
     Player* player1;
-    //Player* player2;
+    Player* player2;
     //vector<Enemy*>* enemies;
     //vector<Projectile*>* projectiles;
     

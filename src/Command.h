@@ -17,6 +17,7 @@ public:
     command();
     ~command();
     void setSocket(int);
+    int getSocket();
     void push(SDL_Event, bool);
     void take();
     
