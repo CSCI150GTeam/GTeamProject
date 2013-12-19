@@ -7,6 +7,6 @@ int main(int argc, char* args[])
     Application* app = new Application();
     app -> runApplication();
     delete app;
-    
+
     return 0;
- }
+}

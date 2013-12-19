@@ -2,11 +2,17 @@
 #define	GLOBAL_H
 
 #include "SDL/SDL.h"
+class Game;
+class Level;
 
 extern SDL_Surface* mainScreenSurface;
+extern Game* currentGameGlobal;
+extern Level* currentLevelGlobal;
 
 const int SCREEN_WIDTH = 1280;
 const int SCREEN_HEIGHT = 788;
+const int GAME_WIDTH = 1280;
+const int GAME_HEIGHT = 640;
 const int GRID_WIDTH = 40;
 const int GRID_HEIGHT = 20;
 
@@ -31,16 +37,18 @@ const int MS_MULTI = 9;
 const int MS_EDIT = 10;
 const int MS_SET = 11;
 
-//Sounds effects
-const int SFX_BUTTON = 12;
-const int SFX_BEGIN = 13;
-const int SFX_END = 14;
-const int SFX_MUS1 = 15;
-
 //Sprite directions
 const int PLAYER_UP = 1200;
 const int PLAYER_RIGHT = 300;
 const int PLAYER_DOWN = 600;
 const int PLAYER_LEFT = 900;
+
+//Sounds effects
+const int SFX_BUTTON = 12;
+const int SFX_BEGIN = 13;
+const int SFX_END = 14;
+
+//Music
+const int SFX_MUS1 = 15;
 
 #endif

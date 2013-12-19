@@ -17,28 +17,47 @@ Grid::Grid(string input)
             grid->at(i)->push_back(1);
 
     loadGrid(input);
-    loadImages();
+    
+    IMG_BRICK = Utility::loadImage("resources\\tile_brick32.jpg");
+    IMG_DIRT = Utility::loadImage("resources\\tile_dirt32.jpg");
+    IMG_DIRTYBRICK = Utility::loadImage("resources\\tile_dirtybrick32.jpg");
+    IMG_GRASS = Utility::loadImage("resources\\tile_grass32.jpg");
+    IMG_LAVA = Utility::loadImage("resources\\tile_lava32.jpg");
+    IMG_REDCARPET = Utility::loadImage("resources\\tile_redcarpet32.jpg");
+    IMG_STONE = Utility::loadImage("resources\\tile_stone32.jpg");
+    IMG_WATER = Utility::loadImage("resources\\tile_water32.jpg");
+    IMG_WOOD = Utility::loadImage("resources\\tile_wood32.jpg");
 }
+
 
 Grid::Grid(vector<vector<int>*>* iGrid)
 {
     this -> grid = iGrid;
     height = grid -> size();
     width = grid -> at(0) -> size();
-    loadImages();
+    
+    IMG_BRICK = Utility::loadImage("resources\\tile_brick32.jpg");
+    IMG_DIRT = Utility::loadImage("resources\\tile_dirt32.jpg");
+    IMG_DIRTYBRICK = Utility::loadImage("resources\\tile_dirtybrick32.jpg");
+    IMG_GRASS = Utility::loadImage("resources\\tile_grass32.jpg");
+    IMG_LAVA = Utility::loadImage("resources\\tile_lava32.jpg");
+    IMG_REDCARPET = Utility::loadImage("resources\\tile_redcarpet32.jpg");
+    IMG_STONE = Utility::loadImage("resources\\tile_stone32.jpg");
+    IMG_WATER = Utility::loadImage("resources\\tile_water32.jpg");
+    IMG_WOOD = Utility::loadImage("resources\\tile_wood32.jpg");
 }
 
 Grid::~Grid()
 {
-    SDL_FreeSurface(brick);
-    SDL_FreeSurface(dirt);
-    SDL_FreeSurface(dirtybrick);
-    SDL_FreeSurface(grass);
-    SDL_FreeSurface(lava);
-    SDL_FreeSurface(redcarpet);
-    SDL_FreeSurface(stone);
-    SDL_FreeSurface(water);
-    SDL_FreeSurface(wood);
+    SDL_FreeSurface(IMG_BRICK);
+    SDL_FreeSurface(IMG_DIRT);
+    SDL_FreeSurface(IMG_DIRTYBRICK);
+    SDL_FreeSurface(IMG_GRASS);
+    SDL_FreeSurface(IMG_LAVA);
+    SDL_FreeSurface(IMG_REDCARPET);
+    SDL_FreeSurface(IMG_STONE);
+    SDL_FreeSurface(IMG_WATER);
+    SDL_FreeSurface(IMG_WOOD);
 }
 
 void Grid::loadGrid(string filePath)
@@ -60,6 +79,26 @@ void Grid::loadGrid(string filePath)
     //printGrid();
 }
 
+void Grid::editorSave(string path,SDL_Rect one,SDL_Rect two, SDL_Rect end)
+{
+    ofstream outfile;
+    outfile.open(path.c_str());
+    for( int i = 0; i < height; i++ )
+    {
+	for( int j = 0; j < width; j++ )
+	    outfile << grid->at(i)->at(j);
+	outfile << "\n";
+    }
+    outfile << one.x;
+    outfile << one.y;
+    outfile << two.x;
+    outfile << two.y;
+    outfile << end.x;
+    outfile << end.y;
+    outfile << end.w;
+    outfile << end.h;
+}
+
 void Grid::drawGrid()
 {
     for (int i = 0; i < height; i++) {
@@ -67,47 +106,34 @@ void Grid::drawGrid()
             switch (grid->at(i)->at(j))
             {
                 case 1:
-                    Utility::applySurface(j * 32, i * 32, brick);
+                    Utility::applySurface(j * 32, i * 32, IMG_BRICK);
                     break;
                 case 2:
-                    Utility::applySurface(j * 32, i * 32, dirt);
+                    Utility::applySurface(j * 32, i * 32, IMG_DIRT);
                     break;
                 case 3:
-                    Utility::applySurface(j * 32, i * 32, dirtybrick);
+                    Utility::applySurface(j * 32, i * 32, IMG_DIRTYBRICK);
                     break;
                 case 4:
-                    Utility::applySurface(j * 32, i * 32, grass);
+                    Utility::applySurface(j * 32, i * 32, IMG_GRASS);
                     break;
                 case 5:
-                    Utility::applySurface(j * 32, i * 32, lava);
+                    Utility::applySurface(j * 32, i * 32, IMG_LAVA);
                     break;
                 case 6:
-                    Utility::applySurface(j * 32, i * 32, redcarpet);
+                    Utility::applySurface(j * 32, i * 32, IMG_REDCARPET);
                     break;
                 case 7:
-                    Utility::applySurface(j * 32, i * 32, stone);
+                    Utility::applySurface(j * 32, i * 32, IMG_STONE);
                     break;
                 case 8:
-                    Utility::applySurface(j * 32, i * 32, water);
+                    Utility::applySurface(j * 32, i * 32, IMG_WATER);
                     break;
                 case 9:
-                    Utility::applySurface(j * 32, i * 32, wood);
+                    Utility::applySurface(j * 32, i * 32, IMG_WOOD);
                     break;
             }
     }
-}
-
-void Grid::loadImages()
-{
-    brick = Utility::loadImage("resources\\tile_brick32.jpg");
-    dirt = Utility::loadImage("resources\\tile_dirt32.jpg");
-    dirtybrick = Utility::loadImage("resources\\tile_dirtybrick32.jpg");
-    grass = Utility::loadImage("resources\\tile_grass32.jpg");
-    lava = Utility::loadImage("resources\\tile_lava32.jpg");
-    redcarpet = Utility::loadImage("resources\\tile_redcarpet32.jpg");
-    stone = Utility::loadImage("resources\\tile_stone32.jpg");
-    water = Utility::loadImage("resources\\tile_water32.jpg");
-    wood = Utility::loadImage("resources\\tile_wood32.jpg");
 }
 
 void Grid::printGrid()
@@ -118,4 +144,15 @@ void Grid::printGrid()
         }
         cout << endl;
     }
+}
+
+int Grid::getTileAt(int x, int y)
+{
+    return grid->at(y)->at(x);
+}
+
+void Grid::setTileAt(int x,int y,int change)
+{
+    grid->at(y)->at(x) = change;
+    cout<<"update\t";
 }

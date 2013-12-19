@@ -21,8 +21,6 @@
 
 using namespace std;
 
-
-
 class Grid
 {
 public:
@@ -31,24 +29,26 @@ public:
     ~Grid();
     
     void loadGrid(string);
+    void editorSave(string,SDL_Rect,SDL_Rect, SDL_Rect);
     void drawGrid();
+    int getTileAt(int,int);
+    void setTileAt(int,int,int);
 private:
-    void loadImages();
     void printGrid();
     
     vector< vector<int>*>* grid;
     int width;
     int height;
     
-    SDL_Surface* brick;
-    SDL_Surface* dirt;
-    SDL_Surface* dirtybrick;
-    SDL_Surface* grass;
-    SDL_Surface* lava;
-    SDL_Surface* redcarpet;
-    SDL_Surface* stone;
-    SDL_Surface* water;
-    SDL_Surface* wood;
+    SDL_Surface* IMG_BRICK;
+    SDL_Surface* IMG_DIRT;
+    SDL_Surface* IMG_DIRTYBRICK;
+    SDL_Surface* IMG_GRASS;
+    SDL_Surface* IMG_LAVA;
+    SDL_Surface* IMG_REDCARPET;
+    SDL_Surface* IMG_STONE;
+    SDL_Surface* IMG_WATER;
+    SDL_Surface* IMG_WOOD;
 };
 
 #endif

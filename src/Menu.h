@@ -19,8 +19,8 @@
 #include "Utility.h"
 #include "Grid.h"
 
-
-class Menu {
+class Menu
+{
 public:
     Menu();
     ~Menu();
@@ -28,12 +28,15 @@ public:
     void drawScreen(int);
 private:
     int currentView; //keeps track of what screen you're on
-    int handleEvents(int,int);
+    int handleEvents(int, int);
     bool shouldDrawScreen;
-    SDL_Surface* menuScreen_1;
-    SDL_Surface* menuScreen_2;
-    SDL_Surface* menuScreen_3;
-    SDL_Surface* menuScreen_5;
+    
+    SDL_Surface* IMG_MENU1;
+    SDL_Surface* IMG_MENU2;
+    SDL_Surface* IMG_MENU3;
+    SDL_Surface* IMG_MENU5;
+    
+    SDL_Surface* IMG_HIGHLIGHT;
 };
 
 #endif

@@ -46,6 +46,7 @@ namespace Utility
         Text();
         ~Text();
         void displayText(int, int, char*, int);
+        void displayTextCentered(SDL_Rect,char*,int);
     private:
         TTF_Font* font;
         int fontSize;

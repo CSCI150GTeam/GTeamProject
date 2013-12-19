@@ -11,9 +11,10 @@ Application::Application()
 
     gameState = GS_MENU;
 
-    if (SDL_Init(SDL_INIT_EVERYTHING) == -1) {
-        cout << "ERROR: SDL subsystem initialization failed!" << endl;
-        gameState = GS_EXIT;
+    if ( SDL_Init(SDL_INIT_EVERYTHING) == -1 )
+    {
+	cout << "ERROR: SDL subsystem initialization failed!" << endl;
+	gameState = GS_EXIT;
     }
 
     SDL_WM_SetCaption("Hello World", NULL);
@@ -28,34 +29,39 @@ Application::~Application()
 
 void Application::runApplication()
 {
-    while (gameState != GS_EXIT) {
-        switch (gameState)
-        {
-            case GS_MENU:
-                menu = new Menu();
-                gameState = menu -> runMenu();
-                delete menu;
-                break;
-            case GS_EDIT_NEW: case GS_EDIT_LOAD:
-                /*
-                editor = new Editor();
-                //gameState = editor -> runEditor();
-                delete editor; */
-                gameState = GS_MENU;
-                break;
-            case GS_GAME_NEW:
-                game = new Game(true);
-                gameState = game -> runGame();
-                delete game;
-                break;
-            case GS_GAME_CONT:
-                game = new Game(false);
-                gameState = game -> runGame();
-                delete game;
-                break;
-            case GS_GAME_HOST: case GS_GAME_JOIN:
-                gameState = GS_MENU;
-                break;
-        }
+    while ( gameState != GS_EXIT )
+    {
+	switch ( gameState )
+	{
+	    case GS_MENU:
+		menu = new Menu();
+		gameState = menu -> runMenu();
+		delete menu;
+		break;
+	    case GS_EDIT_NEW:
+		editor = new Editor();
+		gameState = editor -> runEditor();
+		delete editor;
+		break;
+	    case GS_EDIT_LOAD: //Disabled
+		gameState = GS_MENU;
+		break;
+	    case GS_GAME_NEW:
+		game = new Game(true);
+		gameState = game -> runGame();
+		delete game;
+		break;
+	    case GS_GAME_CONT:
+		game = new Game(false);
+		gameState = game -> runGame();
+		delete game;
+		break;
+	    case GS_GAME_HOST: //Disabled
+		gameState = GS_MENU;
+		break;
+	    case GS_GAME_JOIN: //Disabled
+		gameState = GS_MENU;
+		break;
+	}
     }
 }

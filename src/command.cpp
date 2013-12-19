@@ -1,7 +1,6 @@
 #include "net.h"
 #include "Command.h"
 
-
 command::command(){}
 command::~command(){}
 

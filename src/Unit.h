@@ -16,10 +16,13 @@ public:
     ~Unit(){}
     virtual void update() = 0;
     virtual void draw(int) = 0;
+    int getHealth() { return health; }
 protected:
     int health;                   //unit health percentage
     int xOffset;                        //the x offset
     int yOffset;                        //the y offset
+    int xPos;
+    int yPos;
     int xVel;                     //the x velocity
     int yVel;                     //the y velocity
     int speed;

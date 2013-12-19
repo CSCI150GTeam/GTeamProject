@@ -171,9 +171,6 @@ int Game::update()
 
 int Game::draw(int frame)
 {
-    SDL_Surface* bar = Utility::loadImage("resources\\ui_topBar.png");
-    Utility::applySurface(0, 640, bar);
-
     currentLevel -> draw(frame);
     displayInfoBar();
 
@@ -254,6 +251,7 @@ int Game::getFrameCounter()
 
 void Game::displayInfoBar()
 {
+    Utility::applySurface(0,640,IMG_INFOBAR);
     vector<string>* vec = currentLevel->getInfoBarData();
     /*
     string str = "Hello, world!";
