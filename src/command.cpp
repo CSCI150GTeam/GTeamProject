@@ -54,6 +54,7 @@ void command::push(SDL_Event event, bool multiPlayer){
             }
             break;
         default:
+            strcpy(slfCmd, "nil");
             break;
     }
      if(multiPlayer) send(sock, slfCmd, 16, 0);  
