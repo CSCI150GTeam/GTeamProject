@@ -11,18 +11,30 @@ Game::Game(bool newGame)
         infile.close();
     }
     currentLevel = new Level(currentLevelNumber);
+    currentGameGlobal = this;
+    
+    IMG_MENU2 = Utility::loadImage("resources\\ui_menu2.png");
+    
+    IMG_HIGHLIGHT = Utility::loadImage("resources\\ui_menuHighlight.jpg");
+    IMG_INFOBAR = Utility::loadImage("resources\\ui_infoBar.png");
 }
 
 Game::~Game()
 {
     delete currentLevel;
+    currentGameGlobal = NULL;
+    
+    SDL_FreeSurface(IMG_MENU2);
+    
+    SDL_FreeSurface(IMG_HIGHLIGHT);
+    SDL_FreeSurface(IMG_INFOBAR);
+    
 }
 
 int Game::runGame()
 {
     bool quit = false;
-    while (!quit)
-    {
+    while (!quit) {
         audio->playMusic(SFX_MUS1);
         if (runGameLoop() == GS_MENU) {
             Mix_HaltMusic();
@@ -36,8 +48,7 @@ int Game::runGame()
         SDL_Surface* victoryMenu = Utility::loadImage("Resources\\ui_menu2.png");
         bool atVictoryScreen = true;
 
-        while (atVictoryScreen)
-        {
+        while (atVictoryScreen) {
             if (SDL_PollEvent(&event)) {
                 switch (event.type)
                 {
@@ -54,7 +65,8 @@ int Game::runGame()
                                     if (currentLevelNumber > 5)
                                         quit = true;
                                     break;
-                                } else if (y > 234 && y < 334) {
+                                } else if (y > 234 && y < 334) //save & quit
+                                {
                                     audio->playSound(SFX_BUTTON);
                                     ofstream outfile;
                                     outfile.open("resources\\data_saveGameData.txt");
@@ -127,6 +139,7 @@ int Game::input()
 {
     SDL_Event event;
 
+    
     if (SDL_PollEvent(&event)) {
         currentLevel->input(event);
         if (event.type == SDL_KEYUP)
@@ -159,6 +172,7 @@ int Game::draw(int frame)
     Utility::applySurface(0, 640, bar);
 
     currentLevel -> draw(frame);
+    displayInfoBar();
 
     //displayDebug();
 
@@ -233,4 +247,29 @@ void Game::displayDebug()
 int Game::getFrameCounter()
 {
     return frameCounter;
+}
+
+void Game::displayInfoBar()
+{
+    vector<string>* vec = currentLevel->getInfoBarData();
+    /*
+    string str = "Hello, world!";
+    
+    copy(str.begin(), str.end(), displayText);
+    displayText[str.size()] = '\0'; */
+
+    for(int i = 0; i < vec->size(); i++)
+    {
+        string inputStr = vec->at(i);
+        char * displayText = new char[inputStr.size() + 1];
+        copy(inputStr.begin(), inputStr.end(), displayText);
+        displayText[inputStr.size()] = '\0';
+        text->displayText(0,672+(32*i),displayText,30 );
+        delete[] displayText;
+    }
+}
+
+int Game::getCurrentLevelNumber()
+{
+    return currentLevelNumber;
 }

@@ -38,14 +38,17 @@
         <itemPath>resources/tile_wood32.jpg</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="ui images" projectFiles="true">
+        <itemPath>resources/ui_editorBackground.png</itemPath>
+        <itemPath>resources/ui_editorHighlight.png</itemPath>
+        <itemPath>resources/ui_horizontalLine.png</itemPath>
+        <itemPath>resources/ui_infoBar.png</itemPath>
         <itemPath>resources/ui_menu1.png</itemPath>
         <itemPath>resources/ui_menu2.png</itemPath>
         <itemPath>resources/ui_menu3.png</itemPath>
         <itemPath>resources/ui_menu4.png</itemPath>
         <itemPath>resources/ui_menu5.png</itemPath>
-        <itemPath>resources/ui_menuBackground.txt</itemPath>
         <itemPath>resources/ui_menuHighlight.jpg</itemPath>
-        <itemPath>resources/ui_topBar.png</itemPath>
+        <itemPath>resources/ui_verticalLine.png</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="f1" displayName="src" projectFiles="true">
@@ -113,6 +116,7 @@
             <pElem>src</pElem>
             <pElem>C:\MinGW\include</pElem>
           </incDir>
+          <warningLevel>0</warningLevel>
         </ccTool>
         <linkerTool>
           <linkerAddLib>
@@ -182,6 +186,14 @@
       </item>
       <item path="resources/tile_wood32.jpg" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="resources/ui_editorBackground.png" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/ui_editorHighlight.png" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/ui_horizontalLine.png" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/ui_infoBar.png" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="resources/ui_menu1.png" ex="false" tool="3" flavor2="0">
       </item>
       <item path="resources/ui_menu2.png" ex="false" tool="3" flavor2="0">
@@ -192,11 +204,9 @@
       </item>
       <item path="resources/ui_menu5.png" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/ui_menuBackground.txt" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="resources/ui_menuHighlight.jpg" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/ui_topBar.png" ex="false" tool="3" flavor2="0">
+      <item path="resources/ui_verticalLine.png" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/Application.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -334,6 +344,14 @@
       </item>
       <item path="resources/tile_wood32.jpg" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="resources/ui_editorBackground.png" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/ui_editorHighlight.png" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/ui_horizontalLine.png" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/ui_infoBar.png" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="resources/ui_menu1.png" ex="false" tool="3" flavor2="0">
       </item>
       <item path="resources/ui_menu2.png" ex="false" tool="3" flavor2="0">
@@ -344,11 +362,9 @@
       </item>
       <item path="resources/ui_menu5.png" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/ui_menuBackground.txt" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="resources/ui_menuHighlight.jpg" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="resources/ui_topBar.png" ex="false" tool="3" flavor2="0">
+      <item path="resources/ui_verticalLine.png" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/Application.cpp" ex="false" tool="1" flavor2="0">
       </item>

@@ -1,4 +1,5 @@
 #include "Level.h"
+#include "Game.h"
 
 Level::Level(int levelNumber)
 {
@@ -7,16 +8,21 @@ Level::Level(int levelNumber)
     /* player2 = new Player();
        enemies = new vector<Enemy*>;
        projectiles = new vector<Projectile*>; */
+    cout<<name<<endl;
+    currentLevelGlobal = this;
 }
 
 Level::~Level()
 {
-    
+    //cout<<"DEBUG: Level class destructor called"<<endl;
+    currentLevelGlobal = NULL;
+    //cout<<"DEBUG: Level class destructor finished"<<endl;
 }
 
 void Level::input(SDL_Event event)
 {
     player1->input(event);
+    
 }
 
 void Level::update()
@@ -61,6 +67,7 @@ bool Level::victoryCondition()
 
 void Level::loadLevel(int level)
 {
+    cout<<"DEBUG: Level is loading file";
     vector<vector<int>*>* temp = new vector<vector<int>*>;
     
     for (int i = 0; i < GRID_HEIGHT; i++)
@@ -101,6 +108,7 @@ void Level::loadLevel(int level)
     infile >> endzone.y;
     infile >> endzone.w;
     infile >> endzone.h;
+    infile.getline(name,40);
     infile.close();
     
     cout << "DEBUG: (Level.cpp) P1 Spawn = (" << p1Spawn.x << "," << p1Spawn.y << ")"
@@ -108,4 +116,34 @@ void Level::loadLevel(int level)
                              << "Endzone = (" << endzone.x << "," << endzone.y << ")" << endl;
     
     this->grid = new Grid(temp);
+    cout<<"DEBUG: Level file loaded"<<endl;
+}
+
+Grid* Level::getGrid()
+{
+    return grid;
+}
+
+vector<string>* Level::getInfoBarData()
+{
+    vector<string>* vec = new vector<string>;
+    stringstream ss;
+    string s1,s2;
+    
+    
+    ss << "Level: ";
+    ss << currentGameGlobal->getCurrentLevelNumber();
+    s1 = ss.str();
+    vec->push_back(s1);
+    cout<<s1<<endl;
+    
+    ss.str(string());
+     
+    ss << "Health: ";
+    ss << player1->getHealth();
+    s2 = ss.str();
+    vec->push_back(s2);
+    cout<<s2<<endl;
+    ss.clear();
+    return vec;
 }

@@ -4,6 +4,7 @@
 #include <vector>
 #include <fstream>
 #include <string>
+#include <sstream>
 
 #include "Enemy.h"
 #include "Grid.h"
@@ -23,10 +24,13 @@ public:
     void draw(int);
     
     Player* getPlayer(int);
+    Grid* getGrid();
     bool victoryCondition();
+    vector<string>* getInfoBarData();
 private:
     void loadLevel(int);
     
+    char name[40];
     Grid* grid;
     Player* player1;
     //Player* player2;

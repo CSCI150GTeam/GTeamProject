@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "Game.h"
 
 Player::Player(int x, int y)
 {
@@ -6,6 +7,8 @@ Player::Player(int x, int y)
     health = 100;
     xOffset = x;
     yOffset = y;
+    xPos = xOffset+16;
+    yPos = yOffset+16;
     xVel = 0;
     yVel = 0;
     speed = 8;
@@ -22,7 +25,7 @@ Player::Player(int x, int y)
     player_sprite_down = Utility::loadImage("resources\\sprite_RedDown.png"); // move down
     player_sprite_left = Utility::loadImage("resources\\sprite_RedLeft.png"); // move left
     if (player_sprite_up == NULL || player_sprite_right == NULL || player_sprite_down == NULL || player_sprite_left == NULL)
-        cout << "Plyaer sprite didn't load" << endl;
+        cout << "Player sprite didn't load" << endl;
 }
 
 Player::~Player()
@@ -98,20 +101,39 @@ void Player::input(SDL_Event event)
 
 void Player::update()
 {
-    if (xVel < 0) {
-        if (xOffset >= 0 && xOffset <= 1280)
-            xOffset += xVel;
-        else
-            xOffset = 0;
-        direction = PLAYER_LEFT;
+    /*
+     * adjust xOffset
+     * if x oob
+     *    undo
+     * adjust yOffset
+     * if y oob
+     *     undo
+     * 
+     */
+    if (xVel != 0) {
+        xOffset += xVel;
+        if (xOffset+16 <= 0 ||
+                xOffset+16 >= GAME_WIDTH ||
+                currentLevelGlobal->getGrid()->getTileAt( (xOffset+16) / 32, (yOffset+16) / 32) == 8)
+            xOffset -= xVel;
+        if (xVel < 0)
+            direction = PLAYER_LEFT;
+        else if (xVel > 0)
+            direction = PLAYER_RIGHT;
     }
-    if (xVel > 0) {
-        if (xOffset >= 0 && xOffset <= 1280)
-            xOffset += xVel;
-        else
-            xOffset = 0;
-        direction = PLAYER_RIGHT;
+    if(yVel != 0)
+    {
+        yOffset += yVel;
+        if(yOffset+16<=0 ||
+                yOffset+16 >=GAME_HEIGHT ||
+                currentLevelGlobal->getGrid()->getTileAt((xOffset+16)/32, (yOffset+16)/32) == 8)
+            yOffset -= yVel;
+        if(yVel<0)
+            direction = PLAYER_UP;
+        else if(yVel>0)
+            direction = PLAYER_DOWN;
     }
+    /*
     if (yVel < 0) {
         if (yOffset >= 0 && yOffset <= 640)
             yOffset += yVel;
@@ -126,6 +148,7 @@ void Player::update()
             yOffset = 0;
         direction = PLAYER_DOWN;
     }
+     */
 }
 
 void Player::draw(int frame)
@@ -134,23 +157,23 @@ void Player::draw(int frame)
         frame = 0;
     else if (frame == 15 || frame == 30)
         frame++;
-    
+
     if (frame > 3)
         frame = 0;
 
     switch (direction)
     {
         case PLAYER_UP:
-            apply_surface(xOffset, yOffset, player_sprite_up, &spriteClips[frame]);
+            apply_surface(xOffset - 16, yOffset - 16, player_sprite_up, &spriteClips[frame]);
             break;
         case PLAYER_RIGHT:
-            apply_surface(xOffset, yOffset, player_sprite_right, &spriteClips[frame]);
+            apply_surface(xOffset - 16, yOffset - 16, player_sprite_right, &spriteClips[frame]);
             break;
         case PLAYER_DOWN:
-            apply_surface(xOffset, yOffset, player_sprite_down, &spriteClips[frame]);
+            apply_surface(xOffset - 16, yOffset - 16, player_sprite_down, &spriteClips[frame]);
             break;
         case PLAYER_LEFT:
-            apply_surface(xOffset, yOffset, player_sprite_left, &spriteClips[frame]);
+            apply_surface(xOffset - 16, yOffset - 16, player_sprite_left, &spriteClips[frame]);
             break;
 
     }
@@ -158,12 +181,12 @@ void Player::draw(int frame)
 
 int Player::getX()
 {
-    return xOffset;
+    return xOffset+16;
 }
 
 int Player::getY()
 {
-    return yOffset;
+    return yOffset+16;
 }
 
 void Player::set_clips()
