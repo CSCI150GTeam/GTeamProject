@@ -111,3 +111,8 @@ int client(char *server){
     
     return sockfd;
 }
+
+void endNet(int sockfd){
+    closesocket(sockfd);
+    WSACleanup();
+}
