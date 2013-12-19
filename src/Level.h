@@ -19,7 +19,7 @@ class Level
 public:
     Level(int);
     ~Level();
-    void input(SDL_Event);
+    void input(char*, char*);
     void update();
     void draw(int);
     

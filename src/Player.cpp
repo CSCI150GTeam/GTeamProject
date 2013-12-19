@@ -51,52 +51,13 @@ void Player::apply_surface(int x, int y, SDL_Surface* source, SDL_Rect* clip)
     SDL_BlitSurface(source, clip, mainScreenSurface, &offset);
 }
 
-void Player::input(SDL_Event event)
+void Player::input(char* cmd)
 {
-    switch (event.type)
-    {
-        case (SDL_KEYDOWN):
-            switch (event.key.keysym.sym)
-            {
-                case SDLK_w:
-                    yVel -= speed;
-                    break;
-                case SDLK_s:
-                    yVel += speed;
-                    break;
-                case SDLK_a:
-                    xVel -= speed;
-                    break;
-                case SDLK_d:
-                    xVel += speed;
-                    break;
-                    //shoot
-                case SDLK_j:
-                    break;
-            }
-            break;
-        case (SDL_KEYUP):
-            switch (event.key.keysym.sym)
-            {
-                case SDLK_w:
-                    yVel += speed;
-                    break;
-                case SDLK_s:
-                    yVel -= speed;
-                    break;
-                case SDLK_a:
-                    xVel += speed;
-                    break;
-                case SDLK_d:
-                    xVel -= speed;
-                    break;
-                default:
-                    break;
-            }
-            break;
-        default:
-            break;
-    }
+                if(!strcmp(cmd, "Up")) yVel -= speed;
+                else if(!strcmp(cmd, "Down")) yVel += speed;
+                else if(!strcmp(cmd, "Left")) xVel -= speed;
+                else if(!strcmp(cmd, "Right")) xVel += speed;
+                else if(!strcmp(cmd, "Shoot")) ;
 }
 
 void Player::update()

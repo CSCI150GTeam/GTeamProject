@@ -21,7 +21,7 @@ public:
     ~Player();
     void apply_surface( int, int, SDL_Surface*, SDL_Rect* );
     
-    void input(SDL_Event);
+    void input(char*);
     void update();
     void draw(int);
     

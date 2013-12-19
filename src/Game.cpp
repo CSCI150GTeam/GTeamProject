@@ -1,9 +1,12 @@
 #include "Game.h"
+#include "Command.h"
 
 Game::Game(bool newGame)
 {
-    if (newGame == true)
+    if (newGame == true){
         currentLevelNumber = 1;
+        multiPlayer= false;
+    }
     else {
         ifstream infile;
         infile.open("resources\\data_saveGameData.txt");
@@ -138,10 +141,10 @@ int Game::runGameLoop()
 int Game::input()
 {
     SDL_Event event;
-
-    
-    if (SDL_PollEvent(&event)) {
-        currentLevel->input(event);
+    if(multiPlayer) CMD.take(); 
+    if (SDL_PollEvent(&event)){
+        CMD.push(event, multiPlayer);
+        currentLevel->input(CMD.slfCmd, CMD.othCmd);
         if (event.type == SDL_KEYUP)
             if (event.key.keysym.sym == SDLK_ESCAPE) {
                 bool x = pauseGame();
