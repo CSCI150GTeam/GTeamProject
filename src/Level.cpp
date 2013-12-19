@@ -14,9 +14,10 @@ Level::~Level()
     
 }
 
-void Level::input(SDL_Event event)
+void Level::input(char *inP1, char *inP2)
 {
-    player1->input(event);
+    player1->input(inP1);
+    //player2->input(inP12);
 }
 
 void Level::update()

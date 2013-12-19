@@ -80,9 +80,8 @@
         <itemPath>src/Menu.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="multiplayer" projectFiles="true">
+        <itemPath>src/Command.h</itemPath>
         <itemPath>src/command.cpp</itemPath>
-        <itemPath>src/command.h</itemPath>
-        <itemPath>src/multiLoop.cpp</itemPath>
         <itemPath>src/net.cpp</itemPath>
         <itemPath>src/net.h</itemPath>
       </logicalFolder>
@@ -202,6 +201,8 @@
       </item>
       <item path="src/Application.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="src/Command.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/Editor.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/Editor.h" ex="false" tool="3" flavor2="0">
@@ -250,11 +251,7 @@
       </item>
       <item path="src/command.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/command.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="src/main.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/multiLoop.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/net.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -354,6 +351,8 @@
       </item>
       <item path="src/Application.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="src/Command.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/Editor.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/Editor.h" ex="false" tool="3" flavor2="0">
@@ -402,11 +401,7 @@
       </item>
       <item path="src/command.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/command.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="src/main.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/multiLoop.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/net.cpp" ex="false" tool="1" flavor2="0">
       </item>

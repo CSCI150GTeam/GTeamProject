@@ -7,6 +7,7 @@
 #include "Utility.h"
 #include "Timer.h"
 #include "Global.h"
+#include "Command.h"
 
 class Game
 {
@@ -21,7 +22,8 @@ private:
     Level* currentLevel;
     
     int currentLevelNumber, frameCounter;
-    Timer fps, gameTimer;
+    Timer fps, gameTimer; bool multiPlayer;
+    command CMD;
     
     int runGameLoop();
     int input();
