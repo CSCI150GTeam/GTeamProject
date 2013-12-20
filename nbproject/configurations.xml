@@ -31,8 +31,11 @@
         <itemPath>resources/tile_brick32.jpg</itemPath>
         <itemPath>resources/tile_dirt32.jpg</itemPath>
         <itemPath>resources/tile_dirtyBrick32.jpg</itemPath>
+        <itemPath>C:/Users/HAL9000/Documents/backup/GTeamProject-2/resources/tile_end.png</itemPath>
         <itemPath>resources/tile_grass32.jpg</itemPath>
         <itemPath>resources/tile_lava32.jpg</itemPath>
+        <itemPath>C:/Users/HAL9000/Documents/backup/GTeamProject-2/resources/tile_p1.png</itemPath>
+        <itemPath>C:/Users/HAL9000/Documents/backup/GTeamProject-2/resources/tile_p2.png</itemPath>
         <itemPath>resources/tile_redCarpet32.jpg</itemPath>
         <itemPath>resources/tile_stone32.jpg</itemPath>
         <itemPath>resources/tile_water32.jpg</itemPath>
@@ -93,6 +96,8 @@
       <logicalFolder name="f6" displayName="utility" projectFiles="true">
         <itemPath>src/Global.cpp</itemPath>
         <itemPath>src/Global.h</itemPath>
+        <itemPath>C:/Users/HAL9000/Documents/backup/GTeamProject-2/src/Settings.cpp</itemPath>
+        <itemPath>C:/Users/HAL9000/Documents/backup/GTeamProject-2/src/Settings.h</itemPath>
         <itemPath>src/Timer.cpp</itemPath>
         <itemPath>src/Timer.h</itemPath>
         <itemPath>src/Utility.cpp</itemPath>
@@ -134,6 +139,31 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
+      <item path="C:/Users/HAL9000/Documents/backup/GTeamProject-2/resources/tile_end.png"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="C:/Users/HAL9000/Documents/backup/GTeamProject-2/resources/tile_p1.png"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="C:/Users/HAL9000/Documents/backup/GTeamProject-2/resources/tile_p2.png"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="C:/Users/HAL9000/Documents/backup/GTeamProject-2/src/Settings.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="C:/Users/HAL9000/Documents/backup/GTeamProject-2/src/Settings.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="resources/data_c1.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="resources/data_ip.txt" ex="false" tool="3" flavor2="0">
@@ -294,6 +324,31 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="C:/Users/HAL9000/Documents/backup/GTeamProject-2/resources/tile_end.png"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="C:/Users/HAL9000/Documents/backup/GTeamProject-2/resources/tile_p1.png"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="C:/Users/HAL9000/Documents/backup/GTeamProject-2/resources/tile_p2.png"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="C:/Users/HAL9000/Documents/backup/GTeamProject-2/src/Settings.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="C:/Users/HAL9000/Documents/backup/GTeamProject-2/src/Settings.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="resources/data_c1.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="resources/data_ip.txt" ex="false" tool="3" flavor2="0">

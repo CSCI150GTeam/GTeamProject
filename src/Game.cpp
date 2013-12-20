@@ -56,6 +56,11 @@ int Game::runGame()
     bool quit = false;
     while ( !quit )
     {
+	SDL_Event event;
+
+	CMD.push(event, multiPlayer);
+	CMD.take();
+
 	audio->playMusic(SFX_MUS1);
 	if ( runGameLoop() == GS_MENU )
 	{
@@ -68,7 +73,7 @@ int Game::runGame()
 	cout << "DEBUG: (Game.cpp) Level complete, loading victory screen" << endl;
 	currentLevelNumber++;
 
-	SDL_Event event;
+
 	SDL_Surface* victoryMenu = Utility::loadImage("Resources\\ui_menu2.png");
 	bool atVictoryScreen = true;
 
@@ -176,15 +181,15 @@ int Game::input()
     SDL_Event event;
 
     SDL_PollEvent(&event);
-    
+
     CMD.push(event, multiPlayer);
     CMD.take();
     if ( multiPlayer )
 	currentLevel->input(CMD.slfCmd, CMD.othCmd);
     else
 	currentLevel->input(CMD.slfCmd, NULL);
-    
-    
+
+
     if ( !multiPlayer )
 	if ( event.type == SDL_KEYUP )
 	    if ( event.key.keysym.sym == SDLK_ESCAPE )

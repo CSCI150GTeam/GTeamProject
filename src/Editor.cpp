@@ -4,9 +4,9 @@ Editor::Editor()
 {
     grid = new Grid("resources\\data_c1.txt");
     fileOpen = true;
-    updateGrid = false;
+    needsUpdate = false;
     needsDraw = true;
-    selectedTile = 4;
+    selectedTile = 1;
 
     oneSpawn.x = 0;
     oneSpawn.y = 0;
@@ -40,6 +40,10 @@ Editor::Editor()
     IMG_STONE64 = Utility::loadImage("resources\\tile_stone64.jpg");
     IMG_WATER64 = Utility::loadImage("resources\\tile_water64.jpg");
     IMG_WOOD64 = Utility::loadImage("resources\\tile_wood64.jpg");
+
+    IMG_P1 = Utility::loadImage("resources\\tile_p1.png");
+    IMG_P2 = Utility::loadImage("resources\\tile_p2.png");
+    IMG_END = Utility::loadImage("resources\\tile_end.png");
 
     IMG_MENU1 = Utility::loadImage("resources\\ui_menu1.png");
 
@@ -85,8 +89,12 @@ int Editor::runEditor()
 
 	switch ( update() )
 	{
+	    case -1:
+		return GS_MENU;
 	    case 0:
 		break;
+	    case 1:
+		return GS_EDIT_NEW;
 	}
 
 	switch ( draw() )
@@ -99,210 +107,260 @@ int Editor::runEditor()
 
 int Editor::input()
 {
+    cout << "DEBUG:: editor input" << endl;
     SDL_Event event;
     if ( SDL_PollEvent(&event) )
     {
-	switch ( event.type )
-	{
-	    case SDL_MOUSEBUTTONDOWN:
-		if ( event.button.button == SDL_BUTTON_LEFT )
-		{
-		    if ( event.button.y <= 640 )
-		    {
-			cout << "Input- button down in grid" << endl;
-			mouseDown.x = event.button.x;
-			mouseDown.y = event.button.y;
-		    }
-		    else
-		    {
-			//bottom bar code
-		    }
-		}
-		break;
-	    case SDL_MOUSEBUTTONUP:
-		if ( event.button.button == SDL_BUTTON_LEFT )
-		{
-		    if ( event.button.y <= 640 )
-		    {
-			cout << "Input- button up in grid" << endl;
-			mouseUp.x = event.button.x;
-			mouseUp.y = event.button.y;
-			updateGrid = true;
-			needsDraw = true;
-			break;
-		    }
-		    else
-		    {
-			needsDraw = true;
-		    }
-		}
-		break;
-	    case SDL_KEYUP:
-		if ( event.key.keysym.sym == SDLK_ESCAPE )
-		{
-		    save();
-		    return -1;
-		}
-	    default:
-		break;
-	}
+	if ( event.type == SDL_MOUSEBUTTONUP )
+	    if ( event.button.button == SDL_BUTTON_LEFT )
+	    {
+		needsUpdate = true;
+		mouseUp.x = event.button.x;
+		mouseUp.y = event.button.y;
+		if ( mouseUp.y < 640 )
+		    needsDraw = true;
+	    }
     }
     return 0;
 }
 
 int Editor::update()
 {
-    if ( updateGrid )
+    if ( needsUpdate )
     {
-	cout << "Updating grid" << endl;
-	int x, y, w, h;
-	w = ( mouseUp.x / 32 ) - ( mouseDown.x / 32 );
-	x = mouseDown.x;
-	if ( mouseUp.x < mouseDown.x )
-	{
-	    w *= -1;
-	    x = mouseUp.x;
-	}
 
-	h = ( mouseUp.y / 32 ) - ( mouseDown.y / 32 );
-	y = mouseDown.y;
-	if ( mouseUp.y < mouseDown.y )
+	if ( mouseUp.y <= 640 )
 	{
-	    h *= -1;
-	    y = mouseUp.y;
+	    cout << "grid update" << endl;
+	    mouseUp.x /= 32;
+	    mouseUp.y /= 32;
+	    grid->setTileAt(mouseUp.x, mouseUp.y, selectedTile);
 	}
-	
-	cout<<"Updating area from x = "<<x<<" to x = "<<x+w<<" and from y = "<<y<<" to y = "<<y+h<<endl;
-
-	for ( int i = x; i < x+w; i++ )
-	    for ( int j = y; j < y+h; j++ )
-		grid->setTileAt(i, j, selectedTile);
-	updateGrid = false;
+	else
+	{
+	    if ( mouseUp.y >= 704 && mouseUp.y <= 736 )
+		for ( int i = 0; i < 9; i++ )
+		{
+		    if ( mouseUp.x >= ( 12 + ( i * 48 ) ) && mouseUp.x <= ( ( 12 + ( i * 48 ) ) + 32 ) )
+			selectedTile = i + 1;
+		    
+		}
+	    if ( mouseUp.x > 1024 && mouseUp.x < 1280 )
+	    {
+		int y = mouseUp.y;
+		if ( y >= 641 && y <= 683 )
+		{
+		    return 1;
+		}
+		else if ( y >= 683 && y <= 725 )
+		{
+		    save();
+		    needsDraw = true;
+		}
+		else if ( y >= 725 && y <= 767 )
+		{
+		    return -1;
+		}
+	    }
+	}
+	needsUpdate = false;
     }
     return 0;
 }
 
 int Editor::draw()
 {
-    if ( needsDraw )
+    cout << "DEBUG:: editor input" << endl;
+    if ( !fileOpen )
     {
-	cout << "Editor::draw()" << endl;
-	if ( fileOpen )
-	    grid->drawGrid();
-	else
-	{
-	    Utility::applySurface(0, 0, editorBackground);
-	    for ( int i = 0; i <= GRID_WIDTH; i++ )
-		Utility::applySurface(i * 32, 0, verticalLine);
-	    Utility::applySurface(1279, 0, verticalLine);
-	    for ( int j = 0; j <= GRID_HEIGHT; j++ )
-		Utility::applySurface(0, j * 32, horizontalLine);
-	}
-
-	//Draw bar
-	Utility::applySurface(0, 640, IMG_INFOBAR);
-	Utility::applySurface(0, 640, horizontalLine);
-	Utility::applySurface(0, 767, horizontalLine);
-
-	//Draw tile selection
-	Utility::applySurface(12 + ( 48 * ( selectedTile - 1 ) ), 700, IMG_SELECT_HIGHLIGHT);
-	Utility::applySurface(16, 704, IMG_BRICK);
-	Utility::applySurface(64, 704, IMG_DIRT);
-	Utility::applySurface(112, 704, IMG_DIRTYBRICK);
-	Utility::applySurface(160, 704, IMG_GRASS);
-	Utility::applySurface(208, 704, IMG_LAVA);
-	Utility::applySurface(256, 704, IMG_REDCARPET);
-	Utility::applySurface(304, 704, IMG_STONE);
-	Utility::applySurface(352, 704, IMG_WATER);
-	Utility::applySurface(400, 704, IMG_WOOD);
-	SDL_Rect offset;
-	offset.x = 0;
-	offset.y = 640;
-	offset.w = 432;
-	offset.h = 64;
-	text->displayTextCentered(offset, "Tile Selection", 36);
-
-	//Draw selection display
-	switch ( selectedTile )
-	{
-	    case 1:
-		Utility::applySurface(496, 700, IMG_BRICK64);
-		text->displayText(496, 644, "Brick", 24);
-		text->displayText(496, 672, "Background", 24);
-		break;
-	    case 2:
-		Utility::applySurface(496, 700, IMG_DIRT64);
-		text->displayText(496, 644, "Dirt", 24);
-		text->displayText(496, 672, "Background", 24);
-		break;
-	    case 3:
-		Utility::applySurface(496, 700, IMG_DIRTYBRICK64);
-		text->displayText(496, 644, "Dirty Brick", 24);
-		text->displayText(496, 672, "Background", 24);
-		break;
-	    case 4:
-		Utility::applySurface(496, 700, IMG_GRASS64);
-		text->displayText(496, 644, "Grass", 24);
-		text->displayText(496, 672, "Background", 24);
-		break;
-	    case 5:
-		Utility::applySurface(496, 700, IMG_LAVA64);
-		text->displayText(496, 644, "Lava", 24);
-		text->displayText(496, 672, "Unpassable", 24);
-		break;
-	    case 6:
-		Utility::applySurface(496, 700, IMG_REDCARPET64);
-		text->displayText(496, 644, "Red Carpet", 24);
-		text->displayText(496, 672, "Background", 24);
-		break;
-	    case 7:
-		Utility::applySurface(496, 700, IMG_STONE64);
-		text->displayText(496, 644, "Stone", 24);
-		text->displayText(496, 672, "Background", 24);
-		break;
-	    case 8:
-		Utility::applySurface(496, 700, IMG_WATER64);
-		text->displayText(496, 644, "Water", 24);
-		text->displayText(496, 672, "Unpassable", 24);
-		break;
-	    case 9:
-		Utility::applySurface(496, 700, IMG_WOOD64);
-		text->displayText(496, 644, "Wood", 24);
-		text->displayText(496, 672, "Background", 24);
-		break;
-	    default:
-		break;
-	}
-
-	//Spawns/Endzones
-
-	//Buttons
-	SDL_Rect size;
-	size.x = 390;
-	size.y = 134;
-	size.w = 256;
-	size.h = 42;
-
-	offset.x = 1024;
-	offset.y = 641;
-	offset.w = 256;
-	offset.h = 42;
-	SDL_BlitSurface(IMG_MENU1, &size, mainScreenSurface, &offset);
-	text->displayTextCentered(offset, "New", 36);
-	offset.y = 683;
-	SDL_BlitSurface(IMG_MENU1, &size, mainScreenSurface, &offset);
-	text->displayTextCentered(offset, "Load", 36);
-	offset.y = 725;
-	SDL_BlitSurface(IMG_MENU1, &size, mainScreenSurface, &offset);
-	text->displayTextCentered(offset, "Exit", 36);
-
-	needsDraw = false;
-	SDL_Flip(mainScreenSurface);
+	Utility::applySurface(0, 0, editorBackground);
+	for ( int i = 0; i <= GRID_WIDTH; i++ )
+	    Utility::applySurface(i * 32, 0, verticalLine);
+	Utility::applySurface(1279, 0, verticalLine);
+	for ( int j = 0; j <= GRID_HEIGHT; j++ )
+	    Utility::applySurface(0, j * 32, horizontalLine);
     }
+
+    if ( needsDraw )
+	grid->drawGrid();
+
+    //Draw bar
+    Utility::applySurface(0, 640, IMG_INFOBAR);
+    Utility::applySurface(0, 640, horizontalLine);
+    Utility::applySurface(0, 767, horizontalLine);
+
+    //Draw tile selection
+    Utility::applySurface(12 + ( 48 * ( selectedTile - 1 ) ), 700, IMG_SELECT_HIGHLIGHT);
+    Utility::applySurface(16, 704, IMG_BRICK);
+    Utility::applySurface(64, 704, IMG_DIRT);
+    Utility::applySurface(112, 704, IMG_DIRTYBRICK);
+    Utility::applySurface(160, 704, IMG_GRASS);
+    Utility::applySurface(208, 704, IMG_LAVA);
+    Utility::applySurface(256, 704, IMG_REDCARPET);
+    Utility::applySurface(304, 704, IMG_STONE);
+    Utility::applySurface(352, 704, IMG_WATER);
+    Utility::applySurface(400, 704, IMG_WOOD);
+    SDL_Rect offset;
+    offset.x = 0;
+    offset.y = 640;
+    offset.w = 432;
+    offset.h = 64;
+
+    //Draw selection display
+    switch ( selectedTile )
+    {
+	case 1:
+	    Utility::applySurface(496, 700, IMG_BRICK64);
+	    text->displayText(0, 640, "Brick", 24);
+	    text->displayText(0, 672, "Background", 24);
+	    break;
+	case 2:
+	    Utility::applySurface(496, 700, IMG_DIRT64);
+	    text->displayText(0, 640, "Dirt", 24);
+	    text->displayText(0, 672, "Background", 24);
+	    break;
+	case 3:
+	    Utility::applySurface(496, 700, IMG_DIRTYBRICK64);
+	    text->displayText(0, 640, "Dirty Brick", 24);
+	    text->displayText(0, 672, "Background", 24);
+	    break;
+	case 4:
+	    Utility::applySurface(496, 700, IMG_GRASS64);
+	    text->displayText(0, 640, "Grass", 24);
+	    text->displayText(0, 672, "Background", 24);
+	    break;
+	case 5:
+	    Utility::applySurface(496, 700, IMG_LAVA64);
+	    text->displayText(0, 640, "Lava", 24);
+	    text->displayText(0, 672, "Unpassable", 24);
+	    break;
+	case 6:
+	    Utility::applySurface(496, 700, IMG_REDCARPET64);
+	    text->displayText(0, 640, "Red Carpet", 24);
+	    text->displayText(0, 672, "Background", 24);
+	    break;
+	case 7:
+	    Utility::applySurface(496, 700, IMG_STONE64);
+	    text->displayText(0, 640, "Stone", 24);
+	    text->displayText(0, 672, "Background", 24);
+	    break;
+	case 8:
+	    Utility::applySurface(496, 700, IMG_WATER64);
+	    text->displayText(0, 640, "Water", 24);
+	    text->displayText(0, 672, "Unpassable", 24);
+	    break;
+	case 9:
+	    Utility::applySurface(496, 700, IMG_WOOD64);
+	    text->displayText(0, 640, "Wood", 24);
+	    text->displayText(0, 672, "Background", 24);
+	    break;
+	default:
+	    break;
+    }
+
+    //Spawns/Endzones
+
+    //Buttons
+    SDL_Rect size;
+    size.x = 390;
+    size.y = 134;
+    size.w = 256;
+    size.h = 42;
+
+    offset.x = 1024;
+    offset.y = 641;
+    offset.w = 256;
+    offset.h = 42;
+    SDL_BlitSurface(IMG_MENU1, &size, mainScreenSurface, &offset);
+    text->displayTextCentered(offset, "New", 36);
+    offset.y = 683;
+    SDL_BlitSurface(IMG_MENU1, &size, mainScreenSurface, &offset);
+    text->displayTextCentered(offset, "Save", 36);
+    offset.y = 725;
+    SDL_BlitSurface(IMG_MENU1, &size, mainScreenSurface, &offset);
+    text->displayTextCentered(offset, "Exit", 36);
+
+    needsDraw = false;
+    SDL_Flip(mainScreenSurface);
+
     return 0;
 }
 
 void Editor::save()
 {
-    grid->editorSave("resources\\data_c1.txt", oneSpawn, twoSpawn, endzone);
+    SDL_Surface* menu = Utility::loadImage("resources\\ui_menu5.png");
+    Utility::applySurface(0, 0, menu);
+    SDL_Rect box;
+    box.x = 390;
+    box.y = 134;
+    box.w = 500;
+    box.h = 100;
+
+    string titles[5] = { "Save to level 1", "Save to level 2", "Save to level 3", "Save to level 4", "Save to level 5" };
+    for ( int i = 0; i < 5; i++ )
+    {
+	string inputStr = titles[i];
+	char * displayText = new char[inputStr.size() + 1];
+	copy(inputStr.begin(), inputStr.end(), displayText);
+	displayText[inputStr.size()] = '\0';
+
+	text->displayTextCentered(box, displayText, 46);
+	box.y += 100;
+    }
+
+    SDL_Flip(mainScreenSurface);
+
+    bool havePath = false;
+    while ( !havePath )
+    {
+	int x, y;
+	string savePath;
+	SDL_Event event;
+
+	if ( SDL_PollEvent(&event) )
+	{
+	    if ( event.type == SDL_MOUSEBUTTONUP )
+		if ( event.button.button == SDL_BUTTON_LEFT )
+		{
+		    x = event.button.x;
+		    y = event.button.y;
+		}
+
+	    if ( x > 390 && x < 890 )
+	    {
+		if ( y > 134 && y < 234 )
+		{
+		    audio->playSound(SFX_BUTTON);
+		    savePath = "resources\\data_s1.txt";
+		    havePath = true;
+		}
+		else if ( y > 234 && y < 334 )
+		{
+		    audio->playSound(SFX_BUTTON);
+		    savePath = "resources\\data_s2.txt";
+		    havePath = true;
+		}
+		else if ( y > 334 && y < 434 )
+		{
+		    audio->playSound(SFX_BUTTON);
+		    savePath = "resources\\data_s3.txt";
+		    havePath = true;
+		}
+		else if ( y > 434 && y < 534 )
+		{
+		    audio->playSound(SFX_BUTTON);
+		    savePath = "resources\\data_s4.txt";
+		    havePath = true;
+		}
+		else if ( y > 534 && y < 634 )
+		{
+		    audio->playSound(SFX_BUTTON);
+		    savePath = "resources\\data_s5.txt";
+		    havePath = true;
+		}
+	    }
+	}
+
+	grid->editorSave(savePath, oneSpawn, twoSpawn, endzone);
+    }
 }

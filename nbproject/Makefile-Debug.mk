@@ -35,6 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/_ext/1430578687/Settings.o \
 	${OBJECTDIR}/src/Application.o \
 	${OBJECTDIR}/src/Editor.o \
 	${OBJECTDIR}/src/Enemy.o \
@@ -70,11 +71,16 @@ LDLIBSOPTIONS=-L/C\MinGW\lib -lmingw32 -lSDLmain -lSDL.dll -lSDL_image -lSDL_mix
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gteamproject.exe
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gteamproject-2.exe
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gteamproject.exe: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gteamproject-2.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gteamproject ${OBJECTFILES} ${LDLIBSOPTIONS}
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gteamproject-2 ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+${OBJECTDIR}/_ext/1430578687/Settings.o: /C/Users/HAL9000/Documents/backup/GTeamProject-2/src/Settings.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1430578687
+	${RM} $@.d
+	$(COMPILE.cc) -g -w -Isrc -I/C\MinGW\include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1430578687/Settings.o /C/Users/HAL9000/Documents/backup/GTeamProject-2/src/Settings.cpp
 
 ${OBJECTDIR}/src/Application.o: src/Application.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
@@ -157,7 +163,7 @@ ${OBJECTDIR}/src/net.o: src/net.cpp
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gteamproject.exe
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gteamproject-2.exe
 
 # Subprojects
 .clean-subprojects:

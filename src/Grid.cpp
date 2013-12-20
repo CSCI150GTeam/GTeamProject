@@ -83,20 +83,20 @@ void Grid::editorSave(string path,SDL_Rect one,SDL_Rect two, SDL_Rect end)
 {
     ofstream outfile;
     outfile.open(path.c_str());
-    for( int i = 0; i < height; i++ )
+    for( int i = 0; i < 20; i++ )
     {
-	for( int j = 0; j < width; j++ )
-	    outfile << grid->at(i)->at(j);
+	for( int j = 0; j < 40; j++ )
+	    outfile << grid->at(i)->at(j) << " ";
 	outfile << "\n";
     }
-    outfile << one.x;
-    outfile << one.y;
-    outfile << two.x;
-    outfile << two.y;
-    outfile << end.x;
-    outfile << end.y;
-    outfile << end.w;
-    outfile << end.h;
+    outfile << 0 << " ";
+    outfile << 544 << " ";
+    outfile << 0 << " ";
+    outfile << 576 << " ";
+    outfile << 1214 << " ";
+    outfile << 32 << " ";
+    outfile << 64 << " ";
+    outfile << 64 << " ";
 }
 
 void Grid::drawGrid()

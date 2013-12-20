@@ -32,7 +32,7 @@ private:
     void save();
 
     Grid* grid;
-    bool fileOpen, updateGrid, needsDraw;
+    bool fileOpen, needsUpdate, needsDraw;
     int selectedTile;
     SDL_Rect mouseDown, mouseUp, oneSpawn, twoSpawn, endzone;
 
@@ -59,6 +59,9 @@ private:
     SDL_Surface* IMG_STONE64;
     SDL_Surface* IMG_WATER64;
     SDL_Surface* IMG_WOOD64;
+    SDL_Surface* IMG_P1;
+    SDL_Surface* IMG_P2;
+    SDL_Surface* IMG_END;
     
     SDL_Surface* IMG_MENU1;
     

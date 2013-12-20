@@ -77,7 +77,7 @@ bool Level::victoryCondition()
 		)
 	    endTwo = true;
     if(currentGameGlobal->multiPlayer)
-	return (endOne && endTwo);
+	return (endOne || endTwo);
     else
 	return endOne;
 }
