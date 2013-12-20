@@ -69,7 +69,11 @@ void Application::runApplication()
 	    }
 	    case GS_GAME_JOIN:
 	    {
-		char IP[16]; //assign what
+		ifstream infile;
+		infile.open("resources\\data_ip.txt");
+		char IP[16];
+		infile >> IP;
+		cout<<"IP is: "<<IP<<endl;
 		int socket = client(IP);
 		game = new Game(false,socket);
 		gameState = game -> runGame();

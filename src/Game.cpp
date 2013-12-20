@@ -134,7 +134,6 @@ int Game::runGameLoop()
     cout << "Beginning game loop" << endl;
     audio->playSound(SFX_BEGIN);
 
-
     bool victory = false;
 
     gameTimer.start();
@@ -175,16 +174,19 @@ int Game::input()
 {
     cout << "DEBUG: input()" << endl;
     SDL_Event event;
-    if ( multiPlayer )
-	CMD.take();
+    
     if ( SDL_PollEvent(&event) )
     {
 	CMD.push(event, multiPlayer);
 	if ( multiPlayer )
+	{
+	    CMD.take();
 	    currentLevel->input(CMD.slfCmd, CMD.othCmd);
+	}
 	else
 	    currentLevel->input(CMD.slfCmd, NULL);
 
+	s
 	if ( !multiPlayer )
 	    if ( event.type == SDL_KEYUP )
 		if ( event.key.keysym.sym == SDLK_ESCAPE )

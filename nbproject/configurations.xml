@@ -9,6 +9,7 @@
       </logicalFolder>
       <logicalFolder name="f4" displayName="data files" projectFiles="true">
         <itemPath>resources/data_c1.txt</itemPath>
+        <itemPath>resources/data_ip.txt</itemPath>
         <itemPath>resources/data_s1.txt</itemPath>
         <itemPath>resources/data_s2.txt</itemPath>
         <itemPath>resources/data_s3.txt</itemPath>
@@ -134,6 +135,8 @@
         </linkerTool>
       </compileType>
       <item path="resources/data_c1.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/data_ip.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="resources/data_s1.txt" ex="false" tool="3" flavor2="0">
       </item>
@@ -292,6 +295,8 @@
         </asmTool>
       </compileType>
       <item path="resources/data_c1.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/data_ip.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="resources/data_s1.txt" ex="false" tool="3" flavor2="0">
       </item>

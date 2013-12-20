@@ -8,6 +8,7 @@
 #define	APPLICATION_H
 
 #include <string>
+#include <fstream>
 
 #include "SDL/SDL.h"
 #include "SDL/SDL_mixer.h"
