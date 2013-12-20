@@ -96,8 +96,6 @@
       <logicalFolder name="f6" displayName="utility" projectFiles="true">
         <itemPath>src/Global.cpp</itemPath>
         <itemPath>src/Global.h</itemPath>
-        <itemPath>C:/Users/HAL9000/Documents/backup/GTeamProject-2/src/Settings.cpp</itemPath>
-        <itemPath>C:/Users/HAL9000/Documents/backup/GTeamProject-2/src/Settings.h</itemPath>
         <itemPath>src/Timer.cpp</itemPath>
         <itemPath>src/Timer.h</itemPath>
         <itemPath>src/Utility.cpp</itemPath>
@@ -150,16 +148,6 @@
             flavor2="0">
       </item>
       <item path="C:/Users/HAL9000/Documents/backup/GTeamProject-2/resources/tile_p2.png"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="C:/Users/HAL9000/Documents/backup/GTeamProject-2/src/Settings.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="C:/Users/HAL9000/Documents/backup/GTeamProject-2/src/Settings.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -335,16 +323,6 @@
             flavor2="0">
       </item>
       <item path="C:/Users/HAL9000/Documents/backup/GTeamProject-2/resources/tile_p2.png"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="C:/Users/HAL9000/Documents/backup/GTeamProject-2/src/Settings.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="C:/Users/HAL9000/Documents/backup/GTeamProject-2/src/Settings.h"
             ex="false"
             tool="3"
             flavor2="0">

@@ -35,7 +35,6 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/_ext/1430578687/Settings.o \
 	${OBJECTDIR}/src/Application.o \
 	${OBJECTDIR}/src/Editor.o \
 	${OBJECTDIR}/src/Enemy.o \
@@ -76,11 +75,6 @@ LDLIBSOPTIONS=
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gteamproject-2.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gteamproject-2 ${OBJECTFILES} ${LDLIBSOPTIONS}
-
-${OBJECTDIR}/_ext/1430578687/Settings.o: /C/Users/HAL9000/Documents/backup/GTeamProject-2/src/Settings.cpp 
-	${MKDIR} -p ${OBJECTDIR}/_ext/1430578687
-	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1430578687/Settings.o /C/Users/HAL9000/Documents/backup/GTeamProject-2/src/Settings.cpp
 
 ${OBJECTDIR}/src/Application.o: src/Application.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
