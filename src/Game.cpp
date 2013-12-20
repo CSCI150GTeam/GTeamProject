@@ -174,34 +174,32 @@ int Game::input()
 {
     cout << "DEBUG: input()" << endl;
     SDL_Event event;
-    
-    if ( SDL_PollEvent(&event) )
-    {
-	CMD.push(event, multiPlayer);
-	if ( multiPlayer )
-	{
-	    CMD.take();
-	    currentLevel->input(CMD.slfCmd, CMD.othCmd);
-	}
-	else
-	    currentLevel->input(CMD.slfCmd, NULL);
 
-	s
-	if ( !multiPlayer )
-	    if ( event.type == SDL_KEYUP )
-		if ( event.key.keysym.sym == SDLK_ESCAPE )
+    SDL_PollEvent(&event);
+    
+    CMD.push(event, multiPlayer);
+    CMD.take();
+    if ( multiPlayer )
+	currentLevel->input(CMD.slfCmd, CMD.othCmd);
+    else
+	currentLevel->input(CMD.slfCmd, NULL);
+    
+    
+    if ( !multiPlayer )
+	if ( event.type == SDL_KEYUP )
+	    if ( event.key.keysym.sym == SDLK_ESCAPE )
+	    {
+		bool x = pauseGame();
+		switch ( x )
 		{
-		    bool x = pauseGame();
-		    switch ( x )
-		    {
-			case false:
-			    break;
-			case true:
-			    return 2;
-			    break;
-		    }
+		    case false:
+			break;
+		    case true:
+			return 2;
+			break;
 		}
-    }
+	    }
+
     return 0;
 }
 
@@ -209,7 +207,7 @@ int Game::update()
 {
     cout << "DEBUG: update()" << endl;
     currentLevel -> update();
-    cout<<"checking victory"<<endl;
+    cout << "checking victory" << endl;
     if ( currentLevel -> victoryCondition() )
 	return 1;
     else return 0;
@@ -291,7 +289,7 @@ bool Game::pauseGame()
 
 void Game::displayDebug()
 {
-    
+
 }
 
 void Game::displayInfoBar()
