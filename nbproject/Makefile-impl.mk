@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=GTeamProject-2
+PROJECTNAME=GTeamProject
 
 # Active Configuration
 DEFAULTCONF=Debug
